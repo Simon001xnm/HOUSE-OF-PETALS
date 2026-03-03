@@ -1,0 +1,53 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Luxurious flower arrangement on a dark table",
+      "imageUrl": "https://picsum.photos/seed/hp1/1200/800",
+      "imageHint": "luxurious flowers"
+    },
+    {
+      "id": "cat-bouquets",
+      "description": "Hand-tied flower bouquet",
+      "imageUrl": "https://picsum.photos/seed/hp2/600/800",
+      "imageHint": "flower bouquet"
+    },
+    {
+      "id": "cat-indoor",
+      "description": "Elegant indoor plant in gold pot",
+      "imageUrl": "https://picsum.photos/seed/hp3/600/800",
+      "imageHint": "indoor plant"
+    },
+    {
+      "id": "cat-gifts",
+      "description": "Gourmet gift basket with champagne",
+      "imageUrl": "https://picsum.photos/seed/hp4/600/800",
+      "imageHint": "gift basket"
+    },
+    {
+      "id": "prod-crimson-velvet",
+      "description": "Deep red roses arrangement",
+      "imageUrl": "https://picsum.photos/seed/hp5/600/600",
+      "imageHint": "red roses"
+    },
+    {
+      "id": "prod-emerald-fern",
+      "description": "Lush green fern in ceramic pot",
+      "imageUrl": "https://picsum.photos/seed/hp6/600/600",
+      "imageHint": "green fern"
+    },
+    {
+      "id": "prod-midnight-orchid",
+      "description": "Rare purple orchid",
+      "imageUrl": "https://picsum.photos/seed/hp7/600/600",
+      "imageHint": "purple orchid"
+    },
+    {
+      "id": "prod-golden-scent",
+      "description": "Luxury scented candle gold",
+      "imageUrl": "https://picsum.photos/seed/hp8/600/600",
+      "imageHint": "luxury candle"
+    }
+  ]
+}
