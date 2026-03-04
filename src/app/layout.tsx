@@ -1,10 +1,9 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'House of Petals | Premium Flowers & Gifts',
-  description: 'Experience luxury in every bloom. House of Petals offers curated floral arrangements and exquisite gifts for every occasion.',
+  title: 'Gifts & Flowers Kenya | Same Day Flower Delivery Nairobi',
+  description: 'Order & Send Gifts and Flowers online in Kenya. We offer reliable flower delivery services in Nairobi and across Kenya. Same day delivery available.',
 };
 
 export default function RootLayout({
@@ -13,11 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
         {children}
