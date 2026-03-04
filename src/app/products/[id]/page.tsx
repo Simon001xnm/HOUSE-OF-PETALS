@@ -17,19 +17,18 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 
   const fallbackImage = 'https://picsum.photos/seed/fallback/600/600';
 
-  // Mock product lookup
   const product = {
     id: params.id,
-    name: params.id === '1' ? 'Crimson Velvet Roses' : 'Signature Collection',
+    name: params.id === '1' ? 'Crimson Velvet Roses' : 'House of Petals Signature Collection',
     price: params.id === '1' ? 6500 : 3500,
     category: 'Premium Bouquets',
     rating: 4.9,
     reviews: 124,
-    description: "An opulent arrangement of deep, velvet crimson roses, meticulously hand-tied and wrapped in signature forest green silk paper. This bouquet is designed to evoke passion and timeless luxury.",
+    description: "An opulent arrangement from the House of Petals, featuring deep, velvet crimson roses, meticulously hand-tied and wrapped in our signature packaging. This bouquet is designed to evoke passion and timeless luxury.",
     features: [
-      "24-36 Premium Long-Stem Roses",
-      "Sustainably Sourced from Ecuadorian Highlands",
-      "Signature House of Petals Gold-Embossed Vase Included",
+      "Premium Long-Stem Roses",
+      "Sustainably Sourced Luxury Blooms",
+      "Signature House of Petals Embossed Vase Included",
       "Hand-written note card with gold foil edges"
     ],
     image: 'prod-roses'
@@ -46,7 +45,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
     });
     toast({
       title: "Added to Cart",
-      description: `${product.name} has been added to your bag.`,
+      description: `${product.name} has been added to your shopping bag.`,
     });
   };
 
@@ -56,7 +55,6 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
       
       <main className="flex-grow container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Gallery */}
           <div className="space-y-6">
             <div className="aspect-square relative bg-gray-50 overflow-hidden border border-gray-100 rounded-xl">
               <Image 
@@ -64,7 +62,6 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
                 alt={product.name}
                 fill
                 className="object-cover"
-                data-ai-hint={img?.imageHint || 'gift'}
               />
             </div>
             <div className="grid grid-cols-4 gap-4">
@@ -76,7 +73,6 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          {/* Details */}
           <div className="flex flex-col">
             <div className="mb-8">
               <span className="text-[#6db33f] text-xs uppercase tracking-[0.3em] font-black mb-2 block">{product.category}</span>
@@ -126,7 +122,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
               <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
                 <Truck className="w-6 h-6 text-[#6db33f]" />
                 <div className="text-[10px] uppercase tracking-widest leading-none">
-                  <span className="block font-black text-[#1e1e24] mb-1">Express Delivery</span>
+                  <span className="block font-black text-[#1e1e24] mb-1">Elite Delivery</span>
                   <span className="text-gray-500">Same Day Available</span>
                 </div>
               </div>
@@ -134,7 +130,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
                 <ShieldCheck className="w-6 h-6 text-[#6db33f]" />
                 <div className="text-[10px] uppercase tracking-widest leading-none">
                   <span className="block font-black text-[#1e1e24] mb-1">Guaranteed Fresh</span>
-                  <span className="text-gray-500">Quality Assured</span>
+                  <span className="text-gray-500">Boutique Standards</span>
                 </div>
               </div>
             </div>

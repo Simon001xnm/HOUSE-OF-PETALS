@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from 'next/image';
@@ -7,7 +6,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ShoppingCart, MessageCircle, ChevronRight, ArrowRight, Search } from 'lucide-react';
+import { ShoppingCart, MessageCircle, ArrowRight, Search } from 'lucide-react';
 
 export default function Home() {
   const categories = [
@@ -37,6 +36,24 @@ export default function Home() {
     { name: 'Roses & 1kg Red Velvet Cake', price: 'KSh 6,500', image: 'cat-cakes', badge: null },
   ];
 
+  const bannerCards = [
+    { 
+      title: 'All Flowers', 
+      desc: 'Shop fresh flowers for your loved one! Order & send beautiful flowers such as roses, lilies, carnations & more.', 
+      image: 'cat-flowers' 
+    },
+    { 
+      title: 'Birthday flowers', 
+      desc: 'Order beautiful birthday flowers from House of Petals, crafted by our expert florists & delivered.', 
+      image: 'cat-birthday' 
+    },
+    { 
+      title: 'Romantic flowers', 
+      desc: 'House of Petals offers stunning flower bouquets for love & romance to gift your special someone.', 
+      image: 'cat-love' 
+    }
+  ];
+
   const featuredProducts = [
     { name: 'Beauty Box Bouquet', price: 'KSh 6,500', image: 'prod-roses', badge: 'SOLD OUT' },
     { name: 'Birthday Roses Hat Box Bouquet', price: 'KSh 6,000', image: 'cat-birthday', badge: null },
@@ -50,24 +67,6 @@ export default function Home() {
     { name: 'From the Heart Bouquet', price: 'KSh 6,500', oldPrice: 'KSh 7,500', image: 'prod-roses', badge: '-13%' },
     { name: 'Epic Gift Combo', price: 'KSh 7,900', image: 'cat-flowers', badge: null },
     { name: 'Ladys Heart', price: 'KSh 3,600', oldPrice: 'KSh 4,000', image: 'cat-love', badge: '-10%' },
-  ];
-
-  const bannerCards = [
-    { 
-      title: 'All Flowers', 
-      desc: 'Shop fresh flowers for your loved one! Order & send beautiful flowers such as roses, lilies, carnations & more.', 
-      image: 'cat-flowers' 
-    },
-    { 
-      title: 'Birthday flowers', 
-      desc: 'Order beautiful birthday flowers from flower delivery Nairobi, crafted by our expert florists & delivered.', 
-      image: 'cat-birthday' 
-    },
-    { 
-      title: 'Romantic flowers', 
-      desc: 'Flower delivery Kenya offers stunning flower bouquets for love & romance to gift your special someone.', 
-      image: 'cat-love' 
-    }
   ];
 
   const fallbackImage = 'https://picsum.photos/seed/fallback/400/400';
@@ -92,25 +91,18 @@ export default function Home() {
             <MessageCircle className="w-8 h-8 text-white fill-current" />
           </Link>
         </div>
-        <div className="fixed bottom-6 right-6 z-50">
-          <div className="w-14 h-14 bg-[#be1e2d] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
-            <div className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
-              <div className="w-1 h-1 bg-white rounded-full" />
-            </div>
-          </div>
-        </div>
 
         {/* Hero Section */}
         <section className="bg-white py-10 md:py-16 border-b border-gray-100">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row items-center gap-12">
               <div className="lg:w-1/3 text-center lg:text-left space-y-6">
-                <span className="text-[#be1e2d] font-bold text-sm tracking-wide">Gifts & Flowers Delivery Nairobi</span>
+                <span className="text-[#be1e2d] font-bold text-sm tracking-wide">House of Petals Delivery Nairobi</span>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-[#333] leading-tight">
-                  Fresh Flower Delivery Shop in Kenya
+                  Premium Flower Delivery Shop in Kenya
                 </h1>
                 <p className="text-gray-600 text-lg">
-                  We have gorgeous gifts and flower bouquets delivered to the doorstep.
+                  Hand-crafted bouquets and luxury gifts delivered to your doorstep.
                 </p>
                 <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-bold h-12 px-8 rounded-full text-sm uppercase tracking-widest shadow-lg flex items-center gap-2 mx-auto lg:mx-0">
                   SHOP NOW <ShoppingCart className="w-4 h-4" />
@@ -119,11 +111,11 @@ export default function Home() {
 
               <div className="lg:w-1/3 relative aspect-square w-full max-w-md">
                 <Image 
-                  src="https://picsum.photos/seed/gfhero/600/600" 
-                  alt="Main Bouquet" 
+                  src="https://picsum.photos/seed/houseofpetals-hero/600/600" 
+                  alt="House of Petals Signature Bouquet" 
                   fill 
                   className="object-contain"
-                  data-ai-hint="flower bouquet"
+                  data-ai-hint="luxury flowers"
                 />
               </div>
 
@@ -132,7 +124,7 @@ export default function Home() {
                   <div key={idx} className="bg-white p-2 text-center group">
                     <div className="relative aspect-square bg-gray-50 rounded-lg overflow-hidden mb-3 border border-gray-100">
                       <Image 
-                        src={`https://picsum.photos/seed/gfprod${idx}/300/300`} 
+                        src={`https://picsum.photos/seed/hp-hero-${idx}/300/300`} 
                         alt={prod.name} 
                         fill 
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -190,7 +182,7 @@ export default function Home() {
                 <div key={idx} className="group flex flex-col items-center text-center">
                   <div className="relative w-full aspect-square bg-gray-50 mb-4 overflow-hidden border border-gray-100 rounded-lg">
                     <Image 
-                      src={`https://picsum.photos/seed/recent${idx}/400/400`} 
+                      src={`https://picsum.photos/seed/hp-recent-${idx}/400/400`} 
                       alt={prod.name} 
                       fill 
                       className="object-cover group-hover:scale-105 transition-transform"
@@ -211,22 +203,17 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            
-            <div className="flex justify-center mt-8 gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-gray-800"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-gray-200"></div>
-            </div>
           </div>
         </section>
 
-        {/* Large Banners Grid */}
+        {/* Banners */}
         <section className="py-12 bg-white">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {bannerCards.map((card, idx) => (
                 <div key={idx} className="relative aspect-[4/3] rounded-xl overflow-hidden group">
                   <Image 
-                    src={`https://picsum.photos/seed/banner${idx}/800/600`} 
+                    src={`https://picsum.photos/seed/hp-banner-${idx}/800/600`} 
                     alt={card.title} 
                     fill 
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -246,7 +233,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Gifts & Flowers Section */}
+        {/* Featured Section */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6">
             <div className="flex justify-between items-end mb-10 border-b-2 border-gray-100 pb-4">
@@ -261,7 +248,7 @@ export default function Home() {
                 <div key={idx} className="group flex flex-col items-center text-center relative">
                   <div className="relative w-full aspect-square bg-gray-50 mb-4 overflow-hidden border border-gray-100 rounded-sm">
                     <Image 
-                      src={`https://picsum.photos/seed/feat${idx}/400/400`} 
+                      src={`https://picsum.photos/seed/hp-feat-${idx}/400/400`} 
                       alt={prod.name} 
                       fill 
                       className="object-cover group-hover:scale-105 transition-transform"
@@ -272,7 +259,6 @@ export default function Home() {
                       </div>
                     )}
                     
-                    {/* Hover State Icons */}
                     <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                       <div className="bg-[#be1e2d] text-white text-[10px] font-bold uppercase py-2 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]">
                         <ShoppingCart className="w-3 h-3" /> Add To Cart

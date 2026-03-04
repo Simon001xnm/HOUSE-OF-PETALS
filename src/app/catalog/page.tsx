@@ -37,12 +37,12 @@ export default function Catalog() {
       
       <main className="flex-grow container mx-auto px-6 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-headline mb-4 text-[#1e1e24]">Our Collection</h1>
-          <p className="text-muted-foreground">Hand-curated excellence for every milestone.</p>
+          <h1 className="text-4xl font-headline mb-4 text-[#1e1e24]">House of Petals Collection</h1>
+          <p className="text-muted-foreground">Exquisite floral arrangements and premium gifts for every occasion.</p>
         </header>
 
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Filters - Sidebar */}
+          {/* Filters */}
           <aside className="w-full md:w-64 space-y-8">
             <div>
               <h3 className="text-sm uppercase tracking-widest font-bold mb-6 flex items-center gap-2 text-[#1e1e24]">
@@ -78,10 +78,10 @@ export default function Catalog() {
             </div>
           </aside>
 
-          {/* Product Grid */}
+          {/* Grid */}
           <div className="flex-1">
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
-              <p className="text-sm text-gray-500">{filteredProducts.length} items found</p>
+              <p className="text-sm text-gray-500">{filteredProducts.length} masterpieces found</p>
               <div className="flex items-center gap-2 text-sm font-medium">
                 Sort by: <span className="text-[#6db33f] cursor-pointer flex items-center gap-1">Default <ChevronDown className="w-4 h-4" /></span>
               </div>

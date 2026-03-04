@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Gifts & Flowers Kenya | Same Day Flower Delivery Nairobi',
-  description: 'Order & Send Gifts and Flowers online in Kenya. We offer reliable flower delivery services in Nairobi and across Kenya. Same day delivery available.',
+  title: 'House of Petals | Premium Flower Delivery Nairobi',
+  description: 'Order & Send Luxury Flowers and Gifts online in Kenya. House of Petals offers reliable flower delivery services in Nairobi and across Kenya. Same day delivery available.',
 };
 
 export default function RootLayout({
