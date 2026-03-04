@@ -33,7 +33,7 @@ export default function Catalog() {
   const fallbackImage = 'https://picsum.photos/seed/fallback/400/400';
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
       <main className="flex-grow container mx-auto px-6 py-12">
@@ -54,7 +54,7 @@ export default function Catalog() {
                   <li key={cat}>
                     <button 
                       onClick={() => setActiveCategory(cat)}
-                      className={`text-sm tracking-wide transition-colors ${activeCategory === cat ? 'text-[#6db33f] font-bold' : 'text-gray-500 hover:text-[#6db33f]'}`}
+                      className={`text-sm tracking-wide transition-colors ${activeCategory === cat ? 'text-[#be1e2d] font-bold' : 'text-gray-500 hover:text-[#be1e2d]'}`}
                     >
                       {cat}
                     </button>
@@ -67,13 +67,13 @@ export default function Catalog() {
               <h3 className="text-sm uppercase tracking-widest font-bold mb-6 text-[#1e1e24]">Price Range</h3>
               <div className="space-y-2">
                 <label className="flex items-center gap-2 text-sm text-gray-500">
-                  <input type="checkbox" className="accent-[#6db33f]" /> Under KES 5,000
+                  <input type="checkbox" className="accent-[#be1e2d]" /> Under KES 5,000
                 </label>
                 <label className="flex items-center gap-2 text-sm text-gray-500">
-                  <input type="checkbox" className="accent-[#6db33f]" /> KES 5,000 - KES 10,000
+                  <input type="checkbox" className="accent-[#be1e2d]" /> KES 5,000 - KES 10,000
                 </label>
                 <label className="flex items-center gap-2 text-sm text-gray-500">
-                  <input type="checkbox" className="accent-[#6db33f]" /> KES 10,000+
+                  <input type="checkbox" className="accent-[#be1e2d]" /> KES 10,000+
                 </label>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function Catalog() {
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
               <p className="text-sm text-gray-500">{filteredProducts.length} masterpieces found</p>
               <div className="flex items-center gap-2 text-sm font-medium">
-                Sort by: <span className="text-[#6db33f] cursor-pointer flex items-center gap-1">Default <ChevronDown className="w-4 h-4" /></span>
+                Sort by: <span className="text-[#be1e2d] cursor-pointer flex items-center gap-1">Default <ChevronDown className="w-4 h-4" /></span>
               </div>
             </div>
 
@@ -101,19 +101,19 @@ export default function Catalog() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
-                        <Button className="opacity-0 group-hover:opacity-100 bg-[#6db33f] text-white hover:bg-[#5a9b34] transition-all transform translate-y-4 group-hover:translate-y-0 rounded-full px-6 uppercase text-xs tracking-widest font-bold">
+                        <Button className="opacity-0 group-hover:opacity-100 bg-[#be1e2d] text-white hover:bg-[#a51a27] transition-all transform translate-y-4 group-hover:translate-y-0 rounded-full px-6 uppercase text-xs tracking-widest font-bold">
                           Quick View
                         </Button>
                       </div>
                     </Link>
                     <div className="p-4 flex flex-col gap-1">
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#6db33f] font-bold">{product.category}</span>
-                      <h3 className="text-sm font-bold text-[#1e1e24] group-hover:text-[#6db33f] transition-colors leading-tight min-h-[2.5rem] line-clamp-2">
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#be1e2d] font-bold">{product.category}</span>
+                      <h3 className="text-sm font-bold text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors leading-tight min-h-[2.5rem] line-clamp-2">
                         <Link href={`/products/${product.id}`}>{product.name}</Link>
                       </h3>
                       <div className="flex justify-between items-center mt-2">
-                        <span className="text-lg font-extrabold text-[#6db33f]">KES {product.price.toLocaleString()}</span>
-                        <Button size="icon" className="h-9 w-9 bg-[#6db33f] hover:bg-[#5a9b34] rounded-full">
+                        <span className="text-lg font-extrabold text-[#be1e2d]">KES {product.price.toLocaleString()}</span>
+                        <Button size="icon" className="h-9 w-9 bg-[#be1e2d] hover:bg-[#a51a27] rounded-full">
                           <ShoppingBag className="w-4 h-4 text-white" />
                         </Button>
                       </div>

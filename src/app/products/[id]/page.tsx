@@ -30,8 +30,8 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
   const product = {
     id: id,
-    name: 'House of Petals Signature Collection',
-    price: 6500,
+    name: id === '1' ? 'Crimson Velvet Roses' : 'House of Petals Signature Collection',
+    price: id === '1' ? 7300 : 6500,
     category: 'Premium Flowers',
     rating: 4.9,
     reviews: 124,

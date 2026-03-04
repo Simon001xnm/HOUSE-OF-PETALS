@@ -3,105 +3,99 @@
   "placeholderImages": [
     {
       "id": "hp-hero-main",
-      "description": "Large signature bouquet for hero section",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.53.05 AM.jpeg",
+      "description": "Main Signature Bouquet",
+      "imageUrl": "/ed.jpeg",
       "imageHint": "luxury bouquet"
     },
     {
       "id": "hp-hero-1",
-      "description": "Hero grid product 1",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.53.38 AM.jpeg",
+      "description": "Product Hero 1",
+      "imageUrl": "/ep.jpeg",
       "imageHint": "roses combo"
     },
     {
       "id": "hp-hero-2",
-      "description": "Hero grid product 2",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.54.13 AM.jpeg",
+      "description": "Product Hero 2",
+      "imageUrl": "/fg.jpeg",
       "imageHint": "flower chocolates"
     },
     {
       "id": "hp-hero-3",
-      "description": "Hero grid product 3",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.54.57 AM.jpeg",
+      "description": "Product Hero 3",
+      "imageUrl": "/fr.jpeg",
       "imageHint": "blooming flowers"
     },
     {
       "id": "hp-hero-4",
-      "description": "Hero grid product 4",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.56.17 AM.jpeg",
+      "description": "Product Hero 4",
+      "imageUrl": "/io.jpeg",
       "imageHint": "heart box"
     },
     {
       "id": "cat-birthday",
-      "description": "Birthday flowers category",
-      "imageUrl": "/WhatsApp Image 2026-02-12 at 1.54.25 AM.jpeg",
-      "imageHint": "birthday cake flowers"
+      "description": "Birthday Flowers",
+      "imageUrl": "/jr.jpeg",
+      "imageHint": "birthday bouquet"
     },
     {
       "id": "cat-flowers",
-      "description": "All flowers category",
-      "imageUrl": "/WhatsApp Image 2026-02-12 at 1.54.54 AM.jpeg",
+      "description": "All Flowers",
+      "imageUrl": "/ml.jpeg",
       "imageHint": "mixed flowers"
     },
     {
       "id": "cat-combos",
-      "description": "Combos category",
-      "imageUrl": "/WhatsApp Image 2026-02-12 at 1.56.11 AM.jpeg",
+      "description": "Gift Combos",
+      "imageUrl": "/qw.jpeg",
       "imageHint": "flower gift"
     },
     {
       "id": "cat-anniversary",
-      "description": "Anniversary flowers category",
-      "imageUrl": "/WhatsApp Image 2026-02-12 at 1.57.25 AM.jpeg",
+      "description": "Anniversary Flowers",
+      "imageUrl": "/vn.jpeg",
       "imageHint": "anniversary bouquet"
     },
     {
       "id": "cat-cakes",
-      "description": "Cakes category",
-      "imageUrl": "/WhatsApp Image 2026-02-12 at 2.00.44 AM.jpeg",
+      "description": "Cakes",
+      "imageUrl": "/ed.jpeg",
       "imageHint": "chocolate cake"
     },
     {
       "id": "cat-hampers",
-      "description": "Hampers category",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.53.05 AM.jpeg",
+      "description": "Gift Hampers",
+      "imageUrl": "/ep.jpeg",
       "imageHint": "gift basket"
     },
     {
       "id": "cat-chocolates",
-      "description": "Chocolates category",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.53.38 AM.jpeg",
+      "description": "Luxury Chocolates",
+      "imageUrl": "/fg.jpeg",
       "imageHint": "chocolate box"
     },
     {
       "id": "cat-drinks",
-      "description": "Drinks category",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.54.13 AM.jpeg",
+      "description": "Premium Drinks",
+      "imageUrl": "/fr.jpeg",
       "imageHint": "wine bottle"
     },
     {
       "id": "banner-flowers",
-      "description": "All Flowers banner",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.54.57 AM.jpeg",
+      "description": "Banner Flowers",
+      "imageUrl": "/ml.jpeg",
       "imageHint": "red roses banner"
     },
     {
       "id": "banner-birthday",
-      "description": "Birthday Flowers banner",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.56.17 AM.jpeg",
+      "description": "Banner Birthday",
+      "imageUrl": "/jr.jpeg",
       "imageHint": "birthday celebration"
     },
     {
       "id": "banner-romance",
-      "description": "Romantic Flowers banner",
-      "imageUrl": "/WhatsApp Image 2026-02-12 at 1.54.25 AM.jpeg",
+      "description": "Banner Romance",
+      "imageUrl": "/vn.jpeg",
       "imageHint": "love romance"
-    },
-    {
-      "id": "prod-roses",
-      "description": "Featured signature product",
-      "imageUrl": "/WhatsApp Image 2026-02-11 at 4.53.05 AM.jpeg",
-      "imageHint": "roses"
     }
   ]
 }
