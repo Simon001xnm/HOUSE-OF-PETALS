@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -35,7 +36,7 @@ export function Navbar() {
           
           <div className="hidden lg:flex flex-col text-[10px] font-bold text-gray-400 border-l border-gray-200 pl-6 gap-0.5">
             <span className="flex items-center gap-1 hover:text-[#be1e2d] cursor-default transition-colors">
-              <Phone className="w-3 h-3 text-[#be1e2d]" /> +254 700 000 000
+              <Phone className="w-3 h-3 text-[#be1e2d]" /> +254 704 524 070
             </span>
             <span className="flex items-center gap-1 hover:text-[#be1e2d] cursor-default transition-colors">
               <Mail className="w-3 h-3 text-[#be1e2d]" /> concierge@houseofpetals.co.ke

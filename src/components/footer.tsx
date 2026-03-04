@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { 
   Facebook, 
@@ -14,6 +15,9 @@ import {
 } from 'lucide-react';
 
 export function Footer() {
+  const whatsappNumber = "254704524070";
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
   return (
     <footer className="w-full">
       {/* SEO Description Section */}
@@ -53,10 +57,12 @@ export function Footer() {
             <span className="text-[11px] font-black uppercase tracking-tight">Concierge Support</span>
           </div>
           <div className="flex items-center justify-center gap-4 text-gray-700 lg:border-l border-gray-300">
-            <div className="bg-white p-2.5 rounded-full shadow-sm">
-              <Smartphone className="w-6 h-6 text-[#6db33f]" />
-            </div>
-            <span className="text-[11px] font-black uppercase tracking-tight">+254 700 000 000</span>
+            <Link href={`tel:+254704524070`} className="flex items-center gap-4">
+              <div className="bg-white p-2.5 rounded-full shadow-sm">
+                <Smartphone className="w-6 h-6 text-[#6db33f]" />
+              </div>
+              <span className="text-[11px] font-black uppercase tracking-tight">+254 704 524 070</span>
+            </Link>
           </div>
         </div>
       </div>
@@ -95,7 +101,7 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-4">
                   <Smartphone className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <span>Call: +254 700 000 000</span>
+                  <span>Call: +254 704 524 070</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <Mail className="w-5 h-5 shrink-0 text-[#6db33f]" />
@@ -156,7 +162,7 @@ export function Footer() {
 
       {/* Floating WhatsApp */}
       <div className="fixed bottom-8 left-8 z-50">
-        <Link href="#" className="w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+        <Link href={whatsappUrl} target="_blank" className="w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
           <MessageCircle className="w-8 h-8 text-white fill-current" />
         </Link>
       </div>
