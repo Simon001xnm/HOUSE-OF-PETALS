@@ -20,24 +20,31 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
   const fallbackImage = 'https://picsum.photos/seed/fallback/600/600';
 
-  const product = {
-    id: id,
-    name: id === '1' ? 'Crimson Velvet Roses' : 'House of Petals Signature Collection',
-    price: id === '1' ? 6500 : 3500,
-    category: 'Premium Bouquets',
-    rating: 4.9,
-    reviews: 124,
-    description: "An opulent arrangement from the House of Petals, featuring deep, velvet crimson roses, meticulously hand-tied and wrapped in our signature packaging. This bouquet is designed to evoke passion and timeless luxury.",
-    features: [
-      "Premium Long-Stem Roses",
-      "Sustainably Sourced Luxury Blooms",
-      "Signature House of Petals Embossed Vase Included",
-      "Hand-written note card with gold foil edges"
-    ],
-    image: 'prod-roses'
+  // Find a relevant image from the library based on the product ID or use a default
+  const getProductImage = () => {
+    const images = ['hp-hero-1', 'hp-hero-2', 'hp-hero-3', 'hp-hero-4', 'cat-birthday', 'cat-flowers'];
+    const index = parseInt(id) % images.length || 0;
+    const imgId = images[index];
+    return PlaceHolderImages.find(i => i.id === imgId) || PlaceHolderImages[0];
   };
 
-  const img = PlaceHolderImages.find(i => i.id === product.image) || PlaceHolderImages[0];
+  const product = {
+    id: id,
+    name: 'House of Petals Signature Collection',
+    price: 6500,
+    category: 'Premium Flowers',
+    rating: 4.9,
+    reviews: 124,
+    description: "An opulent arrangement from House of Petals, featuring premium hand-selected blooms, meticulously tied and wrapped in our signature packaging. Designed to evoke timeless luxury and passion.",
+    features: [
+      "Premium Long-Stem Flowers",
+      "Sustainably Sourced Luxury Blooms",
+      "Signature House of Petals Wrapping",
+      "Hand-written note card included"
+    ]
+  };
+
+  const img = getProductImage();
 
   const handleAddToCart = () => {
     addToCart({
@@ -65,20 +72,24 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 alt={product.name}
                 fill
                 className="object-cover"
+                priority
               />
             </div>
             <div className="grid grid-cols-4 gap-4">
-              {[1,2,3,4].map(i => (
-                <div key={i} className="aspect-square relative bg-gray-50 border border-gray-100 rounded-lg opacity-60 hover:opacity-100 transition-opacity cursor-pointer overflow-hidden">
-                  <Image src={img?.imageUrl || fallbackImage} alt="preview" fill className="object-cover" />
-                </div>
-              ))}
+              {['hp-hero-1', 'hp-hero-2', 'hp-hero-3', 'hp-hero-4'].map(imgId => {
+                const thumbImg = PlaceHolderImages.find(i => i.id === imgId);
+                return (
+                  <div key={imgId} className="aspect-square relative bg-gray-50 border border-gray-100 rounded-lg opacity-60 hover:opacity-100 transition-opacity cursor-pointer overflow-hidden">
+                    <Image src={thumbImg?.imageUrl || fallbackImage} alt="preview" fill className="object-cover" />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <div className="flex flex-col">
             <div className="mb-8">
-              <span className="text-[#6db33f] text-xs uppercase tracking-[0.3em] font-black mb-2 block">{product.category}</span>
+              <span className="text-[#be1e2d] text-xs uppercase tracking-[0.3em] font-black mb-2 block">{product.category}</span>
               <h1 className="text-3xl md:text-4xl font-black text-[#1e1e24] mb-4 leading-tight">{product.name}</h1>
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex gap-1">
@@ -86,7 +97,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 </div>
                 <span className="text-sm text-gray-500">({product.reviews} Reviews)</span>
               </div>
-              <p className="text-3xl font-black text-[#6db33f]">KES {product.price.toLocaleString()}</p>
+              <p className="text-3xl font-black text-[#be1e2d]">KES {product.price.toLocaleString()}</p>
             </div>
 
             <p className="text-gray-600 leading-relaxed mb-8 text-lg">
@@ -106,13 +117,13 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
             <div className="flex items-center gap-4 mb-10">
               <div className="flex items-center border-2 border-gray-100 bg-white rounded-full h-14 px-2">
-                <button onClick={() => setQuantity(q => Math.max(1, q-1))} className="p-3 text-gray-500 hover:text-[#6db33f]"><Minus className="w-4 h-4" /></button>
+                <button onClick={() => setQuantity(q => Math.max(1, q-1))} className="p-3 text-gray-500 hover:text-[#be1e2d]"><Minus className="w-4 h-4" /></button>
                 <span className="w-8 text-center font-bold text-[#1e1e24]">{quantity}</span>
-                <button onClick={() => setQuantity(q => q+1)} className="p-3 text-gray-500 hover:text-[#6db33f]"><Plus className="w-4 h-4" /></button>
+                <button onClick={() => setQuantity(q => q+1)} className="p-3 text-gray-500 hover:text-[#be1e2d]"><Plus className="w-4 h-4" /></button>
               </div>
               <Button 
                 onClick={handleAddToCart}
-                className="flex-1 bg-[#6db33f] hover:bg-[#5a9b34] text-white h-14 rounded-full uppercase tracking-widest font-black text-sm shadow-lg"
+                className="flex-1 bg-[#be1e2d] hover:bg-[#a51a27] text-white h-14 rounded-full uppercase tracking-widest font-black text-sm shadow-lg"
               >
                 <ShoppingBag className="mr-2 w-5 h-5" /> Add to Shopping Bag
               </Button>

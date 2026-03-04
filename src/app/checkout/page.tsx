@@ -29,8 +29,8 @@ export default function CheckoutPage() {
 
   const handleWhatsAppCheckout = () => {
     const whatsappNumber = "254704524070";
-    const itemsList = cart.map((item: CartItem) => `- ${item.name} (${item.quantity})`).join('\n');
-    const totalAmount = (subtotal).toLocaleString();
+    const itemsList = cart.map((item: CartItem) => `- ${item.name} (${item.quantity}) @ KES ${item.price}`).join('\n');
+    const totalAmount = subtotal.toLocaleString();
     
     const message = encodeURIComponent(
       `*New Order from House of Petals*\n\n` +
@@ -40,7 +40,7 @@ export default function CheckoutPage() {
       `*Items:*\n${itemsList}\n\n` +
       `*Total:* KES ${totalAmount}\n` +
       `*Payment Method:* ${paymentMethod.toUpperCase()}\n\n` +
-      `Please confirm my order.`
+      `Please confirm my order and let me know the delivery timeline.`
     );
     
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
@@ -110,8 +110,8 @@ export default function CheckoutPage() {
                         <div className="flex items-center gap-4">
                           <RadioGroupItem value="whatsapp" id="whatsapp" />
                           <div className="space-y-1">
-                            <Label htmlFor="whatsapp" className="font-bold cursor-pointer">Order via WhatsApp</Label>
-                            <p className="text-xs text-muted-foreground">Chat with us to complete your purchase</p>
+                            <Label htmlFor="whatsapp" className="font-bold cursor-pointer">Confirm via WhatsApp</Label>
+                            <p className="text-xs text-muted-foreground">Send order details to our concierge</p>
                           </div>
                         </div>
                         <MessageCircle className="w-6 h-6 text-[#25d366]" />
@@ -122,19 +122,15 @@ export default function CheckoutPage() {
                       <div className="p-6 bg-gray-50 border border-gray-100 space-y-4 animate-in fade-in duration-300">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground">M-Pesa Phone Number</Label>
                         <Input placeholder="07XX XXX XXX" className="rounded-none border-gray-200 bg-white h-12 focus:border-[#6db33f]" />
-                        <p className="text-[10px] text-gray-400 italic">You will receive a prompt on your phone to enter your M-Pesa PIN.</p>
+                        <p className="text-[10px] text-gray-400 italic">You will receive an STK prompt on your phone.</p>
                       </div>
                     )}
 
                     <Button 
-                      onClick={paymentMethod === 'whatsapp' ? handleWhatsAppCheckout : () => handleWhatsAppCheckout()}
+                      onClick={handleWhatsAppCheckout}
                       className="w-full h-16 bg-[#6db33f] hover:bg-[#5a9b34] text-white rounded-none font-bold uppercase tracking-[0.2em] shadow-lg flex items-center justify-center gap-2"
                     >
-                      {paymentMethod === 'whatsapp' ? (
-                        <>Complete Order via WhatsApp <MessageCircle className="w-5 h-5" /></>
-                      ) : (
-                        'Complete Order & Notify via WhatsApp'
-                      )}
+                      Complete & Send via WhatsApp <MessageCircle className="w-5 h-5" />
                     </Button>
                     <button onClick={() => setStep(1)} className="text-xs text-muted-foreground hover:text-[#be1e2d] transition-colors w-full text-center uppercase tracking-widest">
                       Go Back to Information
@@ -150,7 +146,7 @@ export default function CheckoutPage() {
                 <div className="space-y-4">
                   <div className="flex justify-between text-sm tracking-wide">
                     <span className="text-muted-foreground uppercase text-xs">Subtotal</span>
-                    <span className="font-medium">KES {(subtotal).toLocaleString()}</span>
+                    <span className="font-medium">KES {subtotal.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-sm tracking-wide">
                     <span className="text-muted-foreground uppercase text-xs">Delivery Fee</span>
@@ -158,7 +154,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="flex justify-between text-xl font-headline pt-4 border-t border-gray-200">
                     <span>Total</span>
-                    <span className="text-[#6db33f]">KES {(subtotal).toLocaleString()}</span>
+                    <span className="text-[#6db33f]">KES {subtotal.toLocaleString()}</span>
                   </div>
                 </div>
                 
