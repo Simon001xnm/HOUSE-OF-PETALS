@@ -11,7 +11,7 @@ import { ShoppingCart, ArrowRight, Search } from 'lucide-react';
 
 export default function Home() {
   const getImg = (id: string) => PlaceHolderImages.find(i => i.id === id);
-  const fallbackImage = 'https://picsum.photos/seed/fallback/400/400';
+  const fallbackImage = '/ed.jpeg';
 
   const categories = [
     { name: 'Birthday', image: 'cat-birthday' },
