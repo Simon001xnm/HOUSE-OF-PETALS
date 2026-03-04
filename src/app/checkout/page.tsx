@@ -8,14 +8,44 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { useCart } from '@/hooks/use-cart';
-import { ShieldCheck, Truck, ChevronRight, Smartphone, CreditCard } from 'lucide-react';
+import { useCart, type CartItem } from '@/hooks/use-cart';
+import { ShieldCheck, Truck, ChevronRight, Smartphone, CreditCard, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 
 export default function CheckoutPage() {
-  const { subtotal } = useCart();
+  const { cart, subtotal } = useCart();
   const [step, setStep] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState('mpesa');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    address: '',
+    city: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleWhatsAppCheckout = () => {
+    const whatsappNumber = "254704524070";
+    const itemsList = cart.map((item: CartItem) => `- ${item.name} (${item.quantity})`).join('\n');
+    const totalAmount = (subtotal * 100).toLocaleString();
+    
+    const message = encodeURIComponent(
+      `*New Order from House of Petals*\n\n` +
+      `*Customer:* ${formData.firstName} ${formData.lastName}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Address:* ${formData.address}, ${formData.city}\n\n` +
+      `*Items:*\n${itemsList}\n\n` +
+      `*Total:* KES ${totalAmount}\n` +
+      `*Payment Method:* ${paymentMethod.toUpperCase()}\n\n` +
+      `Please confirm my order.`
+    );
+    
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -40,23 +70,23 @@ export default function CheckoutPage() {
                     <div className="grid grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground">First Name</Label>
-                        <Input className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
+                        <Input name="firstName" value={formData.firstName} onChange={handleInputChange} className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
                       </div>
                       <div className="space-y-2">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground">Last Name</Label>
-                        <Input className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
+                        <Input name="lastName" value={formData.lastName} onChange={handleInputChange} className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
                       </div>
                       <div className="space-y-2 col-span-2">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground">Phone Number (For Delivery Coordination)</Label>
-                        <Input placeholder="07XX XXX XXX" className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
+                        <Input name="phone" value={formData.phone} onChange={handleInputChange} placeholder="07XX XXX XXX" className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
                       </div>
                       <div className="space-y-2 col-span-2">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground">Detailed Address / Apartment / Office</Label>
-                        <Input className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
+                        <Input name="address" value={formData.address} onChange={handleInputChange} className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
                       </div>
                       <div className="space-y-2">
                         <Label className="text-[10px] uppercase tracking-widest text-muted-foreground">City (e.g. Nairobi, Kisumu, Mombasa)</Label>
-                        <Input className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
+                        <Input name="city" value={formData.city} onChange={handleInputChange} className="rounded-none border-gray-200 bg-gray-50 h-12 focus:border-[#6db33f]" />
                       </div>
                     </div>
                     <Button onClick={() => setStep(2)} className="w-full h-16 bg-[#be1e2d] hover:bg-[#a51a27] text-white rounded-none font-bold uppercase tracking-[0.2em] shadow-lg">
@@ -77,15 +107,15 @@ export default function CheckoutPage() {
                         </div>
                         <Smartphone className="w-6 h-6 text-[#6db33f]" />
                       </div>
-                      <div className={`flex items-center justify-between p-6 border transition-all cursor-pointer ${paymentMethod === 'card' ? 'border-[#6db33f] bg-green-50/30' : 'border-gray-100'}`} onClick={() => setPaymentMethod('card')}>
+                      <div className={`flex items-center justify-between p-6 border transition-all cursor-pointer ${paymentMethod === 'whatsapp' ? 'border-[#6db33f] bg-green-50/30' : 'border-gray-100'}`} onClick={() => setPaymentMethod('whatsapp')}>
                         <div className="flex items-center gap-4">
-                          <RadioGroupItem value="card" id="card" />
+                          <RadioGroupItem value="whatsapp" id="whatsapp" />
                           <div className="space-y-1">
-                            <Label htmlFor="card" className="font-bold cursor-pointer">Credit / Debit Card</Label>
-                            <p className="text-xs text-muted-foreground">Securely pay with Visa or MasterCard</p>
+                            <Label htmlFor="whatsapp" className="font-bold cursor-pointer">Order via WhatsApp</Label>
+                            <p className="text-xs text-muted-foreground">Chat with us to complete your purchase</p>
                           </div>
                         </div>
-                        <CreditCard className="w-6 h-6 text-gray-400" />
+                        <MessageCircle className="w-6 h-6 text-[#25d366]" />
                       </div>
                     </RadioGroup>
 
@@ -97,8 +127,15 @@ export default function CheckoutPage() {
                       </div>
                     )}
 
-                    <Button className="w-full h-16 bg-[#6db33f] hover:bg-[#5a9b34] text-white rounded-none font-bold uppercase tracking-[0.2em] shadow-lg">
-                      Complete Order
+                    <Button 
+                      onClick={paymentMethod === 'whatsapp' ? handleWhatsAppCheckout : undefined}
+                      className="w-full h-16 bg-[#6db33f] hover:bg-[#5a9b34] text-white rounded-none font-bold uppercase tracking-[0.2em] shadow-lg flex items-center justify-center gap-2"
+                    >
+                      {paymentMethod === 'whatsapp' ? (
+                        <>Complete Order via WhatsApp <MessageCircle className="w-5 h-5" /></>
+                      ) : (
+                        'Complete Order'
+                      )}
                     </Button>
                     <button onClick={() => setStep(1)} className="text-xs text-muted-foreground hover:text-[#be1e2d] transition-colors w-full text-center uppercase tracking-widest">
                       Go Back to Information
