@@ -25,6 +25,8 @@ export default function Home() {
     { id: '4', name: 'Luxury Fruit & Wine Basket', price: 7200, image: 'prod-basket', category: 'Gift Baskets' }
   ];
 
+  const fallbackImage = 'https://picsum.photos/seed/fallback/400/400';
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
@@ -32,13 +34,17 @@ export default function Home() {
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative w-full h-[400px] md:h-[500px]">
-          <Image 
-            src={heroImg?.imageUrl || ''}
-            alt="Gifts & Flowers Kenya Banner"
-            fill
-            className="object-cover"
-            priority
-          />
+          {heroImg?.imageUrl ? (
+            <Image 
+              src={heroImg.imageUrl}
+              alt="Gifts & Flowers Kenya Banner"
+              fill
+              className="object-cover"
+              priority
+            />
+          ) : (
+             <div className="w-full h-full bg-gray-200 animate-pulse" />
+          )}
           <div className="absolute inset-0 bg-black/20 flex items-center">
             <div className="container mx-auto px-6">
               <div className="max-w-xl text-white space-y-4">
@@ -68,11 +74,11 @@ export default function Home() {
                 <Link href={`/catalog?category=${cat.id}`} key={cat.id} className="group flex flex-col items-center">
                   <div className="relative w-full aspect-square rounded-full overflow-hidden border-4 border-transparent group-hover:border-[#6db33f] transition-all duration-300 shadow-md">
                     <Image 
-                      src={img?.imageUrl || ''} 
+                      src={img?.imageUrl || fallbackImage} 
                       alt={cat.name} 
                       fill 
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      data-ai-hint={img?.imageHint}
+                      data-ai-hint={img?.imageHint || 'gift'}
                     />
                   </div>
                   <span className="mt-4 text-sm font-bold text-[#1e1e24] group-hover:text-[#6db33f] uppercase tracking-tight text-center">{cat.name}</span>
@@ -102,11 +108,11 @@ export default function Home() {
                   <div key={product.id} className="bg-white group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
                     <Link href={`/products/${product.id}`} className="block relative aspect-square overflow-hidden bg-gray-100">
                       <Image 
-                        src={img?.imageUrl || ''}
+                        src={img?.imageUrl || fallbackImage}
                         alt={product.name}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        data-ai-hint={img?.imageHint}
+                        data-ai-hint={img?.imageHint || 'gift'}
                       />
                       <div className="absolute top-3 right-3">
                         <Button size="icon" variant="secondary" className="rounded-full bg-white/80 backdrop-blur-sm hover:bg-[#6db33f] hover:text-white transition-colors h-8 w-8">

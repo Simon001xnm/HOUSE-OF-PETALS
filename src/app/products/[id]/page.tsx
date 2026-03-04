@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from 'react';
@@ -16,11 +15,13 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
   const { addToCart } = useCart();
   const { toast } = useToast();
 
+  const fallbackImage = 'https://picsum.photos/seed/fallback/600/600';
+
   // Mock product lookup
   const product = {
     id: params.id,
     name: params.id === '1' ? 'Crimson Velvet Roses' : 'Signature Collection',
-    price: params.id === '1' ? 120 : 150,
+    price: params.id === '1' ? 6500 : 3500,
     category: 'Premium Bouquets',
     rating: 4.9,
     reviews: 124,
@@ -31,7 +32,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
       "Signature House of Petals Gold-Embossed Vase Included",
       "Hand-written note card with gold foil edges"
     ],
-    image: 'prod-crimson-velvet'
+    image: 'prod-roses'
   };
 
   const img = PlaceHolderImages.find(i => i.id === product.image) || PlaceHolderImages[0];
@@ -41,7 +42,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: img.imageUrl
+      image: img?.imageUrl || fallbackImage
     });
     toast({
       title: "Added to Cart",
@@ -50,26 +51,26 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       
       <main className="flex-grow container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Gallery */}
           <div className="space-y-6">
-            <div className="aspect-[4/5] relative bg-secondary/10 overflow-hidden border border-white/5">
+            <div className="aspect-square relative bg-gray-50 overflow-hidden border border-gray-100 rounded-xl">
               <Image 
-                src={img.imageUrl}
+                src={img?.imageUrl || fallbackImage}
                 alt={product.name}
                 fill
                 className="object-cover"
-                data-ai-hint={img.imageHint}
+                data-ai-hint={img?.imageHint || 'gift'}
               />
             </div>
             <div className="grid grid-cols-4 gap-4">
               {[1,2,3,4].map(i => (
-                <div key={i} className="aspect-square relative bg-secondary/10 border border-white/5 opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
-                  <Image src={img.imageUrl} alt="preview" fill className="object-cover" />
+                <div key={i} className="aspect-square relative bg-gray-50 border border-gray-100 rounded-lg opacity-60 hover:opacity-100 transition-opacity cursor-pointer overflow-hidden">
+                  <Image src={img?.imageUrl || fallbackImage} alt="preview" fill className="object-cover" />
                 </div>
               ))}
             </div>
@@ -78,62 +79,62 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
           {/* Details */}
           <div className="flex flex-col">
             <div className="mb-8">
-              <span className="text-gold text-xs uppercase tracking-[0.3em] font-bold mb-2 block">{product.category}</span>
-              <h1 className="text-4xl md:text-5xl font-headline mb-4">{product.name}</h1>
+              <span className="text-[#6db33f] text-xs uppercase tracking-[0.3em] font-black mb-2 block">{product.category}</span>
+              <h1 className="text-3xl md:text-4xl font-black text-[#1e1e24] mb-4 leading-tight">{product.name}</h1>
               <div className="flex items-center gap-4 mb-6">
                 <div className="flex gap-1">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-gold text-gold" />)}
+                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
-                <span className="text-sm text-muted-foreground">({product.reviews} Customer Reviews)</span>
+                <span className="text-sm text-gray-500">({product.reviews} Reviews)</span>
               </div>
-              <p className="text-3xl font-medium">${product.price}</p>
+              <p className="text-3xl font-black text-[#6db33f]">KES {product.price.toLocaleString()}</p>
             </div>
 
-            <p className="text-muted-foreground leading-relaxed mb-8 text-lg font-light">
+            <p className="text-gray-600 leading-relaxed mb-8 text-lg">
               {product.description}
             </p>
 
-            <div className="space-y-4 mb-10">
-              <h4 className="text-xs uppercase tracking-widest font-bold text-white">Includes</h4>
+            <div className="space-y-4 mb-10 bg-gray-50 p-6 rounded-xl border border-gray-100">
+              <h4 className="text-xs uppercase tracking-widest font-black text-[#1e1e24]">Product Highlights</h4>
               <ul className="grid grid-cols-1 gap-3">
                 {product.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-muted-foreground font-light">
-                    <div className="w-1.5 h-1.5 rounded-full bg-gold" /> {f}
+                  <li key={i} className="flex items-center gap-3 text-sm text-gray-600">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#6db33f]" /> {f}
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="flex items-center gap-6 mb-10">
-              <div className="flex items-center border border-white/10 bg-secondary/20 h-14">
-                <button onClick={() => setQuantity(q => Math.max(1, q-1))} className="px-4 hover:text-gold"><Minus className="w-4 h-4" /></button>
-                <span className="w-10 text-center font-bold">{quantity}</span>
-                <button onClick={() => setQuantity(q => q+1)} className="px-4 hover:text-gold"><Plus className="w-4 h-4" /></button>
+            <div className="flex items-center gap-4 mb-10">
+              <div className="flex items-center border-2 border-gray-100 bg-white rounded-full h-14 px-2">
+                <button onClick={() => setQuantity(q => Math.max(1, q-1))} className="p-3 text-gray-500 hover:text-[#6db33f]"><Minus className="w-4 h-4" /></button>
+                <span className="w-8 text-center font-bold text-[#1e1e24]">{quantity}</span>
+                <button onClick={() => setQuantity(q => q+1)} className="p-3 text-gray-500 hover:text-[#6db33f]"><Plus className="w-4 h-4" /></button>
               </div>
               <Button 
                 onClick={handleAddToCart}
-                className="flex-1 bg-accent hover:bg-accent/90 text-white h-14 rounded-none uppercase tracking-widest font-bold text-sm shadow-xl"
+                className="flex-1 bg-[#6db33f] hover:bg-[#5a9b34] text-white h-14 rounded-full uppercase tracking-widest font-black text-sm shadow-lg"
               >
                 <ShoppingBag className="mr-2 w-5 h-5" /> Add to Shopping Bag
               </Button>
-              <Button variant="outline" size="icon" className="h-14 w-14 rounded-none border-white/10">
+              <Button variant="outline" size="icon" className="h-14 w-14 rounded-full border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-100">
                 <Heart className="w-5 h-5" />
               </Button>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 pt-10 border-t border-white/5">
-              <div className="flex items-center gap-3 p-4 bg-secondary/10 border border-white/5">
-                <Truck className="w-5 h-5 gold-text" />
+            <div className="grid grid-cols-2 gap-4 pt-10 border-t border-gray-100">
+              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <Truck className="w-6 h-6 text-[#6db33f]" />
                 <div className="text-[10px] uppercase tracking-widest leading-none">
-                  <span className="block font-bold mb-1">Express Delivery</span>
-                  <span className="text-muted-foreground">Arrives Today</span>
+                  <span className="block font-black text-[#1e1e24] mb-1">Express Delivery</span>
+                  <span className="text-gray-500">Same Day Available</span>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-secondary/10 border border-white/5">
-                <ShieldCheck className="w-5 h-5 gold-text" />
+              <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <ShieldCheck className="w-6 h-6 text-[#6db33f]" />
                 <div className="text-[10px] uppercase tracking-widest leading-none">
-                  <span className="block font-bold mb-1">Quality Guaranteed</span>
-                  <span className="text-muted-foreground">Fresh or Replace</span>
+                  <span className="block font-black text-[#1e1e24] mb-1">Guaranteed Fresh</span>
+                  <span className="text-gray-500">Quality Assured</span>
                 </div>
               </div>
             </div>
