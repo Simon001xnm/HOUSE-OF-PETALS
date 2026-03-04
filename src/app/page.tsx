@@ -7,7 +7,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ShoppingCart, MessageCircle, ChevronRight, ArrowRight } from 'lucide-react';
+import { ShoppingCart, MessageCircle, ChevronRight, ArrowRight, Search } from 'lucide-react';
 
 export default function Home() {
   const categories = [
@@ -35,6 +35,21 @@ export default function Home() {
     { name: 'Beautiful Flower Combo', price: 'KSh 6,400', oldPrice: 'KSh 7,000', image: 'cat-flowers', badge: '-9%' },
     { name: 'Sunshine Rose Combo', price: 'KSh 5,900', oldPrice: 'KSh 6,200', image: 'prod-roses', badge: '-5%' },
     { name: 'Roses & 1kg Red Velvet Cake', price: 'KSh 6,500', image: 'cat-cakes', badge: null },
+  ];
+
+  const featuredProducts = [
+    { name: 'Beauty Box Bouquet', price: 'KSh 6,500', image: 'prod-roses', badge: 'SOLD OUT' },
+    { name: 'Birthday Roses Hat Box Bouquet', price: 'KSh 6,000', image: 'cat-birthday', badge: null },
+    { name: 'Forever Mine Gift Combo', price: 'KSh 14,500', image: 'prod-basket', badge: null },
+    { name: 'Sunshine Vase Bouquet', price: 'KSh 5,600', image: 'prod-orchid', badge: 'SOLD OUT' },
+    { name: '100cm Teddy & Red Roses Combo', price: 'KSh 9,300', image: 'cat-anniversary', badge: null },
+    { name: 'Blissful Box Bouquet', price: 'KSh 6,000', image: 'cat-flowers', badge: null },
+    { name: 'Red Roses Gift Hamper', price: 'KSh 8,000', image: 'cat-love', badge: null },
+    { name: 'Delightful Gift Hamper for Her', price: 'KSh 11,300', image: 'cat-personalized', badge: null },
+    { name: 'Adorable Gift Package', price: 'KSh 8,500', image: 'prod-cake', badge: null },
+    { name: 'From the Heart Bouquet', price: 'KSh 6,500', oldPrice: 'KSh 7,500', image: 'prod-roses', badge: '-13%' },
+    { name: 'Epic Gift Combo', price: 'KSh 7,900', image: 'cat-flowers', badge: null },
+    { name: 'Ladys Heart', price: 'KSh 3,600', oldPrice: 'KSh 4,000', image: 'cat-love', badge: '-10%' },
   ];
 
   const bannerCards = [
@@ -227,6 +242,65 @@ export default function Home() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Gifts & Flowers Section */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-end mb-10 border-b-2 border-gray-100 pb-4">
+              <div className="relative">
+                <h2 className="text-2xl font-bold text-[#333]">Featured Gifts & Flowers</h2>
+                <div className="absolute -bottom-4 left-0 w-full h-0.5 bg-[#be1e2d]"></div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-12">
+              {featuredProducts.map((prod, idx) => (
+                <div key={idx} className="group flex flex-col items-center text-center relative">
+                  <div className="relative w-full aspect-square bg-gray-50 mb-4 overflow-hidden border border-gray-100 rounded-sm">
+                    <Image 
+                      src={`https://picsum.photos/seed/feat${idx}/400/400`} 
+                      alt={prod.name} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform"
+                    />
+                    {prod.badge && (
+                      <div className={`absolute top-2 left-2 px-2 py-0.5 text-[9px] font-bold text-white uppercase rounded-sm ${prod.badge === 'SOLD OUT' ? 'bg-[#333]' : 'bg-[#be1e2d]'}`}>
+                        {prod.badge}
+                      </div>
+                    )}
+                    
+                    {/* Hover State Icons */}
+                    <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="bg-[#be1e2d] text-white text-[10px] font-bold uppercase py-2 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]">
+                        <ShoppingCart className="w-3 h-3" /> Add To Cart
+                      </div>
+                    </div>
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="bg-white/90 p-1.5 rounded-sm shadow-sm cursor-pointer hover:bg-white text-gray-700">
+                        <Search className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-[13px] font-medium text-gray-800 line-clamp-2 mb-2 hover:text-[#be1e2d] transition-colors h-10 flex items-center justify-center px-2">
+                    <Link href={`/products/${idx}`}>{prod.name}</Link>
+                  </h3>
+                  
+                  <div className="flex flex-col items-center gap-0.5">
+                    {prod.oldPrice && <span className="text-[11px] text-gray-400 line-through leading-none">{prod.oldPrice}</span>}
+                    <span className="text-[#be1e2d] font-bold text-sm leading-none">{prod.price}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-center mt-12">
+              <Link href="/catalog" className="text-[11px] font-bold uppercase tracking-widest text-gray-600 hover:text-[#be1e2d] flex items-center gap-1 border-b border-gray-300 pb-1">
+                VIEW MORE <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         </section>
