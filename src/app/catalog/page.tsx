@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -10,14 +11,14 @@ import { Button } from '@/components/ui/button';
 import { Filter, ChevronDown, ShoppingBag } from 'lucide-react';
 
 const ALL_PRODUCTS = [
-  { id: '1', name: 'Crimson Velvet Roses', price: 120, image: 'prod-crimson-velvet', category: 'Flowers' },
-  { id: '2', name: 'Emerald Fern', price: 85, image: 'prod-emerald-fern', category: 'Plants' },
-  { id: '3', name: 'Midnight Orchid', price: 150, image: 'prod-midnight-orchid', category: 'Flowers' },
-  { id: '4', name: 'Golden Scent Candle', price: 45, image: 'prod-golden-scent', category: 'Gifts' },
-  { id: '5', name: 'Serene Lily White', price: 95, image: 'prod-roses', category: 'Flowers' },
-  { id: '6', name: 'Rustic Succulent Trio', price: 55, image: 'prod-emerald-fern', category: 'Plants' },
-  { id: '7', name: 'Dark Chocolate Truffles', price: 35, image: 'cat-personalized', category: 'Gifts' },
-  { id: '8', name: 'Eternal Spring Bouquet', price: 110, image: 'cat-flowers', category: 'Flowers' }
+  { id: '1', name: 'Crimson Velvet Roses', price: 7300, image: 'hp-hero-1', category: 'Flowers' },
+  { id: '2', name: 'Emerald Fern Arrangement', price: 6000, image: 'hp-hero-2', category: 'Plants' },
+  { id: '3', name: 'Midnight Orchid Combo', price: 5200, image: 'hp-hero-3', category: 'Flowers' },
+  { id: '4', name: 'Luxury Heart Box', price: 9800, image: 'hp-hero-4', category: 'Gifts' },
+  { id: '5', name: 'Birthday Celebration Bloom', price: 4500, image: 'cat-birthday', category: 'Flowers' },
+  { id: '6', name: 'Mixed Signature Bouquet', price: 3300, image: 'cat-flowers', category: 'Flowers' },
+  { id: '7', name: 'Dark Chocolate & Roses', price: 7400, image: 'cat-chocolates', category: 'Gifts' },
+  { id: '8', name: 'Anniversary Special', price: 8500, image: 'cat-anniversary', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
@@ -38,7 +39,7 @@ export default function Catalog() {
       <main className="flex-grow container mx-auto px-6 py-12">
         <header className="mb-12">
           <h1 className="text-4xl font-headline mb-4 text-[#1e1e24]">House of Petals Collection</h1>
-          <p className="text-muted-foreground">Exquisite floral arrangements and premium gifts for every occasion.</p>
+          <p className="text-muted-foreground">Exquisite floral arrangements and premium gifts for every occasion in Nairobi.</p>
         </header>
 
         <div className="flex flex-col md:flex-row gap-8">
@@ -98,7 +99,6 @@ export default function Catalog() {
                         alt={product.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        data-ai-hint={img?.imageHint || 'gift'}
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
                         <Button className="opacity-0 group-hover:opacity-100 bg-[#6db33f] text-white hover:bg-[#5a9b34] transition-all transform translate-y-4 group-hover:translate-y-0 rounded-full px-6 uppercase text-xs tracking-widest font-bold">
@@ -112,7 +112,7 @@ export default function Catalog() {
                         <Link href={`/products/${product.id}`}>{product.name}</Link>
                       </h3>
                       <div className="flex justify-between items-center mt-2">
-                        <span className="text-lg font-extrabold text-[#6db33f]">KES {(product.price * 100).toLocaleString()}</span>
+                        <span className="text-lg font-extrabold text-[#6db33f]">KES {product.price.toLocaleString()}</span>
                         <Button size="icon" className="h-9 w-9 bg-[#6db33f] hover:bg-[#5a9b34] rounded-full">
                           <ShoppingBag className="w-4 h-4 text-white" />
                         </Button>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -6,7 +7,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ShoppingCart, MessageCircle, ArrowRight, Search } from 'lucide-react';
+import { ShoppingCart, ArrowRight, Search } from 'lucide-react';
 
 export default function Home() {
   const getImg = (id: string) => PlaceHolderImages.find(i => i.id === id);
@@ -57,12 +58,15 @@ export default function Home() {
     }
   ];
 
-  const featuredProducts = Array.from({ length: 12 }).map((_, i) => ({
-    name: `Featured Product ${i + 1}`,
-    price: `KSh ${ (5000 + (i * 500)).toLocaleString() }`,
-    image: `hp-hero-${(i % 4) + 1}`,
-    badge: i % 4 === 0 ? 'SOLD OUT' : null
-  }));
+  const featuredProducts = Array.from({ length: 12 }).map((_, i) => {
+    const images = ['hp-hero-1', 'hp-hero-2', 'hp-hero-3', 'hp-hero-4', 'cat-birthday', 'cat-flowers'];
+    return {
+      name: `House of Petals Signature ${i + 1}`,
+      price: `KSh ${ (5000 + (i * 500)).toLocaleString() }`,
+      image: images[i % images.length],
+      badge: i % 4 === 0 ? 'SOLD OUT' : null
+    };
+  });
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
@@ -90,20 +94,23 @@ export default function Home() {
                 <p className="text-gray-600 text-lg leading-relaxed">
                   Hand-crafted bouquets and luxury gifts delivered to your doorstep with boutique elegance.
                 </p>
-                <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-bold h-14 px-10 rounded-full text-sm uppercase tracking-widest shadow-xl flex items-center gap-2 mx-auto lg:mx-0 transition-transform hover:scale-105 active:scale-95">
-                  SHOP NOW <ShoppingCart className="w-5 h-5" />
-                </Button>
+                <Link href="/catalog">
+                  <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-bold h-14 px-10 rounded-full text-sm uppercase tracking-widest shadow-xl flex items-center gap-2 mx-auto lg:mx-0 transition-transform hover:scale-105 active:scale-95">
+                    SHOP NOW <ShoppingCart className="w-5 h-5" />
+                  </Button>
+                </Link>
               </div>
 
               <div className="lg:w-1/3 relative aspect-square w-full max-w-md">
-                {getImg('hp-hero-main') && (
+                {getImg('hp-hero-main') ? (
                   <Image 
                     src={getImg('hp-hero-main')!.imageUrl} 
                     alt="House of Petals Signature Bouquet" 
                     fill 
                     className="object-contain"
-                    data-ai-hint="luxury flowers"
                   />
+                ) : (
+                  <div className="w-full h-full bg-gray-100 rounded-lg" />
                 )}
               </div>
 
@@ -111,7 +118,7 @@ export default function Home() {
                 {heroGridProducts.map((prod, idx) => {
                   const imgData = getImg(prod.image);
                   return (
-                    <div key={idx} className="bg-white p-2 text-center group">
+                    <Link href="/catalog" key={idx} className="bg-white p-2 text-center group">
                       <div className="relative aspect-square bg-gray-50 rounded-lg overflow-hidden mb-3 border border-gray-100">
                         {imgData && (
                           <Image 
@@ -124,7 +131,7 @@ export default function Home() {
                       </div>
                       <h3 className="text-[11px] font-bold text-gray-800 line-clamp-1 mb-1">{prod.name}</h3>
                       <p className="text-[#be1e2d] font-black text-xs">{prod.price}</p>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
@@ -147,7 +154,6 @@ export default function Home() {
                           alt={cat.name} 
                           fill 
                           className="object-cover group-hover:scale-110 transition-transform"
-                          data-ai-hint={img.imageHint}
                         />
                       )}
                     </div>
@@ -193,7 +199,7 @@ export default function Home() {
                       )}
                     </div>
                     <h3 className="text-xs font-bold text-gray-800 line-clamp-1 mb-2 hover:text-[#be1e2d] transition-colors px-1">
-                      <Link href={`/products/${idx}`}>{prod.name}</Link>
+                      <Link href={`/catalog`}>{prod.name}</Link>
                     </h3>
                     <div className="flex items-center gap-2">
                       {prod.oldPrice && <span className="text-[10px] text-gray-400 line-through">{prod.oldPrice}</span>}
@@ -227,9 +233,11 @@ export default function Home() {
                       <p className="text-sm leading-relaxed mb-6 opacity-90 max-w-[260px] line-clamp-2">
                         {card.desc}
                       </p>
-                      <Button className="w-fit bg-[#be1e2d] hover:bg-[#a51a27] text-white rounded-full font-bold px-8 h-11 text-xs uppercase tracking-widest shadow-lg">
-                        SHOP NOW
-                      </Button>
+                      <Link href="/catalog">
+                        <Button className="w-fit bg-[#be1e2d] hover:bg-[#a51a27] text-white rounded-full font-bold px-8 h-11 text-xs uppercase tracking-widest shadow-lg">
+                          SHOP NOW
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 );
@@ -269,9 +277,9 @@ export default function Home() {
                       )}
                       
                       <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <div className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]">
+                        <Link href="/catalog" className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]">
                           <ShoppingCart className="w-3.5 h-3.5" /> Add To Cart
-                        </div>
+                        </Link>
                       </div>
                       <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <div className="bg-white/95 p-2 rounded-sm shadow-md cursor-pointer hover:bg-white text-gray-700">
@@ -281,7 +289,7 @@ export default function Home() {
                     </div>
                     
                     <h3 className="text-[13px] font-bold text-gray-800 line-clamp-2 mb-2 hover:text-[#be1e2d] transition-colors h-10 flex items-center justify-center px-1">
-                      <Link href={`/products/${idx}`}>{prod.name}</Link>
+                      <Link href={`/catalog`}>{prod.name}</Link>
                     </h3>
                     
                     <div className="flex flex-col items-center gap-0.5">
