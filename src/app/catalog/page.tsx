@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from 'react';
@@ -9,6 +8,8 @@ import { Footer } from '@/components/footer';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { Filter, ChevronDown, ShoppingBag } from 'lucide-react';
+import { useCart } from '@/hooks/use-cart';
+import { useToast } from '@/hooks/use-toast';
 
 const ALL_PRODUCTS = [
   { id: '1', name: 'Crimson Velvet Roses', price: 7300, image: 'hp-hero-1', category: 'Flowers' },
@@ -25,12 +26,28 @@ const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
 
 export default function Catalog() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const { addToCart } = useCart();
+  const { toast } = useToast();
 
   const filteredProducts = activeCategory === 'All' 
     ? ALL_PRODUCTS 
     : ALL_PRODUCTS.filter(p => p.category === activeCategory);
 
-  const fallbackImage = 'https://picsum.photos/seed/fallback/400/400';
+  const fallbackImage = '/ed.jpeg';
+
+  const handleAddToCart = (product: any) => {
+    const img = PlaceHolderImages.find(i => i.id === product.image) || PlaceHolderImages[0];
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: img?.imageUrl || fallbackImage
+    });
+    toast({
+      title: "Added to Cart",
+      description: `${product.name} has been added to your shopping bag.`,
+    });
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -43,7 +60,6 @@ export default function Catalog() {
         </header>
 
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Filters */}
           <aside className="w-full md:w-64 space-y-8">
             <div>
               <h3 className="text-sm uppercase tracking-widest font-bold mb-6 flex items-center gap-2 text-[#1e1e24]">
@@ -79,7 +95,6 @@ export default function Catalog() {
             </div>
           </aside>
 
-          {/* Grid */}
           <div className="flex-1">
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
               <p className="text-sm text-gray-500">{filteredProducts.length} masterpieces found</p>
@@ -93,7 +108,7 @@ export default function Catalog() {
                 const img = PlaceHolderImages.find(i => i.id === product.image) || PlaceHolderImages[0];
                 return (
                   <div key={product.id} className="group relative bg-white border border-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition-all">
-                    <Link href={`/products/${product.id}`} className="block overflow-hidden relative aspect-square">
+                    <div className="block overflow-hidden relative aspect-square">
                       <Image 
                         src={img?.imageUrl || fallbackImage}
                         alt={product.name}
@@ -101,11 +116,13 @@ export default function Catalog() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
-                        <Button className="opacity-0 group-hover:opacity-100 bg-[#be1e2d] text-white hover:bg-[#a51a27] transition-all transform translate-y-4 group-hover:translate-y-0 rounded-full px-6 uppercase text-xs tracking-widest font-bold">
-                          Quick View
-                        </Button>
+                        <Link href={`/products/${product.id}`}>
+                          <Button className="opacity-0 group-hover:opacity-100 bg-[#be1e2d] text-white hover:bg-[#a51a27] transition-all transform translate-y-4 group-hover:translate-y-0 rounded-full px-6 uppercase text-xs tracking-widest font-bold">
+                            View Details
+                          </Button>
+                        </Link>
                       </div>
-                    </Link>
+                    </div>
                     <div className="p-4 flex flex-col gap-1">
                       <span className="text-[10px] uppercase tracking-[0.2em] text-[#be1e2d] font-bold">{product.category}</span>
                       <h3 className="text-sm font-bold text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors leading-tight min-h-[2.5rem] line-clamp-2">
@@ -113,7 +130,11 @@ export default function Catalog() {
                       </h3>
                       <div className="flex justify-between items-center mt-2">
                         <span className="text-lg font-extrabold text-[#be1e2d]">KES {product.price.toLocaleString()}</span>
-                        <Button size="icon" className="h-9 w-9 bg-[#be1e2d] hover:bg-[#a51a27] rounded-full">
+                        <Button 
+                          onClick={() => handleAddToCart(product)}
+                          size="icon" 
+                          className="h-9 w-9 bg-[#be1e2d] hover:bg-[#a51a27] rounded-full"
+                        >
                           <ShoppingBag className="w-4 h-4 text-white" />
                         </Button>
                       </div>

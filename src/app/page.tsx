@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from 'next/image';
@@ -8,10 +7,28 @@ import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ShoppingCart, ArrowRight, Search } from 'lucide-react';
+import { useCart } from '@/hooks/use-cart';
+import { useToast } from '@/hooks/use-toast';
 
 export default function Home() {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
   const getImg = (id: string) => PlaceHolderImages.find(i => i.id === id);
   const fallbackImage = '/ed.jpeg';
+
+  const handleAddToCart = (product: any) => {
+    const imgData = getImg(product.image);
+    addToCart({
+      id: product.id || Math.random().toString(36).substr(2, 9),
+      name: product.name,
+      price: parseInt(product.price.replace(/[^\d]/g, '')),
+      image: imgData?.imageUrl || fallbackImage
+    });
+    toast({
+      title: "Added to Cart",
+      description: `${product.name} has been added to your bag.`,
+    });
+  };
 
   const categories = [
     { name: 'Birthday', image: 'cat-birthday' },
@@ -25,19 +42,19 @@ export default function Home() {
   ];
 
   const heroGridProducts = [
-    { name: 'Birthday Flower Combo', price: 'KSh 7,300', image: 'hp-hero-1' },
-    { name: 'Mixed Roses & Lindt', price: 'KSh 6,000', image: 'hp-hero-2' },
-    { name: 'Blooming Love Combo', price: 'KSh 5,200', image: 'hp-hero-3' },
-    { name: 'Lovely Heart Box', price: 'KSh 9,800', image: 'hp-hero-4' }
+    { id: 'h1', name: 'Birthday Flower Combo', price: 'KSh 7,300', image: 'hp-hero-1' },
+    { id: 'h2', name: 'Mixed Roses & Lindt', price: 'KSh 6,000', image: 'hp-hero-2' },
+    { id: 'h3', name: 'Blooming Love Combo', price: 'KSh 5,200', image: 'hp-hero-3' },
+    { id: 'h4', name: 'Lovely Heart Box', price: 'KSh 9,800', image: 'hp-hero-4' }
   ];
 
   const recentProducts = [
-    { name: 'Joyful Flower Bouquet', price: 'KSh 3,300', image: 'hp-hero-1', badge: null },
-    { name: 'Brilliant Flower Combo', price: 'KSh 7,000', image: 'cat-flowers', badge: 'SOLD OUT' },
-    { name: 'Roses Heart Box & Ferrero', price: 'KSh 7,400', oldPrice: 'KSh 8,100', image: 'cat-chocolates', badge: '-9%' },
-    { name: 'Beautiful Flower Combo', price: 'KSh 6,400', oldPrice: 'KSh 7,000', image: 'cat-flowers', badge: '-9%' },
-    { name: 'Sunshine Rose Combo', price: 'KSh 5,900', oldPrice: 'KSh 6,200', image: 'hp-hero-3', badge: '-5%' },
-    { name: 'Roses & 1kg Red Velvet', price: 'KSh 6,500', image: 'cat-cakes', badge: null },
+    { id: 'r1', name: 'Joyful Flower Bouquet', price: 'KSh 3,300', image: 'hp-hero-1', badge: null },
+    { id: 'r2', name: 'Brilliant Flower Combo', price: 'KSh 7,000', image: 'cat-flowers', badge: 'SOLD OUT' },
+    { id: 'r3', name: 'Roses Heart Box & Ferrero', price: 'KSh 7,400', oldPrice: 'KSh 8,100', image: 'cat-chocolates', badge: '-9%' },
+    { id: 'r4', name: 'Beautiful Flower Combo', price: 'KSh 6,400', oldPrice: 'KSh 7,000', image: 'cat-flowers', badge: '-9%' },
+    { id: 'r5', name: 'Sunshine Rose Combo', price: 'KSh 5,900', oldPrice: 'KSh 6,200', image: 'hp-hero-3', badge: '-5%' },
+    { id: 'r6', name: 'Roses & 1kg Red Velvet', price: 'KSh 6,500', image: 'cat-cakes', badge: null },
   ];
 
   const bannerCards = [
@@ -61,6 +78,7 @@ export default function Home() {
   const featuredProducts = Array.from({ length: 12 }).map((_, i) => {
     const images = ['hp-hero-1', 'hp-hero-2', 'hp-hero-3', 'hp-hero-4', 'cat-birthday', 'cat-flowers'];
     return {
+      id: `f${i}`,
       name: `House of Petals Signature ${i + 1}`,
       price: `KSh ${ (5000 + (i * 500)).toLocaleString() }`,
       image: images[i % images.length],
@@ -73,7 +91,6 @@ export default function Home() {
       <Navbar />
       
       <main className="flex-grow">
-        {/* Floating Sidebar Elements */}
         <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col shadow-xl">
           {['KES', 'USD', 'EUR', 'GBP'].map((curr) => (
             <div key={curr} className="currency-tag w-10 text-center py-2 transition-colors">
@@ -82,7 +99,6 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Hero Section */}
         <section className="bg-white py-10 md:py-16 border-b border-gray-100">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -118,7 +134,7 @@ export default function Home() {
                 {heroGridProducts.map((prod, idx) => {
                   const imgData = getImg(prod.image);
                   return (
-                    <Link href="/catalog" key={idx} className="bg-white p-2 text-center group">
+                    <div key={idx} className="bg-white p-2 text-center group cursor-pointer" onClick={() => handleAddToCart(prod)}>
                       <div className="relative aspect-square bg-gray-50 rounded-lg overflow-hidden mb-3 border border-gray-100">
                         {imgData && (
                           <Image 
@@ -131,7 +147,7 @@ export default function Home() {
                       </div>
                       <h3 className="text-[11px] font-bold text-gray-800 line-clamp-1 mb-1">{prod.name}</h3>
                       <p className="text-[#be1e2d] font-black text-xs">{prod.price}</p>
-                    </Link>
+                    </div>
                   );
                 })}
               </div>
@@ -139,7 +155,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Category Circles Row */}
         <section className="py-12 bg-gray-50/50">
           <div className="container mx-auto px-6">
             <div className="flex justify-between items-center overflow-x-auto gap-8 pb-4 scrollbar-hide">
@@ -165,7 +180,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Recent Flowers & Gifts Grid */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6">
             <div className="flex justify-between items-end mb-10 border-b-2 border-gray-100 pb-4">
@@ -197,6 +211,14 @@ export default function Home() {
                           {prod.badge}
                         </div>
                       )}
+                      <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div 
+                          onClick={() => handleAddToCart(prod)}
+                          className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]"
+                        >
+                          <ShoppingCart className="w-3.5 h-3.5" /> Add To Cart
+                        </div>
+                      </div>
                     </div>
                     <h3 className="text-xs font-bold text-gray-800 line-clamp-1 mb-2 hover:text-[#be1e2d] transition-colors px-1">
                       <Link href={`/catalog`}>{prod.name}</Link>
@@ -212,7 +234,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Banners */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -246,7 +267,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
             <div className="flex justify-between items-end mb-12 border-b-2 border-gray-100 pb-4">
@@ -277,13 +297,11 @@ export default function Home() {
                       )}
                       
                       <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <Link href="/catalog" className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]">
+                        <div 
+                          onClick={() => handleAddToCart(prod)}
+                          className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]"
+                        >
                           <ShoppingCart className="w-3.5 h-3.5" /> Add To Cart
-                        </Link>
-                      </div>
-                      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="bg-white/95 p-2 rounded-sm shadow-md cursor-pointer hover:bg-white text-gray-700">
-                          <Search className="w-4.5 h-4.5" />
                         </div>
                       </div>
                     </div>
