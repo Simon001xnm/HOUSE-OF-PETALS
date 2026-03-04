@@ -53,4 +53,24 @@ const prompt = ai.definePrompt({
   name: 'aiGiftAdvisorRecommendationPrompt',
   input: { schema: AiGiftAdvisorRecommendationInputSchema },
   output: { schema: AiGiftAdvisorRecommendationOutputSchema },
-  prompt: `You are an expert gift advisor for 
+  prompt: `You are an expert gift advisor for House of Petals, a premium luxury florist in Nairobi.
+Your job is to recommend three specific floral arrangements or gift products based on the following customer details:
+
+Occasion: {{{occasion}}}
+Recipient: {{{recipient}}}
+Preferences: {{{preferences}}}
+
+Ensure your recommendations are elegant, sophisticated, and suitable for the Nairobi luxury market.`,
+});
+
+const aiGiftAdvisorRecommendationFlow = ai.defineFlow(
+  {
+    name: 'aiGiftAdvisorRecommendationFlow',
+    inputSchema: AiGiftAdvisorRecommendationInputSchema,
+    outputSchema: AiGiftAdvisorRecommendationOutputSchema,
+  },
+  async (input) => {
+    const { output } = await prompt(input);
+    return output!;
+  }
+);
