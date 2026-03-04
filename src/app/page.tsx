@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -6,7 +7,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ShoppingCart, MessageCircle } from 'lucide-react';
+import { ShoppingCart, MessageCircle, ChevronRight, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   const categories = [
@@ -25,6 +26,33 @@ export default function Home() {
     { name: 'Mixed Roses & Lindt Chocolates', price: 'KSh 6,000', image: 'cat-personalized' },
     { name: 'Blooming Love Combo', price: 'KSh 5,200', image: 'prod-roses' },
     { name: 'Lovely Heart Box Bouquet', price: 'KSh 9,800', image: 'prod-roses' }
+  ];
+
+  const recentProducts = [
+    { name: 'Joyful Flower Bouquet', price: 'KSh 3,300', image: 'prod-roses', badge: null },
+    { name: 'Brilliant Flower Combo', price: 'KSh 7,000', image: 'cat-flowers', badge: 'SOLD OUT' },
+    { name: 'Roses Heart Box & Ferrero', price: 'KSh 7,400', oldPrice: 'KSh 8,100', image: 'cat-personalized', badge: '-9%' },
+    { name: 'Beautiful Flower Combo', price: 'KSh 6,400', oldPrice: 'KSh 7,000', image: 'cat-flowers', badge: '-9%' },
+    { name: 'Sunshine Rose Combo', price: 'KSh 5,900', oldPrice: 'KSh 6,200', image: 'prod-roses', badge: '-5%' },
+    { name: 'Roses & 1kg Red Velvet Cake', price: 'KSh 6,500', image: 'cat-cakes', badge: null },
+  ];
+
+  const bannerCards = [
+    { 
+      title: 'All Flowers', 
+      desc: 'Shop fresh flowers for your loved one! Order & send beautiful flowers such as roses, lilies, carnations & more.', 
+      image: 'cat-flowers' 
+    },
+    { 
+      title: 'Birthday flowers', 
+      desc: 'Order beautiful birthday flowers from flower delivery Nairobi, crafted by our expert florists & delivered.', 
+      image: 'cat-birthday' 
+    },
+    { 
+      title: 'Romantic flowers', 
+      desc: 'Flower delivery Kenya offers stunning flower bouquets for love & romance to gift your special someone.', 
+      image: 'cat-love' 
+    }
   ];
 
   const fallbackImage = 'https://picsum.photos/seed/fallback/400/400';
@@ -58,10 +86,9 @@ export default function Home() {
         </div>
 
         {/* Hero Section */}
-        <section className="bg-white py-10 md:py-16">
+        <section className="bg-white py-10 md:py-16 border-b border-gray-100">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row items-center gap-12">
-              {/* Hero Left Content */}
               <div className="lg:w-1/3 text-center lg:text-left space-y-6">
                 <span className="text-[#be1e2d] font-bold text-sm tracking-wide">Gifts & Flowers Delivery Nairobi</span>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-[#333] leading-tight">
@@ -75,7 +102,6 @@ export default function Home() {
                 </Button>
               </div>
 
-              {/* Hero Center Image */}
               <div className="lg:w-1/3 relative aspect-square w-full max-w-md">
                 <Image 
                   src="https://picsum.photos/seed/gfhero/600/600" 
@@ -86,7 +112,6 @@ export default function Home() {
                 />
               </div>
 
-              {/* Hero Right Grid */}
               <div className="lg:w-1/3 grid grid-cols-2 gap-4 w-full">
                 {heroGridProducts.map((prod, idx) => (
                   <div key={idx} className="bg-white p-2 text-center group">
@@ -108,7 +133,7 @@ export default function Home() {
         </section>
 
         {/* Category Circles Row */}
-        <section className="py-10 border-t border-gray-100">
+        <section className="py-10">
           <div className="container mx-auto px-6">
             <div className="flex justify-between items-center overflow-x-auto gap-8 pb-4 scrollbar-hide">
               {categories.map((cat, idx) => {
@@ -128,6 +153,80 @@ export default function Home() {
                   </Link>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Recent Flowers & Gifts Grid */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-end mb-8 border-b-2 border-gray-100 pb-4">
+              <div className="relative">
+                <h2 className="text-2xl font-bold text-[#333]">Recent Flowers & Gifts</h2>
+                <div className="absolute -bottom-4 left-0 w-full h-0.5 bg-[#be1e2d]"></div>
+              </div>
+              <Link href="/catalog" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-[#be1e2d] flex items-center gap-1">
+                VIEW MORE <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {recentProducts.map((prod, idx) => (
+                <div key={idx} className="group flex flex-col items-center text-center">
+                  <div className="relative w-full aspect-square bg-gray-50 mb-4 overflow-hidden border border-gray-100 rounded-lg">
+                    <Image 
+                      src={`https://picsum.photos/seed/recent${idx}/400/400`} 
+                      alt={prod.name} 
+                      fill 
+                      className="object-cover group-hover:scale-105 transition-transform"
+                    />
+                    {prod.badge && (
+                      <div className={`absolute top-2 left-2 px-2 py-0.5 text-[9px] font-bold text-white uppercase rounded-sm ${prod.badge === 'SOLD OUT' ? 'bg-[#333]' : 'bg-[#be1e2d]'}`}>
+                        {prod.badge}
+                      </div>
+                    )}
+                  </div>
+                  <h3 className="text-xs font-bold text-gray-800 line-clamp-1 mb-2 hover:text-[#be1e2d] transition-colors">
+                    <Link href={`/products/${idx}`}>{prod.name}</Link>
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    {prod.oldPrice && <span className="text-[10px] text-gray-400 line-through">{prod.oldPrice}</span>}
+                    <span className="text-[#be1e2d] font-bold text-sm">{prod.price}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex justify-center mt-8 gap-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-gray-800"></div>
+              <div className="w-2.5 h-2.5 rounded-full bg-gray-200"></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Large Banners Grid */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {bannerCards.map((card, idx) => (
+                <div key={idx} className="relative aspect-[4/3] rounded-xl overflow-hidden group">
+                  <Image 
+                    src={`https://picsum.photos/seed/banner${idx}/800/600`} 
+                    alt={card.title} 
+                    fill 
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex flex-col justify-center px-8 text-white">
+                    <h2 className="text-3xl font-bold mb-4">{card.title}</h2>
+                    <p className="text-sm leading-relaxed mb-6 opacity-90 max-w-[240px] line-clamp-3">
+                      {card.desc}
+                    </p>
+                    <Button className="w-fit bg-[#be1e2d] hover:bg-[#a51a27] text-white rounded-full font-bold px-6 h-10 text-xs uppercase tracking-widest">
+                      SHOP NOW
+                    </Button>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
