@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Gifts & Flowers Kenya Theme - White, Brand Green (#6db33f), Dark Text */
+    /* Gifts & Flowers Kenya Exact Theme */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     
@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
     
-    --primary: 96 48% 47%; /* #6db33f - Signature Green */
-    --primary-foreground: 0 0% 98%;
+    --primary: 355 73% 46%; /* Brand Red #be1e2d */
+    --primary-foreground: 0 0% 100%;
     
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -23,15 +23,15 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     
-    --accent: 96 48% 47%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 96 48% 47%; /* Brand Green #6db33f */
+    --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 96 48% 47%;
+    --ring: 355 73% 46%;
     
     --radius: 0.5rem;
   }
@@ -49,19 +49,10 @@
   }
 }
 
-.brand-green {
-  background-color: #6db33f;
+.currency-tag {
+  @apply bg-[#6db33f] text-white px-2 py-1 text-[10px] font-bold border-b border-white/20 last:border-0 hover:bg-[#5a9b34] cursor-pointer;
 }
 
-.brand-text-green {
-  color: #6db33f;
-}
-
-.navbar-shadow {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.category-circle-hover:hover {
-  transform: translateY(-5px);
-  transition: transform 0.3s ease;
+.nav-red-gradient {
+  background: linear-gradient(to right, #be1e2d, #a51a27);
 }

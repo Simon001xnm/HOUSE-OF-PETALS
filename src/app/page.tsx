@@ -1,172 +1,133 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ArrowRight, Star, ShoppingCart, Truck, ShieldCheck, Heart } from 'lucide-react';
+import { ShoppingCart, MessageCircle } from 'lucide-react';
 
 export default function Home() {
-  const heroImg = PlaceHolderImages.find(img => img.id === 'hero-banner');
-  
   const categories = [
-    { id: 'anniversary', name: 'Anniversary', image: 'cat-anniversary' },
-    { id: 'birthday', name: 'Birthday', image: 'cat-birthday' },
-    { id: 'love', name: 'Love & Romance', image: 'cat-love' },
-    { id: 'flowers', name: 'Flowers', image: 'cat-flowers' },
-    { id: 'cakes', name: 'Cakes', image: 'cat-cakes' },
-    { id: 'personalized', name: 'Personalized', image: 'cat-personalized' }
+    { name: 'Birthday', image: 'cat-birthday' },
+    { name: 'Flowers', image: 'cat-flowers' },
+    { name: 'Combos', image: 'prod-roses' },
+    { name: 'Anniversary', image: 'cat-anniversary' },
+    { name: 'Cakes', image: 'cat-cakes' },
+    { name: 'Hampers', image: 'prod-basket' },
+    { name: 'Chocolates', image: 'cat-personalized' },
+    { name: 'Drinks', image: 'prod-orchid' }
   ];
 
-  const featured = [
-    { id: '1', name: 'Sweet Passion Flower & Cake Combo', price: 6500, image: 'prod-roses', category: 'Combos' },
-    { id: '2', name: 'Signature Black Forest Cake', price: 3500, image: 'prod-cake', category: 'Cakes' },
-    { id: '3', name: 'Elegant Phalaenopsis Orchid', price: 4800, image: 'prod-orchid', category: 'Plants' },
-    { id: '4', name: 'Luxury Fruit & Wine Basket', price: 7200, image: 'prod-basket', category: 'Gift Baskets' }
+  const heroGridProducts = [
+    { name: 'Happy Birthday Flower Combo', price: 'KSh 7,300', image: 'prod-roses' },
+    { name: 'Mixed Roses & Lindt Chocolates', price: 'KSh 6,000', image: 'cat-personalized' },
+    { name: 'Blooming Love Combo', price: 'KSh 5,200', image: 'prod-roses' },
+    { name: 'Lovely Heart Box Bouquet', price: 'KSh 9,800', image: 'prod-roses' }
   ];
 
   const fallbackImage = 'https://picsum.photos/seed/fallback/400/400';
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
       <Navbar />
       
       <main className="flex-grow">
+        {/* Floating Sidebar Elements */}
+        <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col">
+          {['KES', 'USD', 'EUR', 'GBP'].map((curr) => (
+            <div key={curr} className="currency-tag w-10 text-center py-2">
+              {curr}
+            </div>
+          ))}
+        </div>
+
+        {/* Floating Chat Buttons */}
+        <div className="fixed bottom-6 left-6 z-50">
+          <Link href="#" className="w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+            <MessageCircle className="w-8 h-8 text-white fill-current" />
+          </Link>
+        </div>
+        <div className="fixed bottom-6 right-6 z-50">
+          <div className="w-14 h-14 bg-[#be1e2d] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+            <div className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
+              <div className="w-1 h-1 bg-white rounded-full" />
+            </div>
+          </div>
+        </div>
+
         {/* Hero Section */}
-        <section className="relative w-full h-[400px] md:h-[500px]">
-          {heroImg?.imageUrl ? (
-            <Image 
-              src={heroImg.imageUrl}
-              alt="Gifts & Flowers Kenya Banner"
-              fill
-              className="object-cover"
-              priority
-            />
-          ) : (
-             <div className="w-full h-full bg-gray-200 animate-pulse" />
-          )}
-          <div className="absolute inset-0 bg-black/20 flex items-center">
-            <div className="container mx-auto px-6">
-              <div className="max-w-xl text-white space-y-4">
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-md">Send Flowers & Gifts Across Kenya</h1>
-                <p className="text-lg md:text-xl font-medium drop-shadow-sm">Reliable same day delivery in Nairobi and surrounding areas.</p>
-                <Link href="/catalog">
-                  <Button className="bg-[#6db33f] hover:bg-[#5a9b34] text-white font-bold h-12 px-10 rounded-full text-lg shadow-lg transform transition hover:scale-105 mt-4">
-                    Order Now
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Categories Section (Circles) */}
-        <section className="py-12 md:py-20 container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-[#1e1e24] uppercase tracking-wide">Shop by Category</h2>
-            <div className="w-20 h-1 bg-[#6db33f] mx-auto mt-4 rounded-full"></div>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
-            {categories.map((cat) => {
-              const img = PlaceHolderImages.find(i => i.id === cat.image);
-              return (
-                <Link href={`/catalog?category=${cat.id}`} key={cat.id} className="group flex flex-col items-center">
-                  <div className="relative w-full aspect-square rounded-full overflow-hidden border-4 border-transparent group-hover:border-[#6db33f] transition-all duration-300 shadow-md">
-                    <Image 
-                      src={img?.imageUrl || fallbackImage} 
-                      alt={cat.name} 
-                      fill 
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      data-ai-hint={img?.imageHint || 'gift'}
-                    />
-                  </div>
-                  <span className="mt-4 text-sm font-bold text-[#1e1e24] group-hover:text-[#6db33f] uppercase tracking-tight text-center">{cat.name}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Featured Products Grid */}
-        <section className="py-16 bg-gray-50 border-y border-gray-100">
+        <section className="bg-white py-10 md:py-16">
           <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
-              <div className="text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold text-[#1e1e24] uppercase tracking-wide">Featured Gifts</h2>
-                <p className="text-gray-500 text-sm mt-1">Hand-picked by our expert florists for you.</p>
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+              {/* Hero Left Content */}
+              <div className="lg:w-1/3 text-center lg:text-left space-y-6">
+                <span className="text-[#be1e2d] font-bold text-sm tracking-wide">Gifts & Flowers Delivery Nairobi</span>
+                <h1 className="text-4xl md:text-5xl font-extrabold text-[#333] leading-tight">
+                  Fresh Flower Delivery Shop in Kenya
+                </h1>
+                <p className="text-gray-600 text-lg">
+                  We have gorgeous gifts and flower bouquets delivered to the doorstep.
+                </p>
+                <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-bold h-12 px-8 rounded-full text-sm uppercase tracking-widest shadow-lg flex items-center gap-2 mx-auto lg:mx-0">
+                  SHOP NOW <ShoppingCart className="w-4 h-4" />
+                </Button>
               </div>
-              <Link href="/catalog" className="inline-flex items-center gap-2 text-[#6db33f] font-bold hover:underline transition-all">
-                VIEW ALL COLLECTION <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {featured.map((product) => {
-                const img = PlaceHolderImages.find(i => i.id === product.image);
-                return (
-                  <div key={product.id} className="bg-white group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                    <Link href={`/products/${product.id}`} className="block relative aspect-square overflow-hidden bg-gray-100">
+
+              {/* Hero Center Image */}
+              <div className="lg:w-1/3 relative aspect-square w-full max-w-md">
+                <Image 
+                  src="https://picsum.photos/seed/gfhero/600/600" 
+                  alt="Main Bouquet" 
+                  fill 
+                  className="object-contain"
+                  data-ai-hint="flower bouquet"
+                />
+              </div>
+
+              {/* Hero Right Grid */}
+              <div className="lg:w-1/3 grid grid-cols-2 gap-4 w-full">
+                {heroGridProducts.map((prod, idx) => (
+                  <div key={idx} className="bg-white p-2 text-center group">
+                    <div className="relative aspect-square bg-gray-50 rounded-lg overflow-hidden mb-3 border border-gray-100">
                       <Image 
-                        src={img?.imageUrl || fallbackImage}
-                        alt={product.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        src={`https://picsum.photos/seed/gfprod${idx}/300/300`} 
+                        alt={prod.name} 
+                        fill 
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <h3 className="text-[11px] font-bold text-gray-800 line-clamp-1 mb-1">{prod.name}</h3>
+                    <p className="text-[#be1e2d] font-black text-xs">{prod.price}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Category Circles Row */}
+        <section className="py-10 border-t border-gray-100">
+          <div className="container mx-auto px-6">
+            <div className="flex justify-between items-center overflow-x-auto gap-8 pb-4 scrollbar-hide">
+              {categories.map((cat, idx) => {
+                const img = PlaceHolderImages.find(i => i.id === cat.image);
+                return (
+                  <Link href={`/catalog?category=${cat.name.toLowerCase()}`} key={idx} className="flex flex-col items-center shrink-0 group">
+                    <div className="relative w-20 h-20 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-transparent group-hover:border-[#be1e2d] transition-all shadow-md">
+                      <Image 
+                        src={img?.imageUrl || fallbackImage} 
+                        alt={cat.name} 
+                        fill 
+                        className="object-cover group-hover:scale-110 transition-transform"
                         data-ai-hint={img?.imageHint || 'gift'}
                       />
-                      <div className="absolute top-3 right-3">
-                        <Button size="icon" variant="secondary" className="rounded-full bg-white/80 backdrop-blur-sm hover:bg-[#6db33f] hover:text-white transition-colors h-8 w-8">
-                          <Heart className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </Link>
-                    <div className="p-5 space-y-3">
-                      <div className="flex gap-1 text-yellow-400">
-                        {[1,2,3,4,5].map(i => <Star key={i} className="w-3 h-3 fill-current" />)}
-                        <span className="text-[10px] text-gray-400 ml-1 font-medium">(24)</span>
-                      </div>
-                      <h3 className="text-sm font-bold text-[#1e1e24] line-clamp-2 h-10 group-hover:text-[#6db33f] transition-colors leading-tight">
-                        <Link href={`/products/${product.id}`}>{product.name}</Link>
-                      </h3>
-                      <div className="flex items-center justify-between pt-2 border-t border-gray-50">
-                        <span className="text-lg font-extrabold text-[#6db33f]">KES {product.price.toLocaleString()}</span>
-                        <Button size="icon" className="rounded-full bg-[#6db33f] hover:bg-[#5a9b34] text-white h-9 w-9 shadow-md">
-                          <ShoppingCart className="w-4 h-4" />
-                        </Button>
-                      </div>
                     </div>
-                  </div>
+                    <span className="mt-3 text-xs md:text-sm font-bold text-gray-700 group-hover:text-[#be1e2d]">{cat.name}</span>
+                  </Link>
                 );
               })}
-            </div>
-          </div>
-        </section>
-
-        {/* Trust & Service Bar */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl hover:bg-gray-50 transition-colors">
-                <div className="w-16 h-16 bg-[#6db33f]/10 rounded-full flex items-center justify-center">
-                  <Truck className="w-8 h-8 text-[#6db33f]" />
-                </div>
-                <h4 className="font-bold text-lg uppercase tracking-tight">Same Day Delivery</h4>
-                <p className="text-sm text-gray-500 max-w-xs">Order before 4 PM for guaranteed same-day delivery within Nairobi CBD and environs.</p>
-              </div>
-              <div className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl hover:bg-gray-50 transition-colors">
-                <div className="w-16 h-16 bg-[#6db33f]/10 rounded-full flex items-center justify-center">
-                  <ShieldCheck className="w-8 h-8 text-[#6db33f]" />
-                </div>
-                <h4 className="font-bold text-lg uppercase tracking-tight">100% Secure Payment</h4>
-                <p className="text-sm text-gray-500 max-w-xs">Secure checkout process with M-PESA, Visa, Mastercard, and Airtel Money support.</p>
-              </div>
-              <div className="flex flex-col items-center text-center space-y-4 p-6 rounded-2xl hover:bg-gray-50 transition-colors">
-                <div className="w-16 h-16 bg-[#6db33f]/10 rounded-full flex items-center justify-center">
-                  <Heart className="w-8 h-8 text-[#6db33f]" />
-                </div>
-                <h4 className="font-bold text-lg uppercase tracking-tight">Freshness Guaranteed</h4>
-                <p className="text-sm text-gray-500 max-w-xs">We source our blooms daily from the best growers in Kenya to ensure maximum vase life.</p>
-              </div>
             </div>
           </div>
         </section>
