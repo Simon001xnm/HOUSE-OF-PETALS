@@ -1,70 +1,100 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-banner",
-      "description": "Main e-commerce hero banner with floral arrangement",
-      "imageUrl": "https://picsum.photos/seed/gf1/1200/500",
-      "imageHint": "flower banner"
+      "id": "hp-hero-main",
+      "description": "Large signature bouquet for hero section",
+      "imageUrl": "https://picsum.photos/seed/hp-hero/800/800",
+      "imageHint": "luxury bouquet"
     },
     {
-      "id": "cat-anniversary",
-      "description": "Anniversary flowers circle category",
-      "imageUrl": "https://picsum.photos/seed/gf2/300/300",
-      "imageHint": "anniversary bouquet"
+      "id": "hp-hero-1",
+      "description": "Hero grid product 1",
+      "imageUrl": "https://picsum.photos/seed/hp-h1/400/400",
+      "imageHint": "roses combo"
+    },
+    {
+      "id": "hp-hero-2",
+      "description": "Hero grid product 2",
+      "imageUrl": "https://picsum.photos/seed/hp-h2/400/400",
+      "imageHint": "flower chocolates"
+    },
+    {
+      "id": "hp-hero-3",
+      "description": "Hero grid product 3",
+      "imageUrl": "https://picsum.photos/seed/hp-h3/400/400",
+      "imageHint": "blooming flowers"
+    },
+    {
+      "id": "hp-hero-4",
+      "description": "Hero grid product 4",
+      "imageUrl": "https://picsum.photos/seed/hp-h4/400/400",
+      "imageHint": "heart box"
     },
     {
       "id": "cat-birthday",
-      "description": "Birthday cake and flowers",
-      "imageUrl": "https://picsum.photos/seed/gf3/300/300",
-      "imageHint": "birthday cake"
-    },
-    {
-      "id": "cat-love",
-      "description": "Love and romance red roses",
-      "imageUrl": "https://picsum.photos/seed/gf4/300/300",
-      "imageHint": "red roses"
+      "description": "Birthday flowers category",
+      "imageUrl": "https://picsum.photos/seed/hp-c1/300/300",
+      "imageHint": "birthday cake flowers"
     },
     {
       "id": "cat-flowers",
-      "description": "Mixed flower bouquets",
-      "imageUrl": "https://picsum.photos/seed/gf5/300/300",
+      "description": "All flowers category",
+      "imageUrl": "https://picsum.photos/seed/hp-c2/300/300",
       "imageHint": "mixed flowers"
     },
     {
+      "id": "cat-combos",
+      "description": "Combos category",
+      "imageUrl": "https://picsum.photos/seed/hp-c3/300/300",
+      "imageHint": "flower gift"
+    },
+    {
+      "id": "cat-anniversary",
+      "description": "Anniversary flowers category",
+      "imageUrl": "https://picsum.photos/seed/hp-c4/300/300",
+      "imageHint": "anniversary bouquet"
+    },
+    {
       "id": "cat-cakes",
-      "description": "Delicious chocolate cake",
-      "imageUrl": "https://picsum.photos/seed/gf6/300/300",
+      "description": "Cakes category",
+      "imageUrl": "https://picsum.photos/seed/hp-c5/300/300",
       "imageHint": "chocolate cake"
     },
     {
-      "id": "cat-personalized",
-      "description": "Personalized gift mug or pillow",
-      "imageUrl": "https://picsum.photos/seed/gf7/300/300",
-      "imageHint": "gift box"
+      "id": "cat-hampers",
+      "description": "Hampers category",
+      "imageUrl": "https://picsum.photos/seed/hp-c6/300/300",
+      "imageHint": "gift basket"
     },
     {
-      "id": "prod-roses",
-      "description": "Classic Red Roses",
-      "imageUrl": "https://picsum.photos/seed/gf8/400/400",
-      "imageHint": "red roses"
+      "id": "cat-chocolates",
+      "description": "Chocolates category",
+      "imageUrl": "https://picsum.photos/seed/hp-c7/300/300",
+      "imageHint": "chocolate box"
     },
     {
-      "id": "prod-cake",
-      "description": "Signature Black Forest Cake",
-      "imageUrl": "https://picsum.photos/seed/gf9/400/400",
-      "imageHint": "black forest cake"
+      "id": "cat-drinks",
+      "description": "Drinks category",
+      "imageUrl": "https://picsum.photos/seed/hp-c8/300/300",
+      "imageHint": "wine bottle"
     },
     {
-      "id": "prod-orchid",
-      "description": "Elegant Orchid Plant",
-      "imageUrl": "https://picsum.photos/seed/gf10/400/400",
-      "imageHint": "orchid plant"
+      "id": "banner-flowers",
+      "description": "All Flowers banner",
+      "imageUrl": "https://picsum.photos/seed/hp-b1/800/600",
+      "imageHint": "red roses banner"
     },
     {
-      "id": "prod-basket",
-      "description": "Fruit and Wine Gift Basket",
-      "imageUrl": "https://picsum.photos/seed/gf11/400/400",
-      "imageHint": "fruit basket"
+      "id": "banner-birthday",
+      "description": "Birthday Flowers banner",
+      "imageUrl": "https://picsum.photos/seed/hp-b2/800/600",
+      "imageHint": "birthday celebration"
+    },
+    {
+      "id": "banner-romance",
+      "description": "Romantic Flowers banner",
+      "imageUrl": "https://picsum.photos/seed/hp-b3/800/600",
+      "imageHint": "love romance"
     }
   ]
 }
