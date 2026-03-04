@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Image from 'next/image';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -10,7 +11,9 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Star, Truck, ShieldCheck, Heart, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-export default function ProductDetail({ params }: { params: { id: string } }) {
+export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = use(params);
+  const id = resolvedParams.id;
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const { toast } = useToast();
@@ -18,9 +21,9 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
   const fallbackImage = 'https://picsum.photos/seed/fallback/600/600';
 
   const product = {
-    id: params.id,
-    name: params.id === '1' ? 'Crimson Velvet Roses' : 'House of Petals Signature Collection',
-    price: params.id === '1' ? 6500 : 3500,
+    id: id,
+    name: id === '1' ? 'Crimson Velvet Roses' : 'House of Petals Signature Collection',
+    price: id === '1' ? 6500 : 3500,
     category: 'Premium Bouquets',
     rating: 4.9,
     reviews: 124,
