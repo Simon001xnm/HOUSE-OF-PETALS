@@ -9,8 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useCart, type CartItem } from '@/hooks/use-cart';
-import { ShieldCheck, Truck, ChevronRight, Smartphone, CreditCard, MessageCircle } from 'lucide-react';
-import Image from 'next/image';
+import { ShieldCheck, Truck, ChevronRight, Smartphone, MessageCircle } from 'lucide-react';
 
 export default function CheckoutPage() {
   const { cart, subtotal } = useCart();
@@ -31,7 +30,7 @@ export default function CheckoutPage() {
   const handleWhatsAppCheckout = () => {
     const whatsappNumber = "254704524070";
     const itemsList = cart.map((item: CartItem) => `- ${item.name} (${item.quantity})`).join('\n');
-    const totalAmount = (subtotal * 100).toLocaleString();
+    const totalAmount = (subtotal).toLocaleString();
     
     const message = encodeURIComponent(
       `*New Order from House of Petals*\n\n` +
@@ -128,13 +127,13 @@ export default function CheckoutPage() {
                     )}
 
                     <Button 
-                      onClick={paymentMethod === 'whatsapp' ? handleWhatsAppCheckout : undefined}
+                      onClick={paymentMethod === 'whatsapp' ? handleWhatsAppCheckout : () => handleWhatsAppCheckout()}
                       className="w-full h-16 bg-[#6db33f] hover:bg-[#5a9b34] text-white rounded-none font-bold uppercase tracking-[0.2em] shadow-lg flex items-center justify-center gap-2"
                     >
                       {paymentMethod === 'whatsapp' ? (
                         <>Complete Order via WhatsApp <MessageCircle className="w-5 h-5" /></>
                       ) : (
-                        'Complete Order'
+                        'Complete Order & Notify via WhatsApp'
                       )}
                     </Button>
                     <button onClick={() => setStep(1)} className="text-xs text-muted-foreground hover:text-[#be1e2d] transition-colors w-full text-center uppercase tracking-widest">
@@ -151,7 +150,7 @@ export default function CheckoutPage() {
                 <div className="space-y-4">
                   <div className="flex justify-between text-sm tracking-wide">
                     <span className="text-muted-foreground uppercase text-xs">Subtotal</span>
-                    <span className="font-medium">KES {(subtotal * 100).toLocaleString()}</span>
+                    <span className="font-medium">KES {(subtotal).toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-sm tracking-wide">
                     <span className="text-muted-foreground uppercase text-xs">Delivery Fee</span>
@@ -159,7 +158,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="flex justify-between text-xl font-headline pt-4 border-t border-gray-200">
                     <span>Total</span>
-                    <span className="text-[#6db33f]">KES {(subtotal * 100).toLocaleString()}</span>
+                    <span className="text-[#6db33f]">KES {(subtotal).toLocaleString()}</span>
                   </div>
                 </div>
                 
@@ -170,12 +169,6 @@ export default function CheckoutPage() {
                   <div className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-muted-foreground">
                     <Truck className="w-4 h-4 text-[#6db33f]" /> Professional Hand-Delivery
                   </div>
-                </div>
-
-                <div className="pt-4 flex gap-2 opacity-50 grayscale justify-center">
-                  <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                  <div className="w-10 h-6 bg-gray-200 rounded"></div>
-                  <div className="w-10 h-6 bg-gray-200 rounded"></div>
                 </div>
               </div>
             </aside>
