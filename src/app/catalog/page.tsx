@@ -19,7 +19,8 @@ export const ALL_PRODUCTS = [
   { id: '4', name: 'Pinky white carnation', price: 3000, image: 'pinky-white-carnation', category: 'Flowers' },
   { id: '5', name: 'Chrysanthemums mix', price: 5000, image: 'chrysanthemums-mix', category: 'Flowers' },
   { id: '6', name: 'Sunkissed combo boquet', price: 7900, image: 'sunkissed-combo-boquet', category: 'Flowers' },
-  { id: '7', name: 'Sweet pink', price: 3500, image: 'sweet-pink', category: 'Flowers' }
+  { id: '7', name: 'Sweet pink', price: 3500, image: 'sweet-pink', category: 'Flowers' },
+  { id: '8', name: 'All white box boquet', price: 4500, image: 'all-white-box-boquet', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
@@ -110,7 +111,7 @@ export default function Catalog() {
                   <div key={product.id} className="group relative bg-white border border-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition-all">
                     <div className="block overflow-hidden relative aspect-square">
                       <Image 
-                        src={img?.imageUrl || fallbackImage}
+                        src={img?.imageUrl || fallbackImage} 
                         alt={product.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
