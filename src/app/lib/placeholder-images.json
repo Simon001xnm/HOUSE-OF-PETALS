@@ -18,6 +18,12 @@
       "description": "Heart arrangement",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.05.38 PM.jpeg",
       "imageHint": "heart flowers"
+    },
+    {
+      "id": "pinky-white-carnation",
+      "description": "Pinky white carnation",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.06.47 PM.jpeg",
+      "imageHint": "carnation flowers"
     }
   ]
 }

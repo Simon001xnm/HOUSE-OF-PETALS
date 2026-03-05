@@ -14,7 +14,8 @@ import { useToast } from '@/hooks/use-toast';
 const FEATURED_PRODUCTS = [
   { id: '1', name: 'Deluxe pink boquet', price: 'KSh 4,500', image: 'deluxe-pink-bouquet' },
   { id: '2', name: 'Forever yours', price: 'KSh 4,000', image: 'forever-yours' },
-  { id: '3', name: 'Heart arrangement', price: 'KSh 5,700', image: 'heart-arrangement' }
+  { id: '3', name: 'Heart arrangement', price: 'KSh 5,700', image: 'heart-arrangement' },
+  { id: '4', name: 'Pinky white carnation', price: 'KSh 3,000', image: 'pinky-white-carnation' }
 ];
 
 export default function Home() {
