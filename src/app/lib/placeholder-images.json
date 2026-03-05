@@ -1,100 +1,10 @@
 {
   "placeholderImages": [
     {
-      "id": "hp-hero-main",
-      "description": "Main Signature Bouquet",
-      "imageUrl": "/ed.jpeg",
-      "imageHint": "luxury bouquet"
-    },
-    {
-      "id": "hp-hero-1",
-      "description": "Product Hero 1",
-      "imageUrl": "/ep.jpeg",
-      "imageHint": "roses combo"
-    },
-    {
-      "id": "hp-hero-2",
-      "description": "Product Hero 2",
-      "imageUrl": "/fg.jpeg",
-      "imageHint": "flower chocolates"
-    },
-    {
-      "id": "hp-hero-3",
-      "description": "Product Hero 3",
-      "imageUrl": "/fr.jpeg",
-      "imageHint": "blooming flowers"
-    },
-    {
-      "id": "hp-hero-4",
-      "description": "Product Hero 4",
-      "imageUrl": "/io.jpeg",
-      "imageHint": "heart box"
-    },
-    {
-      "id": "cat-birthday",
-      "description": "Birthday Flowers",
-      "imageUrl": "/jr.jpeg",
-      "imageHint": "birthday bouquet"
-    },
-    {
-      "id": "cat-flowers",
-      "description": "All Flowers",
-      "imageUrl": "/ml.jpeg",
-      "imageHint": "mixed flowers"
-    },
-    {
-      "id": "cat-combos",
-      "description": "Gift Combos",
-      "imageUrl": "/qw.jpeg",
-      "imageHint": "flower gift"
-    },
-    {
-      "id": "cat-anniversary",
-      "description": "Anniversary Flowers",
-      "imageUrl": "/vn.jpeg",
-      "imageHint": "anniversary bouquet"
-    },
-    {
-      "id": "cat-cakes",
-      "description": "Cakes",
-      "imageUrl": "/cf.jpeg",
-      "imageHint": "chocolate cake"
-    },
-    {
-      "id": "cat-hampers",
-      "description": "Gift Hampers",
-      "imageUrl": "/ep.jpeg",
-      "imageHint": "gift basket"
-    },
-    {
-      "id": "cat-chocolates",
-      "description": "Luxury Chocolates",
-      "imageUrl": "/fg.jpeg",
-      "imageHint": "chocolate box"
-    },
-    {
-      "id": "cat-drinks",
-      "description": "Premium Drinks",
-      "imageUrl": "/fr.jpeg",
-      "imageHint": "wine bottle"
-    },
-    {
-      "id": "banner-flowers",
-      "description": "Banner Flowers",
-      "imageUrl": "/ml.jpeg",
-      "imageHint": "red roses banner"
-    },
-    {
-      "id": "banner-birthday",
-      "description": "Banner Birthday",
-      "imageUrl": "/jr.jpeg",
-      "imageHint": "birthday celebration"
-    },
-    {
-      "id": "banner-romance",
-      "description": "Banner Romance",
-      "imageUrl": "/vn.jpeg",
-      "imageHint": "love romance"
+      "id": "deluxe-pink-bouquet",
+      "description": "Deluxe pink boquet",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg",
+      "imageHint": "pink bouquet"
     }
   ]
 }

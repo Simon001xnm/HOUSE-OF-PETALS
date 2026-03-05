@@ -12,14 +12,7 @@ import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
 
 const ALL_PRODUCTS = [
-  { id: '1', name: 'Crimson Velvet Roses', price: 7300, image: 'hp-hero-1', category: 'Flowers' },
-  { id: '2', name: 'Emerald Fern Arrangement', price: 6000, image: 'hp-hero-2', category: 'Plants' },
-  { id: '3', name: 'Midnight Orchid Combo', price: 5200, image: 'hp-hero-3', category: 'Flowers' },
-  { id: '4', name: 'Luxury Heart Box', price: 9800, image: 'hp-hero-4', category: 'Gifts' },
-  { id: '5', name: 'Birthday Celebration Bloom', price: 4500, image: 'cat-birthday', category: 'Flowers' },
-  { id: '6', name: 'Mixed Signature Bouquet', price: 3300, image: 'cat-flowers', category: 'Flowers' },
-  { id: '7', name: 'Dark Chocolate & Roses', price: 7400, image: 'cat-chocolates', category: 'Gifts' },
-  { id: '8', name: 'Anniversary Special', price: 8500, image: 'cat-anniversary', category: 'Flowers' }
+  { id: '1', name: 'Deluxe pink boquet', price: 4500, image: 'deluxe-pink-bouquet', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
@@ -33,7 +26,7 @@ export default function Catalog() {
     ? ALL_PRODUCTS 
     : ALL_PRODUCTS.filter(p => p.category === activeCategory);
 
-  const fallbackImage = '/ed.jpeg';
+  const fallbackImage = '/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg';
 
   const handleAddToCart = (product: any) => {
     const img = PlaceHolderImages.find(i => i.id === product.image) || PlaceHolderImages[0];

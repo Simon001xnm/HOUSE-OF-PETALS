@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from 'react';
@@ -7,8 +6,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Star, Truck, ShieldCheck, Heart, Minus, Plus, ShoppingBag } from 'lucide-react';
+import { Star, Truck, ShieldCheck, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
@@ -18,40 +16,30 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   const { addToCart } = useCart();
   const { toast } = useToast();
 
-  const fallbackImage = 'https://picsum.photos/seed/fallback/600/600';
-
-  // Find a relevant image from the library based on the product ID or use a default
-  const getProductImage = () => {
-    const images = ['hp-hero-1', 'hp-hero-2', 'hp-hero-3', 'hp-hero-4', 'cat-birthday', 'cat-flowers'];
-    const index = parseInt(id) % images.length || 0;
-    const imgId = images[index];
-    return PlaceHolderImages.find(i => i.id === imgId) || PlaceHolderImages[0];
-  };
+  const fallbackImage = '/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg';
 
   const product = {
-    id: id,
-    name: id === '1' ? 'Crimson Velvet Roses' : 'House of Petals Signature Collection',
-    price: id === '1' ? 7300 : 6500,
+    id: '1',
+    name: 'Deluxe pink boquet',
+    price: 4500,
     category: 'Premium Flowers',
-    rating: 4.9,
-    reviews: 124,
-    description: "An opulent arrangement from House of Petals, featuring premium hand-selected blooms, meticulously tied and wrapped in our signature packaging. Designed to evoke timeless luxury and passion.",
+    rating: 5.0,
+    reviews: 1,
+    description: "An opulent arrangement from House of Petals, featuring premium hand-selected pink blooms, meticulously tied and wrapped in our signature packaging. Designed to evoke timeless luxury and elegance.",
     features: [
-      "Premium Long-Stem Flowers",
-      "Sustainably Sourced Luxury Blooms",
+      "Premium Pink Blooms",
+      "Sustainably Sourced",
       "Signature House of Petals Wrapping",
       "Hand-written note card included"
     ]
   };
-
-  const img = getProductImage();
 
   const handleAddToCart = () => {
     addToCart({
       id: product.id,
       name: product.name,
       price: product.price,
-      image: img?.imageUrl || fallbackImage
+      image: fallbackImage
     });
     toast({
       title: "Added to Cart",
@@ -68,22 +56,12 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
           <div className="space-y-6">
             <div className="aspect-square relative bg-gray-50 overflow-hidden border border-gray-100 rounded-xl">
               <Image 
-                src={img?.imageUrl || fallbackImage}
+                src={fallbackImage}
                 alt={product.name}
                 fill
                 className="object-cover"
                 priority
               />
-            </div>
-            <div className="grid grid-cols-4 gap-4">
-              {['hp-hero-1', 'hp-hero-2', 'hp-hero-3', 'hp-hero-4'].map(imgId => {
-                const thumbImg = PlaceHolderImages.find(i => i.id === imgId);
-                return (
-                  <div key={imgId} className="aspect-square relative bg-gray-50 border border-gray-100 rounded-lg opacity-60 hover:opacity-100 transition-opacity cursor-pointer overflow-hidden">
-                    <Image src={thumbImg?.imageUrl || fallbackImage} alt="preview" fill className="object-cover" />
-                  </div>
-                );
-              })}
             </div>
           </div>
 
@@ -95,7 +73,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <div className="flex gap-1">
                   {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
-                <span className="text-sm text-gray-500">({product.reviews} Reviews)</span>
+                <span className="text-sm text-gray-500">({product.reviews} Review)</span>
               </div>
               <p className="text-3xl font-black text-[#be1e2d]">KES {product.price.toLocaleString()}</p>
             </div>
@@ -126,9 +104,6 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 className="flex-1 bg-[#be1e2d] hover:bg-[#a51a27] text-white h-14 rounded-full uppercase tracking-widest font-black text-sm shadow-lg"
               >
                 <ShoppingBag className="mr-2 w-5 h-5" /> Add to Shopping Bag
-              </Button>
-              <Button variant="outline" size="icon" className="h-14 w-14 rounded-full border-gray-200 text-gray-400 hover:text-red-500 hover:border-red-100">
-                <Heart className="w-5 h-5" />
               </Button>
             </div>
 
