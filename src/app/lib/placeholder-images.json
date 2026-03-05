@@ -12,6 +12,12 @@
       "description": "Forever yours",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.03.50 PM.jpeg",
       "imageHint": "roses bouquet"
+    },
+    {
+      "id": "heart-arrangement",
+      "description": "Heart arrangement",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.05.38 PM.jpeg",
+      "imageHint": "heart flowers"
     }
   ]
 }
