@@ -24,6 +24,12 @@
       "description": "Pinky white carnation",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.06.47 PM.jpeg",
       "imageHint": "carnation flowers"
+    },
+    {
+      "id": "chrysanthemums-mix",
+      "description": "Chrysanthemums mix",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.07.49 PM.jpeg",
+      "imageHint": "mixed chrysanthemums"
     }
   ]
 }
