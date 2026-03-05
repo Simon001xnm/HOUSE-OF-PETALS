@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from 'react';
@@ -8,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
 import { Star, Truck, ShieldCheck, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { ALL_PRODUCTS } from '@/app/catalog/page';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);
@@ -16,21 +19,20 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   const { addToCart } = useCart();
   const { toast } = useToast();
 
-  const fallbackImage = '/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg';
+  const productData = ALL_PRODUCTS.find(p => p.id === id) || ALL_PRODUCTS[0];
+  const imgData = PlaceHolderImages.find(i => i.id === productData.image);
+  const fallbackImage = imgData?.imageUrl || '/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg';
 
   const product = {
-    id: '1',
-    name: 'Deluxe pink boquet',
-    price: 4500,
-    category: 'Premium Flowers',
+    ...productData,
     rating: 5.0,
-    reviews: 1,
-    description: "An opulent arrangement from House of Petals, featuring premium hand-selected pink blooms, meticulously tied and wrapped in our signature packaging. Designed to evoke timeless luxury and elegance.",
+    reviews: Math.floor(Math.random() * 10) + 1,
+    description: `A masterfully crafted arrangement from House of Petals. This collection features premium hand-selected blooms, meticulously tied and wrapped in our signature premium packaging. Designed to evoke timeless luxury and elegance in the heart of Nairobi.`,
     features: [
-      "Premium Pink Blooms",
-      "Sustainably Sourced",
+      "Premium Hand-Selected Blooms",
+      "Sustainably Sourced in Kenya",
       "Signature House of Petals Wrapping",
-      "Hand-written note card included"
+      "Complimentary hand-written note card"
     ]
   };
 
@@ -73,7 +75,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <div className="flex gap-1">
                   {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
-                <span className="text-sm text-gray-500">({product.reviews} Review)</span>
+                <span className="text-sm text-gray-500">({product.reviews} Reviews)</span>
               </div>
               <p className="text-3xl font-black text-[#be1e2d]">KES {product.price.toLocaleString()}</p>
             </div>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -11,8 +12,9 @@ import { Filter, ChevronDown, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
 
-const ALL_PRODUCTS = [
-  { id: '1', name: 'Deluxe pink boquet', price: 4500, image: 'deluxe-pink-bouquet', category: 'Flowers' }
+export const ALL_PRODUCTS = [
+  { id: '1', name: 'Deluxe pink boquet', price: 4500, image: 'deluxe-pink-bouquet', category: 'Flowers' },
+  { id: '2', name: 'Forever yours', price: 4000, image: 'forever-yours', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];

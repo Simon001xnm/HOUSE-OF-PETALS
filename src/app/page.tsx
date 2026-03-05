@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from 'next/image';
@@ -10,6 +11,11 @@ import { ShoppingCart, ArrowRight } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
 
+const FEATURED_PRODUCTS = [
+  { id: '1', name: 'Deluxe pink boquet', price: 'KSh 4,500', image: 'deluxe-pink-bouquet' },
+  { id: '2', name: 'Forever yours', price: 'KSh 4,000', image: 'forever-yours' }
+];
+
 export default function Home() {
   const { addToCart } = useCart();
   const { toast } = useToast();
@@ -19,7 +25,7 @@ export default function Home() {
   const handleAddToCart = (product: any) => {
     const imgData = getImg(product.image);
     addToCart({
-      id: product.id || Math.random().toString(36).substr(2, 9),
+      id: product.id,
       name: product.name,
       price: typeof product.price === 'string' ? parseInt(product.price.replace(/[^\d]/g, '')) : product.price,
       image: imgData?.imageUrl || fallbackImage
@@ -29,8 +35,6 @@ export default function Home() {
       description: `${product.name} has been added to your bag.`,
     });
   };
-
-  const mainProduct = { id: 'p1', name: 'Deluxe pink boquet', price: 'KSh 4,500', image: 'deluxe-pink-bouquet' };
 
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
@@ -81,33 +85,38 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="group flex flex-col items-center text-center relative">
-                <div className="relative w-full aspect-square bg-gray-50 mb-5 overflow-hidden border border-gray-100 rounded-sm shadow-sm">
-                  <Image 
-                    src={fallbackImage} 
-                    alt={mainProduct.name} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform"
-                  />
-                  
-                  <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <div 
-                      onClick={() => handleAddToCart(mainProduct)}
-                      className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]"
-                    >
-                      <ShoppingCart className="w-3.5 h-3.5" /> Add To Cart
+              {FEATURED_PRODUCTS.map((product) => {
+                const imgData = getImg(product.image);
+                return (
+                  <div key={product.id} className="group flex flex-col items-center text-center relative">
+                    <div className="relative w-full aspect-square bg-gray-50 mb-5 overflow-hidden border border-gray-100 rounded-sm shadow-sm">
+                      <Image 
+                        src={imgData?.imageUrl || fallbackImage} 
+                        alt={product.name} 
+                        fill 
+                        className="object-cover group-hover:scale-105 transition-transform"
+                      />
+                      
+                      <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div 
+                          onClick={() => handleAddToCart(product)}
+                          className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]"
+                        >
+                          <ShoppingCart className="w-3.5 h-3.5" /> Add To Cart
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-[13px] font-bold text-gray-800 line-clamp-2 mb-2 hover:text-[#be1e2d] transition-colors h-10 flex items-center justify-center px-1">
+                      <Link href={`/products/${product.id}`}>{product.name}</Link>
+                    </h3>
+                    
+                    <div className="flex flex-col items-center gap-0.5">
+                      <span className="text-[#be1e2d] font-black text-sm leading-none">{product.price}</span>
                     </div>
                   </div>
-                </div>
-                
-                <h3 className="text-[13px] font-bold text-gray-800 line-clamp-2 mb-2 hover:text-[#be1e2d] transition-colors h-10 flex items-center justify-center px-1">
-                  <Link href={`/catalog`}>{mainProduct.name}</Link>
-                </h3>
-                
-                <div className="flex flex-col items-center gap-0.5">
-                  <span className="text-[#be1e2d] font-black text-sm leading-none">{mainProduct.price}</span>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>

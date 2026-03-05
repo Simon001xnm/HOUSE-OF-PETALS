@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -5,6 +6,12 @@
       "description": "Deluxe pink boquet",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg",
       "imageHint": "pink bouquet"
+    },
+    {
+      "id": "forever-yours",
+      "description": "Forever yours",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.03.50 PM.jpeg",
+      "imageHint": "roses bouquet"
     }
   ]
 }
