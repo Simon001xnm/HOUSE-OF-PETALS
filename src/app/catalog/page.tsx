@@ -21,7 +21,8 @@ export const ALL_PRODUCTS = [
   { id: '6', name: 'Sunkissed combo boquet', price: 7900, image: 'sunkissed-combo-boquet', category: 'Flowers' },
   { id: '7', name: 'Sweet pink', price: 3500, image: 'sweet-pink', category: 'Flowers' },
   { id: '8', name: 'All white box boquet', price: 4500, image: 'all-white-box-boquet', category: 'Flowers' },
-  { id: '9', name: 'Floral basket arrangement', price: 4800, image: 'floral-basket-arrangement', category: 'Flowers' }
+  { id: '9', name: 'Floral basket arrangement', price: 4800, image: 'floral-basket-arrangement', category: 'Flowers' },
+  { id: '10', name: 'Velvet touch', price: 9500, image: 'velvet-touch', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];

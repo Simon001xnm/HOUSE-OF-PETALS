@@ -12,10 +12,10 @@ import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
 
 const FEATURED_PRODUCTS = [
-  { id: '1', name: 'Deluxe pink boquet', price: 'KSh 4,500', image: 'deluxe-pink-bouquet' },
-  { id: '3', name: 'Heart arrangement', price: 'KSh 5,700', image: 'heart-arrangement' },
+  { id: '10', name: 'Velvet touch', price: 'KSh 9,500', image: 'velvet-touch' },
   { id: '6', name: 'Sunkissed combo boquet', price: 'KSh 7,900', image: 'sunkissed-combo-boquet' },
-  { id: '8', name: 'All white box boquet', price: 'KSh 4,500', image: 'all-white-box-boquet' }
+  { id: '3', name: 'Heart arrangement', price: 'KSh 5,700', image: 'heart-arrangement' },
+  { id: '1', name: 'Deluxe pink boquet', price: 'KSh 4,500', image: 'deluxe-pink-bouquet' }
 ];
 
 export default function Home() {

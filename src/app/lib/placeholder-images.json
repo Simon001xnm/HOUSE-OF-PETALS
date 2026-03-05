@@ -54,6 +54,12 @@
       "description": "Floral basket arrangement",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.20.22 PM.jpeg",
       "imageHint": "floral basket"
+    },
+    {
+      "id": "velvet-touch",
+      "description": "Velvet touch",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.22.45 PM.jpeg",
+      "imageHint": "velvet flowers"
     }
   ]
 }
