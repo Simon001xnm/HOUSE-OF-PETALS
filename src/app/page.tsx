@@ -14,8 +14,8 @@ import { useToast } from '@/hooks/use-toast';
 const FEATURED_PRODUCTS = [
   { id: '1', name: 'Deluxe pink boquet', price: 'KSh 4,500', image: 'deluxe-pink-bouquet' },
   { id: '3', name: 'Heart arrangement', price: 'KSh 5,700', image: 'heart-arrangement' },
-  { id: '5', name: 'Chrysanthemums mix', price: 'KSh 5,000', image: 'chrysanthemums-mix' },
-  { id: '6', name: 'Sunkissed combo boquet', price: 'KSh 7,900', image: 'sunkissed-combo-boquet' }
+  { id: '6', name: 'Sunkissed combo boquet', price: 'KSh 7,900', image: 'sunkissed-combo-boquet' },
+  { id: '7', name: 'Sweet pink', price: 'KSh 3,500', image: 'sweet-pink' }
 ];
 
 export default function Home() {
