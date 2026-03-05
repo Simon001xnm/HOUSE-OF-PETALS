@@ -48,6 +48,12 @@
       "description": "All white box boquet",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.18.54 PM.jpeg",
       "imageHint": "white bouquet"
+    },
+    {
+      "id": "floral-basket-arrangement",
+      "description": "Floral basket arrangement",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.20.22 PM.jpeg",
+      "imageHint": "floral basket"
     }
   ]
 }
