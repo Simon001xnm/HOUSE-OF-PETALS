@@ -120,6 +120,12 @@
       "description": "Blooming lillies",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.40.37 PM.jpeg",
       "imageHint": "blooming lilies"
+    },
+    {
+      "id": "mixed-carnations-chocolate",
+      "description": "Mixed carnations and chocolate",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.42.14 PM.jpeg",
+      "imageHint": "carnations chocolate"
     }
   ]
 }
