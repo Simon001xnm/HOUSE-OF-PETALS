@@ -48,7 +48,8 @@ export const ALL_PRODUCTS = [
   { id: '33', name: 'Sweet charm', price: 1500, image: 'sweet-charm', category: 'Flowers' },
   { id: '34', name: 'Standard charm boquet', price: 1500, image: 'standard-charm-boquet', category: 'Flowers' },
   { id: '35', name: 'Delight bouquet', price: 2500, image: 'delight-bouquet', category: 'Flowers' },
-  { id: '36', name: 'Premium round box package', price: 6000, image: 'premium-round-box-package', category: 'Flowers' }
+  { id: '36', name: 'Premium round box package', price: 6000, image: 'premium-round-box-package', category: 'Flowers' },
+  { id: '37', name: 'Premium box package and lindth chocolate combo', price: 8000, image: 'premium-box-lindt-combo', category: 'Gifts' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
