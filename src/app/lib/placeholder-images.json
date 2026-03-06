@@ -222,6 +222,12 @@
       "description": "Premium box package and lindth chocolate combo",
       "imageUrl": "/WhatsApp Image 2026-03-05 at 2.25.01 PM.jpeg",
       "imageHint": "gift box chocolate"
+    },
+    {
+      "id": "heart-box-lindt-combo",
+      "description": "Heart box boquet and lindt chocolate combo",
+      "imageUrl": "/WhatsApp Image 2026-03-05 at 2.27.04 PM.jpeg",
+      "imageHint": "heart bouquet chocolate"
     }
   ]
 }
