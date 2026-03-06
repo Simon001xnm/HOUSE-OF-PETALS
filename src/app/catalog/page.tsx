@@ -35,7 +35,8 @@ export const ALL_PRODUCTS = [
   { id: '20', name: 'Blooming lillies', price: 9500, image: 'blooming-lillies', category: 'Flowers' },
   { id: '21', name: 'Mixed carnations and chocolate', price: 4000, image: 'mixed-carnations-chocolate', category: 'Gifts' },
   { id: '22', name: 'Bloomy touch', price: 2100, image: 'bloomy-touch', category: 'Flowers' },
-  { id: '23', name: 'Astrorose and chocolate combo', price: 5200, image: 'astrorose-chocolate-combo', category: 'Gifts' }
+  { id: '23', name: 'Astrorose and chocolate combo', price: 5200, image: 'astrorose-chocolate-combo', category: 'Gifts' },
+  { id: '24', name: 'Premium basket arrangement', price: 6700, image: 'premium-basket-arrangement', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
