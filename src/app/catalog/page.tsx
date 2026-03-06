@@ -26,7 +26,8 @@ export const ALL_PRODUCTS = [
   { id: '11', name: 'Standard mixed boquet', price: 4600, image: 'standard-mixed-boquet', category: 'Flowers' },
   { id: '12', name: 'Sunkissed vase roses', price: 7500, image: 'sunkissed-vase-roses', category: 'Flowers' },
   { id: '13', name: 'Prime hand boquet', price: 4500, image: 'prime-hand-boquet', category: 'Flowers' },
-  { id: '14', name: 'Savage love boquet', price: 2700, image: 'savage-love-boquet', category: 'Flowers' }
+  { id: '14', name: 'Savage love boquet', price: 2700, image: 'savage-love-boquet', category: 'Flowers' },
+  { id: '15', name: 'Red and white mix', price: 3800, image: 'red-and-white-mix', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
