@@ -46,7 +46,8 @@ export const ALL_PRODUCTS = [
   { id: '31', name: 'Sassy white', price: 27000, image: 'sassy-white', category: 'Flowers' },
   { id: '32', name: 'Rose and chrysanthemums mix', price: 3800, image: 'rose-chrysanthemums-mix', category: 'Flowers' },
   { id: '33', name: 'Sweet charm', price: 1500, image: 'sweet-charm', category: 'Flowers' },
-  { id: '34', name: 'Standard charm boquet', price: 1500, image: 'standard-charm-boquet', category: 'Flowers' }
+  { id: '34', name: 'Standard charm boquet', price: 1500, image: 'standard-charm-boquet', category: 'Flowers' },
+  { id: '35', name: 'Delight bouquet', price: 2500, image: 'delight-bouquet', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
