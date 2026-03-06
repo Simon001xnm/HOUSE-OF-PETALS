@@ -198,6 +198,12 @@
       "description": "Sweet charm",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 8.07.39 PM.jpeg",
       "imageHint": "sweet charm"
+    },
+    {
+      "id": "standard-charm-boquet",
+      "description": "Standard charm boquet",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 8.07.39 PM.jpeg",
+      "imageHint": "standard charm"
     }
   ]
 }
