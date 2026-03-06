@@ -108,6 +108,12 @@
       "description": "Luxury fruit basket",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.37.54 PM.jpeg",
       "imageHint": "fruit basket"
+    },
+    {
+      "id": "sunkissed",
+      "description": "Sunkissed",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.39.38 PM.jpeg",
+      "imageHint": "sunkissed flowers"
     }
   ]
 }
