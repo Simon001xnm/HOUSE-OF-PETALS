@@ -180,6 +180,12 @@
       "description": "Red charm",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 8.00.26 PM.jpeg",
       "imageHint": "red roses"
+    },
+    {
+      "id": "sassy-white",
+      "description": "Sassy white",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 8.02.21 PM.jpeg",
+      "imageHint": "white flowers"
     }
   ]
 }
