@@ -192,6 +192,12 @@
       "description": "Rose and chrysanthemums mix",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 8.05.28 PM.jpeg",
       "imageHint": "mixed flowers"
+    },
+    {
+      "id": "sweet-charm",
+      "description": "Sweet charm",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 8.07.39 PM.jpeg",
+      "imageHint": "sweet charm"
     }
   ]
 }
