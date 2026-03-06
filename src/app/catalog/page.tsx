@@ -39,7 +39,8 @@ export const ALL_PRODUCTS = [
   { id: '24', name: 'Premium basket arrangement', price: 6700, image: 'premium-basket-arrangement', category: 'Flowers' },
   { id: '25', name: 'Royal boquet', price: 4200, image: 'royal-bouquet', category: 'Flowers' },
   { id: '26', name: 'Heart box arrangement', price: 4800, image: 'heart-box-arrangement', category: 'Flowers' },
-  { id: '27', name: 'Standard boquet', price: 1800, image: 'standard-bouquet', category: 'Flowers' }
+  { id: '27', name: 'Standard boquet', price: 1800, image: 'standard-bouquet', category: 'Flowers' },
+  { id: '28', name: 'Classy red', price: 3500, image: 'classy-red', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
