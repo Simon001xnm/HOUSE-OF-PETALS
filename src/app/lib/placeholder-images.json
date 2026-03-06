@@ -96,6 +96,12 @@
       "description": "Standard red boquet",
       "imageUrl": "/WhatsApp Image 2026-03-04 at 7.32.38 PM.jpeg",
       "imageHint": "red bouquet"
+    },
+    {
+      "id": "cherry-bouquet",
+      "description": "Cherry boquet",
+      "imageUrl": "/WhatsApp Image 2026-03-04 at 7.35.55 PM.jpeg",
+      "imageHint": "cherry bouquet"
     }
   ]
 }
