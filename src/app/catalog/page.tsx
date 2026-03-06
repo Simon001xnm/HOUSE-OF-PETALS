@@ -37,7 +37,8 @@ export const ALL_PRODUCTS = [
   { id: '22', name: 'Bloomy touch', price: 2100, image: 'bloomy-touch', category: 'Flowers' },
   { id: '23', name: 'Astrorose and chocolate combo', price: 5200, image: 'astrorose-chocolate-combo', category: 'Gifts' },
   { id: '24', name: 'Premium basket arrangement', price: 6700, image: 'premium-basket-arrangement', category: 'Flowers' },
-  { id: '25', name: 'Royal boquet', price: 4200, image: 'royal-bouquet', category: 'Flowers' }
+  { id: '25', name: 'Royal boquet', price: 4200, image: 'royal-bouquet', category: 'Flowers' },
+  { id: '26', name: 'Heart box arrangement', price: 4800, image: 'heart-box-arrangement', category: 'Flowers' }
 ];
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
