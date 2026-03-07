@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from 'react';
@@ -7,7 +6,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
-import { Star, Truck, ShieldCheck, Minus, Plus, ShoppingBag } from 'lucide-react';
+import { Star, Truck, ShieldCheck, Minus, Plus, ShoppingBag, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { ALL_PRODUCTS } from '@/app/catalog/page';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -37,16 +36,31 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
   };
 
   const handleAddToCart = () => {
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      image: fallbackImage
-    });
+    // Add multiple quantities if selected
+    for (let i = 0; i < quantity; i++) {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: fallbackImage
+      });
+    }
     toast({
       title: "Added to Cart",
-      description: `${product.name} has been added to your shopping bag.`,
+      description: `${quantity} x ${product.name} added to your shopping bag.`,
     });
+  };
+
+  const handleWhatsAppOrder = () => {
+    const whatsappNumber = "254704524070";
+    const message = encodeURIComponent(
+      `*Inquiry from House of Petals Website*\n\n` +
+      `*Product:* ${product.name}\n` +
+      `*Price:* KES ${product.price.toLocaleString()}\n` +
+      `*Quantity:* ${quantity}\n\n` +
+      `I'm interested in this arrangement. Please let me know if it's available for delivery.`
+    );
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 
   return (
@@ -95,7 +109,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
               </ul>
             </div>
 
-            <div className="flex items-center gap-4 mb-10">
+            <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center border-2 border-gray-100 bg-white rounded-full h-14 px-2">
                 <button onClick={() => setQuantity(q => Math.max(1, q-1))} className="p-3 text-gray-500 hover:text-[#be1e2d]"><Minus className="w-4 h-4" /></button>
                 <span className="w-8 text-center font-bold text-[#1e1e24]">{quantity}</span>
@@ -108,6 +122,14 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <ShoppingBag className="mr-2 w-5 h-5" /> Add to Shopping Bag
               </Button>
             </div>
+
+            <Button 
+              onClick={handleWhatsAppOrder}
+              variant="outline"
+              className="w-full border-2 border-[#25d366] text-[#25d366] hover:bg-[#25d366] hover:text-white h-14 rounded-full uppercase tracking-widest font-black text-sm flex items-center justify-center gap-2 mb-10 transition-all"
+            >
+              <MessageCircle className="w-5 h-5" /> Quick WhatsApp Inquiry
+            </Button>
 
             <div className="grid grid-cols-2 gap-4 pt-10 border-t border-gray-100">
               <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">

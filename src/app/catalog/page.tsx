@@ -1,7 +1,7 @@
-
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Navbar } from '@/components/navbar';
@@ -55,10 +55,21 @@ export const ALL_PRODUCTS = [
 
 const CATEGORIES = ['All', 'Flowers', 'Plants', 'Gifts'];
 
-export default function Catalog() {
+function CatalogContent() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
   const [activeCategory, setActiveCategory] = useState('All');
   const { addToCart } = useCart();
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (categoryParam) {
+      const found = CATEGORIES.find(c => c.toLowerCase() === categoryParam.toLowerCase());
+      if (found) {
+        setActiveCategory(found);
+      }
+    }
+  }, [categoryParam]);
 
   const filteredProducts = activeCategory === 'All' 
     ? ALL_PRODUCTS 
@@ -180,5 +191,13 @@ export default function Catalog() {
       
       <Footer />
     </div>
+  );
+}
+
+export default function Catalog() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading Collection...</div>}>
+      <CatalogContent />
+    </Suspense>
   );
 }
