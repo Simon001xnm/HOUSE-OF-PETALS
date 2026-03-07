@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from 'react';
@@ -53,11 +54,15 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
 
   const handleWhatsAppOrder = () => {
     const whatsappNumber = "254704524070";
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+    const productUrl = `${baseUrl}/products/${product.id}`;
+    
     const message = encodeURIComponent(
       `*Inquiry from House of Petals Website*\n\n` +
       `*Product:* ${product.name}\n` +
       `*Price:* KES ${product.price.toLocaleString()}\n` +
-      `*Quantity:* ${quantity}\n\n` +
+      `*Quantity:* ${quantity}\n` +
+      `*Link:* ${productUrl}\n\n` +
       `I'm interested in this arrangement. Please let me know if it's available for delivery.`
     );
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');

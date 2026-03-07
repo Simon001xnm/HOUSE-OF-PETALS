@@ -32,7 +32,12 @@ export default function CheckoutPage() {
     }
 
     const whatsappNumber = "254704524070";
-    const itemsList = cart.map((item: CartItem) => `- ${item.name} (${item.quantity}) @ KES ${item.price.toLocaleString()}`).join('\n');
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+    
+    const itemsList = cart.map((item: CartItem) => 
+      `- ${item.name} (${item.quantity}) @ KES ${item.price.toLocaleString()}\n  Link: ${baseUrl}/products/${item.id}`
+    ).join('\n\n');
+    
     const totalAmount = subtotal.toLocaleString();
     
     const message = encodeURIComponent(
