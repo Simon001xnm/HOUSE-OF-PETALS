@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, use } from 'react';
@@ -9,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
 import { Star, Truck, ShieldCheck, Minus, Plus, ShoppingBag, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { ALL_PRODUCTS } from '@/app/catalog/page';
+import { ALL_PRODUCTS } from '@/lib/products';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
