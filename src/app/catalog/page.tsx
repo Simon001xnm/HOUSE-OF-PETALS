@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, Suspense } from 'react';
@@ -58,7 +59,7 @@ function CatalogContent() {
       <main className="flex-grow container mx-auto px-6 py-12">
         <header className="mb-12">
           <h1 className="text-4xl font-headline mb-4 text-[#1e1e24]">House of Petals Collection</h1>
-          <p className="text-muted-foreground">Exquisite floral arrangements and premium gifts for every occasion in Nairobi.</p>
+          <p className="text-muted-foreground text-sm max-w-2xl">Explore our curated selection of premium Kenyan blooms and luxury gift sets, hand-crafted to celebrate life's most precious moments.</p>
         </header>
 
         <div className="flex flex-col md:flex-row gap-8">
@@ -101,7 +102,7 @@ function CatalogContent() {
             <div className="flex justify-between items-center mb-8 pb-4 border-b border-gray-100">
               <p className="text-sm text-gray-500">{filteredProducts.length} masterpieces found</p>
               <div className="flex items-center gap-2 text-sm font-medium">
-                Sort by: <span className="text-[#be1e2d] cursor-pointer flex items-center gap-1">Default <ChevronDown className="w-4 h-4" /></span>
+                Sort by: <span className="text-[#be1e2d] cursor-pointer flex items-center gap-1 text-xs uppercase tracking-widest font-bold">Default <ChevronDown className="w-4 h-4" /></span>
               </div>
             </div>
 
@@ -109,35 +110,41 @@ function CatalogContent() {
               {filteredProducts.map((product) => {
                 const img = PlaceHolderImages.find(i => i.id === product.image) || PlaceHolderImages[0];
                 return (
-                  <div key={product.id} className="group relative bg-white border border-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition-all">
-                    <div className="block overflow-hidden relative aspect-square">
+                  <div key={product.id} className="group relative bg-white border border-gray-100 rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                    <div className="block overflow-hidden relative aspect-square bg-gray-50">
                       <Image 
                         src={img?.imageUrl || fallbackImage} 
                         alt={product.name}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
                         <Link href={`/products/${product.id}`}>
-                          <Button className="opacity-0 group-hover:opacity-100 bg-[#be1e2d] text-white hover:bg-[#a51a27] transition-all transform translate-y-4 group-hover:translate-y-0 rounded-full px-6 uppercase text-xs tracking-widest font-bold">
+                          <Button className="opacity-0 group-hover:opacity-100 bg-[#be1e2d] text-white hover:bg-[#a51a27] transition-all transform translate-y-4 group-hover:translate-y-0 rounded-full px-8 uppercase text-[10px] tracking-[0.2em] font-black shadow-2xl">
                             View Details
                           </Button>
                         </Link>
                       </div>
                     </div>
-                    <div className="p-4 flex flex-col gap-1">
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#be1e2d] font-bold">{product.category}</span>
-                      <h3 className="text-sm font-bold text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors leading-tight min-h-[2.5rem] line-clamp-2">
+                    <div className="p-5 flex flex-col gap-2">
+                      <div className="flex justify-between items-start">
+                        <span className="text-[9px] uppercase tracking-[0.3em] text-[#be1e2d] font-black">{product.category}</span>
+                        <span className="text-sm font-black text-[#be1e2d]">KES {product.price.toLocaleString()}</span>
+                      </div>
+                      <h3 className="text-[15px] font-bold text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors leading-snug line-clamp-1">
                         <Link href={`/products/${product.id}`}>{product.name}</Link>
                       </h3>
-                      <div className="flex justify-between items-center mt-2">
-                        <span className="text-lg font-extrabold text-[#be1e2d]">KES {product.price.toLocaleString()}</span>
+                      {product.description && (
+                        <p className="text-[11px] text-gray-400 line-clamp-2 italic mb-2 leading-relaxed">
+                          {product.description}
+                        </p>
+                      )}
+                      <div className="flex items-center gap-2 mt-auto">
                         <Button 
                           onClick={() => handleAddToCart(product)}
-                          size="icon" 
-                          className="h-9 w-9 bg-[#be1e2d] hover:bg-[#a51a27] rounded-full"
+                          className="flex-1 bg-[#be1e2d] hover:bg-[#a51a27] text-white rounded-full h-10 uppercase text-[9px] tracking-widest font-black shadow-lg"
                         >
-                          <ShoppingBag className="w-4 h-4 text-white" />
+                          <ShoppingBag className="w-3.5 h-3.5 mr-2" /> Add to Bag
                         </Button>
                       </div>
                     </div>

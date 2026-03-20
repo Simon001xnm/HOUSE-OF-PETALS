@@ -17,6 +17,8 @@ import {
 export function Footer() {
   const whatsappNumber = "254704524070";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+  const tiktokUrl = "https://www.tiktok.com/@houseofpetals254?_r=1&_t=ZS-94q35XLISsT";
+  const instagramUrl = "https://www.instagram.com/houseofpetal254?igsh=MThieWRna2doM2p1eQ%3D%3D";
 
   return (
     <footer className="w-full">
@@ -79,10 +81,10 @@ export function Footer() {
                 ensuring every delivery is an unforgettable experience of beauty and sophistication.
               </p>
               <div className="flex gap-4 pt-2">
-                <Link href="https://www.instagram.com/houseofpetal254?igsh=MThieWRna2doM2p1eQ%3D%3D" target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
+                <Link href={instagramUrl} target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
                   <Instagram className="w-5 h-5" />
                 </Link>
-                <Link href="https://www.tiktok.com/@houseofpetals254?_r=1&_t=ZS-94q35XLISsT" target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
+                <Link href={tiktokUrl} target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
                     <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                   </svg>
