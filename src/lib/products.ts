@@ -56,5 +56,6 @@ export const ALL_PRODUCTS: Product[] = [
   { id: '41', name: 'Rozzy mix', price: 3700, image: 'rozzy-mix', category: 'Flowers', description: "Stunning mixed boquet of yellow, white and purple roses that brighten any occasion with fresh and heartfelt touch" },
   { id: '42', name: 'Pure sweetness', price: 6500, image: 'pure-sweetness', category: 'Gifts', description: "Red roses and baby's breath, accompanied with 8 piece Ferrero Rocher chocolate perfect for expressing deep love and affection." },
   { id: '43', name: 'Just for you', price: 4500, image: 'just-for-you', category: 'Flowers', description: "The boquet combines the delicate charm of astromeria, lilies and vibrant lollipop chrysanthemums, with gentle springs of baby's breath making it thoughtful gift to brighten any occasion." },
-  { id: '44', name: 'Cherry wonder', price: 4200, image: 'cherry-wonder', category: 'Flowers', description: "Cherry wonder comprise of interplay of white orange and lavender hues that create an understandable elegance that conveys warmth and genuine affection." }
+  { id: '44', name: 'Cherry wonder', price: 4200, image: 'cherry-wonder', category: 'Flowers', description: "Cherry wonder comprise of interplay of white orange and lavender hues that create an understandable elegance that conveys warmth and genuine affection." },
+  { id: '45', name: 'Charmy lollipop', price: 4700, image: 'charmy-lollipop', category: 'Flowers', description: "vibrant lollipop chrysanthemums beautifully accented to brighten someone's day" }
 ];

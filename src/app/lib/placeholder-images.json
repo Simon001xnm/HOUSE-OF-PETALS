@@ -264,6 +264,12 @@
       "description": "Cherry wonder",
       "imageUrl": "/Image 2026-03-17 at 1.19.18 PM.jpeg",
       "imageHint": "white orange lavender"
+    },
+    {
+      "id": "charmy-lollipop",
+      "description": "Charmy lollipop",
+      "imageUrl": "/Image 2026-03-17 at 1.23.52 PM.jpeg",
+      "imageHint": "lollipop chrysanthemums"
     }
   ]
 }
