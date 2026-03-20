@@ -258,6 +258,12 @@
       "description": "Just for you",
       "imageUrl": "/Image 2026-03-17 at 1.10.58 PM.jpeg",
       "imageHint": "lilies chrysanthemums bouquet"
+    },
+    {
+      "id": "cherry-wonder",
+      "description": "Cherry wonder",
+      "imageUrl": "/Image 2026-03-17 at 1.19.18 PM.jpeg",
+      "imageHint": "white orange lavender"
     }
   ]
 }
