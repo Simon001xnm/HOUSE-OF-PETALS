@@ -270,6 +270,12 @@
       "description": "Charmy lollipop",
       "imageUrl": "/Image 2026-03-17 at 1.23.52 PM.jpeg",
       "imageHint": "lollipop chrysanthemums"
+    },
+    {
+      "id": "tropical-mix",
+      "description": "Tropical mix",
+      "imageUrl": "/Image 2026-03-17 at 1.28.08 PM.jpeg",
+      "imageHint": "tropical bouquet"
     }
   ]
 }
