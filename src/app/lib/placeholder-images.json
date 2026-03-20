@@ -312,6 +312,12 @@
       "description": "Lindor flat boquet",
       "imageUrl": "/Image 2026-03-17 at 1.54.17 PM.jpeg",
       "imageHint": "roses chocolate bouquet"
+    },
+    {
+      "id": "tropical-bouquet-new",
+      "description": "Tropical boquet",
+      "imageUrl": "/Image 2026-03-17 at 1.58.47 PM.jpeg",
+      "imageHint": "tropical flowers"
     }
   ]
 }
