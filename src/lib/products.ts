@@ -60,5 +60,6 @@ export const ALL_PRODUCTS: Product[] = [
   { id: '45', name: 'Charmy lollipop', price: 4700, image: 'charmy-lollipop', category: 'Flowers', description: "vibrant lollipop chrysanthemums beautifully accented to brighten someone's day" },
   { id: '46', name: 'Tropical mix', price: 5000, image: 'tropical-mix', category: 'Flowers', description: "surprise someone with enchanting boquet of lilies, astromeria, yelling and white chrysanthemums. Make them feel special and valued." },
   { id: '47', name: 'Birthday wish', price: 4000, image: 'birthday-wish', category: 'Gifts', description: "make their Birthday memorable with this enchanting package of red roses bouquet with a touch of baby's breath, cadbury chocolate and a message card." },
-  { id: '48', name: 'Love at home', price: 4500, image: 'love-at-home', category: 'Flowers', description: "50stems of radiant red roses, hand-selected for their beauty and freshness, the boquet speaks volume of affection." }
+  { id: '48', name: 'Love at home', price: 4500, image: 'love-at-home', category: 'Flowers', description: "50stems of radiant red roses, hand-selected for their beauty and freshness, the boquet speaks volume of affection." },
+  { id: '49', name: 'Heart box', price: 4999, image: 'heart-box-red-pink', category: 'Flowers', description: "heart box filled with red and baby pink roses perfect for office buddies" }
 ];

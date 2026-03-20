@@ -288,6 +288,12 @@
       "description": "Love at home",
       "imageUrl": "/Image 2026-03-17 at 1.38.53 PM.jpeg",
       "imageHint": "red roses"
+    },
+    {
+      "id": "heart-box-red-pink",
+      "description": "Heart box",
+      "imageUrl": "/Image 2026-03-17 at 1.42.52 PM.jpeg",
+      "imageHint": "heart box roses"
     }
   ]
 }
