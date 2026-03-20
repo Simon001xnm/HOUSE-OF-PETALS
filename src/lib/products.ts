@@ -43,5 +43,6 @@ export const ALL_PRODUCTS = [
   { id: '37', name: 'Premium box package and lindth chocolate combo', price: 8000, image: 'premium-box-lindt-combo', category: 'Gifts' },
   { id: '38', name: 'Heart box boquet and lindth chocolate combo', price: 6500, image: 'heart-box-lindt-combo', category: 'Gifts' },
   { id: '39', name: 'Lilies and chrysanthemums mix boquet', price: 6000, image: 'lilies-chrysanthemums-mix', category: 'Flowers' },
-  { id: '40', name: 'Pinky white and walker chocolate', price: 4200, image: 'pinky-white-walker-chocolate', category: 'Gifts' }
+  { id: '40', name: 'Pinky white and walker chocolate', price: 4200, image: 'pinky-white-walker-chocolate', category: 'Gifts' },
+  { id: '41', name: 'Rozzy mix', price: 3700, image: 'rozzy-mix', category: 'Flowers' }
 ];

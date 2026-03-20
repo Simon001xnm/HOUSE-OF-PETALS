@@ -240,6 +240,12 @@
       "description": "Pinky white and walker chocolate",
       "imageUrl": "/Image 2026-03-17 at 12.56.48 PM.jpeg",
       "imageHint": "pink white roses"
+    },
+    {
+      "id": "rozzy-mix",
+      "description": "Rozzy mix",
+      "imageUrl": "/Image 2026-03-17 at 1.01.23 PM.jpeg",
+      "imageHint": "mixed roses"
     }
   ]
 }
