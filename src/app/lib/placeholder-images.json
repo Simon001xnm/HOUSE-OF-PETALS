@@ -306,6 +306,12 @@
       "description": "Lush boquet",
       "imageUrl": "/Image 2026-03-17 at 1.50.14 PM.jpeg",
       "imageHint": "lush standard bouquet"
+    },
+    {
+      "id": "lindor-flat-bouquet",
+      "description": "Lindor flat boquet",
+      "imageUrl": "/Image 2026-03-17 at 1.54.17 PM.jpeg",
+      "imageHint": "roses chocolate bouquet"
     }
   ]
 }

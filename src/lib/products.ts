@@ -63,5 +63,6 @@ export const ALL_PRODUCTS: Product[] = [
   { id: '48', name: 'Love at home', price: 4500, image: 'love-at-home', category: 'Flowers', description: "50stems of radiant red roses, hand-selected for their beauty and freshness, the boquet speaks volume of affection." },
   { id: '49', name: 'Heart box', price: 4999, image: 'heart-box-red-pink', category: 'Flowers', description: "heart box filled with red and baby pink roses perfect for office buddies" },
   { id: '50', name: 'Sunkissed boquet', price: 3700, image: 'sunkissed-bouquet-new', category: 'Flowers', description: "white and yellow roses with touch of gypsum perfect for brightening up someone's day" },
-  { id: '51', name: 'Lush boquet', price: 2500, image: 'lush-bouquet', category: 'Flowers', description: "lush is standard bouquet enchanted with pink, white and red roses perfect for any special occasion" }
+  { id: '51', name: 'Lush boquet', price: 2500, image: 'lush-bouquet', category: 'Flowers', description: "lush is standard bouquet enchanted with pink, white and red roses perfect for any special occasion" },
+  { id: '52', name: 'Lindor flat boquet', price: 6000, image: 'lindor-flat-bouquet', category: 'Gifts', description: "lindor flat boquet is a mix of roses and tropicals accompanied with lindt chocolate . The boquet conveys warmth and genuine affection" }
 ];
