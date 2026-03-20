@@ -3,7 +3,16 @@
  * @fileOverview Centralized product data for House of Petals.
  */
 
-export const ALL_PRODUCTS = [
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  category: string;
+  description?: string;
+}
+
+export const ALL_PRODUCTS: Product[] = [
   { id: '1', name: 'Deluxe pink boquet', price: 4500, image: 'deluxe-pink-bouquet', category: 'Flowers' },
   { id: '2', name: 'Forever yours', price: 4000, image: 'forever-yours', category: 'Flowers' },
   { id: '3', name: 'Heart arrangement', price: 5700, image: 'heart-arrangement', category: 'Flowers' },
@@ -35,15 +44,16 @@ export const ALL_PRODUCTS = [
   { id: '29', name: 'Spray roses charm', price: 4700, image: 'spray-roses-charm', category: 'Flowers' },
   { id: '30', name: 'Red charm', price: 5200, image: 'red-charm', category: 'Flowers' },
   { id: '31', name: 'Sassy white', price: 27000, image: 'sassy-white', category: 'Flowers' },
-  { id: '32', name: 'Rose and chrysanthemums mix', price: 3800, image: 'rose-chrysanthemums-mix', category: 'Flowers' },
+  { id: '32', name: 'Rose and chrysanthemums mix', price: 3800, image: 'rose-chrysanthemums-mix', category: 'Flowers', description: "Stunning mixed boquet of yellow, white and purple roses that brighten any occasion with fresh and heartfelt touch" },
   { id: '33', name: 'Sweet charm', price: 1500, image: 'sweet-charm', category: 'Flowers' },
   { id: '34', name: 'Standard charm boquet', price: 1500, image: 'standard-charm-boquet', category: 'Flowers' },
   { id: '35', name: 'Delight bouquet', price: 2500, image: 'delight-bouquet', category: 'Flowers' },
   { id: '36', name: 'Premium round box package', price: 6000, image: 'premium-round-box-package', category: 'Flowers' },
   { id: '37', name: 'Premium box package and lindth chocolate combo', price: 8000, image: 'premium-box-lindt-combo', category: 'Gifts' },
   { id: '38', name: 'Heart box boquet and lindth chocolate combo', price: 6500, image: 'heart-box-lindt-combo', category: 'Gifts' },
-  { id: '39', name: 'Lilies and chrysanthemums mix boquet', price: 6000, image: 'lilies-chrysanthemums-mix', category: 'Flowers' },
-  { id: '40', name: 'Pinky white and walker chocolate', price: 4200, image: 'pinky-white-walker-chocolate', category: 'Gifts' },
-  { id: '41', name: 'Rozzy mix', price: 3700, image: 'rozzy-mix', category: 'Flowers' },
-  { id: '42', name: 'Pure sweetness', price: 6500, image: 'pure-sweetness', category: 'Gifts' }
+  { id: '39', name: 'Lilies and chrysanthemums mix boquet', price: 6000, image: 'lilies-chrysanthemums-mix', category: 'Flowers', description: "The boquet comprises of Lilies, yellow, lollipop and purple chrysanthemums perfect for expressing warmth and affection" },
+  { id: '40', name: 'Pinky white and walker chocolate', price: 4200, image: 'pinky-white-walker-chocolate', category: 'Gifts', description: "Surprise someone special with the enchanting boquet of soft pink and white roses with a touch of baby's breath to brighten their day" },
+  { id: '41', name: 'Rozzy mix', price: 3700, image: 'rozzy-mix', category: 'Flowers', description: "Stunning mixed boquet of yellow, white and purple roses that brighten any occasion with fresh and heartfelt touch" },
+  { id: '42', name: 'Pure sweetness', price: 6500, image: 'pure-sweetness', category: 'Gifts', description: "Red roses and baby's breath, accompanied with 8 piece Ferrero Rocher chocolate perfect for expressing deep love and affection." },
+  { id: '43', name: 'Just for you', price: 4500, image: 'just-for-you', category: 'Flowers', description: "The boquet combines the delicate charm of astromeria, lilies and vibrant lollipop chrysanthemums, with gentle springs of baby's breath making it thoughtful gift to brighten any occasion." }
 ];

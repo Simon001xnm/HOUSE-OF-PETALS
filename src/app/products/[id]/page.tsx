@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, use } from 'react';
@@ -26,7 +27,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
     ...productData,
     rating: 5.0,
     reviews: Math.floor(Math.random() * 10) + 1,
-    description: `A masterfully crafted arrangement from House of Petals. This collection features premium hand-selected blooms, meticulously tied and wrapped in our signature premium packaging. Designed to evoke timeless luxury and elegance in the heart of Nairobi.`,
+    description: productData.description || `A masterfully crafted arrangement from House of Petals. This collection features premium hand-selected blooms, meticulously tied and wrapped in our signature premium packaging. Designed to evoke timeless luxury and elegance in the heart of Nairobi.`,
     features: [
       "Premium Hand-Selected Blooms",
       "Sustainably Sourced in Kenya",

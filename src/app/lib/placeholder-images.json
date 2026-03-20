@@ -252,6 +252,12 @@
       "description": "Pure sweetness",
       "imageUrl": "/Image 2026-03-17 at 1.05.52 PM.jpeg",
       "imageHint": "red roses chocolate"
+    },
+    {
+      "id": "just-for-you",
+      "description": "Just for you",
+      "imageUrl": "/Image 2026-03-17 at 1.10.58 PM.jpeg",
+      "imageHint": "lilies chrysanthemums bouquet"
     }
   ]
 }
