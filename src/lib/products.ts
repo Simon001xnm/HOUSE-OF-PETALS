@@ -58,5 +58,6 @@ export const ALL_PRODUCTS: Product[] = [
   { id: '43', name: 'Just for you', price: 4500, image: 'just-for-you', category: 'Flowers', description: "The boquet combines the delicate charm of astromeria, lilies and vibrant lollipop chrysanthemums, with gentle springs of baby's breath making it thoughtful gift to brighten any occasion." },
   { id: '44', name: 'Cherry wonder', price: 4200, image: 'cherry-wonder', category: 'Flowers', description: "Cherry wonder comprise of interplay of white orange and lavender hues that create an understandable elegance that conveys warmth and genuine affection." },
   { id: '45', name: 'Charmy lollipop', price: 4700, image: 'charmy-lollipop', category: 'Flowers', description: "vibrant lollipop chrysanthemums beautifully accented to brighten someone's day" },
-  { id: '46', name: 'Tropical mix', price: 5000, image: 'tropical-mix', category: 'Flowers', description: "surprise someone with enchanting boquet of lilies, astromeria, yelling and white chrysanthemums. Make them feel special and valued." }
+  { id: '46', name: 'Tropical mix', price: 5000, image: 'tropical-mix', category: 'Flowers', description: "surprise someone with enchanting boquet of lilies, astromeria, yelling and white chrysanthemums. Make them feel special and valued." },
+  { id: '47', name: 'Birthday wish', price: 4000, image: 'birthday-wish', category: 'Gifts', description: "make their Birthday memorable with this enchanting package of red roses bouquet with a touch of baby's breath, cadbury chocolate and a message card." }
 ];

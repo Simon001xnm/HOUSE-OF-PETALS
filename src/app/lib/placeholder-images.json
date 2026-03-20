@@ -276,6 +276,12 @@
       "description": "Tropical mix",
       "imageUrl": "/Image 2026-03-17 at 1.28.08 PM.jpeg",
       "imageHint": "tropical bouquet"
+    },
+    {
+      "id": "birthday-wish",
+      "description": "Birthday wish",
+      "imageUrl": "/Image 2026-03-17 at 1.34.02 PM.jpeg",
+      "imageHint": "birthday bouquet chocolate"
     }
   ]
 }
