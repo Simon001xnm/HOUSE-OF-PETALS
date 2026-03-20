@@ -228,6 +228,12 @@
       "description": "Heart box boquet and lindt chocolate combo",
       "imageUrl": "/WhatsApp Image 2026-03-05 at 2.27.04 PM.jpeg",
       "imageHint": "heart bouquet chocolate"
+    },
+    {
+      "id": "lilies-chrysanthemums-mix",
+      "description": "Lilies and chrysanthemums mix boquet",
+      "imageUrl": "/Image 2026-03-17 at 12.52.07 PM.jpeg",
+      "imageHint": "lilies chrysanthemums"
     }
   ]
 }
