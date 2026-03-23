@@ -107,7 +107,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4200, 
     image: 'pinky-white-walker-chocolate', 
     category: 'Gifts', 
-    description: "Surprise someone special with the enchanting bouquet of soft pink and white roses with a touch of baby's breath and premium Walker chocolate." 
+    description: "surprise someone special with the enchanting boquet of soft pink and white roses with a touch of baby's breath to brighten their day" 
   },
   { 
     id: '41', 
