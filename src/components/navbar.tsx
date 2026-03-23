@@ -1,7 +1,9 @@
 
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ShoppingBag, ChevronDown, Menu, Search, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,17 +11,26 @@ import { useCart } from '@/hooks/use-cart';
 
 export function Navbar() {
   const { cart } = useCart();
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
   const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/catalog?search=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Birthday Flowers', href: '/catalog?category=birthday' },
-    { name: 'Occasions', href: '#', hasDropdown: true },
-    { name: 'Arrangements', href: '#', hasDropdown: true },
+    { name: 'Birthday Flowers', href: '/catalog?category=flowers' },
+    { name: 'Occasions', href: '/catalog' },
+    { name: 'Arrangements', href: '/catalog' },
     { name: 'Flowers', href: '/catalog?category=flowers' },
-    { name: 'Combos', href: '/catalog?category=combos' },
-    { name: 'Cakes, Drinks & More', href: '#', hasDropdown: true },
-    { name: 'Gifts', href: '#', hasDropdown: true },
+    { name: 'Combos', href: '/catalog?category=gifts' },
+    { name: 'Cakes, Drinks & More', href: '/catalog' },
+    { name: 'Gifts', href: '/catalog?category=gifts' },
     { name: 'Shop', href: '/catalog' },
     { name: 'Contacts', href: '#' },
   ];
@@ -44,15 +55,17 @@ export function Navbar() {
           </div>
         </div>
 
-        <div className="flex-1 max-w-xl w-full relative group px-2">
+        <form onSubmit={handleSearch} className="flex-1 max-w-xl w-full relative group px-2">
           <Input 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search for flowers, cakes or gifts..." 
             className="w-full h-11 pl-4 pr-12 rounded-full border-2 border-gray-100 focus:border-[#be1e2d] transition-all bg-gray-50/50"
           />
-          <Button size="icon" className="absolute right-3 top-1 h-9 w-9 rounded-full bg-[#be1e2d] hover:bg-[#a51a27] border-none">
+          <Button type="submit" size="icon" className="absolute right-3 top-1 h-9 w-9 rounded-full bg-[#be1e2d] hover:bg-[#a51a27] border-none">
             <Search className="w-4 h-4 text-white" />
           </Button>
-        </div>
+        </form>
 
         <div className="flex items-center gap-4">
           <Link href="/cart" className="relative group p-2">
