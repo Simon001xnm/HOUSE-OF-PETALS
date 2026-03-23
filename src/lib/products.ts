@@ -147,7 +147,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4700, 
     image: 'charmy-lollipop', 
     category: 'Flowers', 
-    description: "Vibrant lollipop chrysanthemums beautifully accented to brighten someone's day." 
+    description: "vibrant lollipop chrysanthemums beautifully accented to brighten someone's day" 
   },
   { 
     id: '46', 
