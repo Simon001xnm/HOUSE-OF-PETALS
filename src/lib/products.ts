@@ -99,7 +99,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 6000, 
     image: 'lilies-chrysanthemums-mix', 
     category: 'Flowers', 
-    description: "The boquet comprises of Lilies, yellow, lollipop and purple chrysanthemums perfect for expressing warmth and affection." 
+    description: "the boquet comprises of Lilies, yellow, lollipop and purple chrysanthemums perfect for expressing warmth and affection" 
   },
   { 
     id: '40', 
@@ -107,7 +107,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4200, 
     image: 'pinky-white-walker-chocolate', 
     category: 'Gifts', 
-    description: "Surprise someone special with the enchanting boquet of soft pink and white roses with a touch of baby's breath to brighten their day." 
+    description: "surprise someone special with the enchanting boquet of soft pink and white roses with a touch of baby's breath  to brighten their day" 
   },
   { 
     id: '41', 
@@ -115,7 +115,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 3700, 
     image: 'rozzy-mix', 
     category: 'Flowers', 
-    description: "Stunning mixed boquet of yellow, white and purple roses that brighten any occasion with fresh and heartfelt touch." 
+    description: "stunning mixed boquet of yellow, white and purple roses that brighten any occasion with fresh and heartfelt touch" 
   },
   { 
     id: '42', 
@@ -123,7 +123,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 6500, 
     image: 'pure-sweetness', 
     category: 'Gifts', 
-    description: "Red roses and baby's breath, accompanied with 8 piece Ferrero Rocher chocolate perfect for expressing deep love and affection." 
+    description: "red roses and baby's breath , accompanied with 8 piece Ferrero rotcher chocolate  perfect for expressing deep love and affection." 
   },
   { 
     id: '43', 
@@ -155,7 +155,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 5000, 
     image: 'tropical-mix', 
     category: 'Flowers', 
-    description: "Surprise someone with enchanting boquet of lilies, astromeria, yellow and white chrysanthemums. Make them feel special and valued." 
+    description: "surprise someone with enchanting boquet of lilies, astromeria, yelling and white chrysanthemums. Make them feel special and valued." 
   },
   { 
     id: '47', 
@@ -163,7 +163,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4000, 
     image: 'birthday-wish', 
     category: 'Gifts', 
-    description: "Make their Birthday memorable with this enchanting package of red roses bouquet with a touch of baby's breath, cadbury chocolate and a message card." 
+    description: "make their Birthday memorable with this enchanting package of red roses bouquet with  a touch of baby's breath,  cadbury chocolate and  a message card." 
   },
   { 
     id: '48', 
@@ -171,7 +171,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4500, 
     image: 'love-at-home', 
     category: 'Flowers', 
-    description: "50 stems of radiant red roses, hand-selected for their beauty and freshness, the boquet speaks volume of affection." 
+    description: "50stems of radiant red roses , hand-selected for their beauty and freshness, the boquet speaks volume of affection." 
   },
   { 
     id: '49', 
@@ -179,7 +179,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4999, 
     image: 'heart-box-red-pink', 
     category: 'Flowers', 
-    description: "Heart box filled with red and baby pink roses perfect for office buddies." 
+    description: "heart box filled with red and baby pink roses perfect for office buddies" 
   },
   { 
     id: '50', 
@@ -187,7 +187,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 3700, 
     image: 'sunkissed-bouquet-new', 
     category: 'Flowers', 
-    description: "White and yellow roses with touch of gypsum perfect for brightening up someone's day." 
+    description: "white and yellow roses with touch of gypsum  perfect for brightening up someone's day" 
   },
   { 
     id: '51', 
@@ -195,7 +195,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 2500, 
     image: 'lush-bouquet', 
     category: 'Flowers', 
-    description: "Lush is standard bouquet enchanted with pink, white and red roses perfect for any special occasion." 
+    description: "lush is standard bouquet enchanted with  pink, white and red roses perfect for any special occasion" 
   },
   { 
     id: '52', 
@@ -203,7 +203,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 6000, 
     image: 'lindor-flat-bouquet', 
     category: 'Gifts', 
-    description: "Lindor flat boquet is a mix of roses and tropicals accompanied with lindt chocolate. The boquet conveys warmth and genuine affection." 
+    description: "lindor flat boquet is a mix of roses and tropicals accompanied with lindt chocolate . The boquet conveys warmth and genuine affection" 
   },
   { 
     id: '53', 
@@ -211,6 +211,6 @@ export const ALL_PRODUCTS: Product[] = [
     price: 2500, 
     image: 'tropical-bouquet-new', 
     category: 'Flowers', 
-    description: "A mixture of chrysanthemums and astromeria perfect for any occasion." 
+    description: "s mixture of chrysanthemums and astromeria perfect for any occasion" 
   }
 ];
