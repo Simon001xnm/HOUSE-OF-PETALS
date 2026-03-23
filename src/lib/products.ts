@@ -131,7 +131,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4500, 
     image: 'just-for-you', 
     category: 'Flowers', 
-    description: "The boquet combines the delicate charm of astromeria, lilies and vibrant lollipop chrysanthemums, with gentle springs of baby's breath making it thoughtful gift to brighten any occasion." 
+    description: "the boquet combines the delicate charm charm of astromeria, lilies and vibrant lollipop chrysanthemums, with gentle springs of baby's breath making it thoughtful gift to brighten any occasion." 
   },
   { 
     id: '44', 
