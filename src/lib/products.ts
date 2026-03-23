@@ -67,7 +67,7 @@ export const ALL_PRODUCTS: Product[] = [
   { id: '10', name: 'Velvet touch', price: 9500, image: 'velvet-touch', category: 'Flowers', description: "Our premium ultra-luxury collection. Features rare, large-headed roses that feel like velvet to the touch." },
   { id: '11', name: 'Standard mixed boquet', price: 4600, image: 'standard-mixed-boquet', category: 'Flowers', description: "A versatile and beautiful mix of seasonal blooms, perfect for any occasion from House of Petals." },
   { id: '12', name: 'Sunkissed vase roses', price: 7500, image: 'sunkissed-vase-roses', category: 'Flowers', description: "Bright yellow roses presented in a sleek glass vase, ready to adorn any table with sunshine." },
-  { id: '13', name: 'Prime hand boquet', price: 4400, image: 'prime-hand-boquet', category: 'Flowers', description: "Expertly hand-crafted and spiraled to perfection, this bouquet showcases our florists' technical skill." },
+  { id: '13', name: 'Prime hand boquet', price: 4400, image: 'call-center', category: 'Flowers', description: "Expertly hand-crafted and spiraled to perfection, this bouquet showcases our florists' technical skill." },
   { id: '14', name: 'Savage love boquet', price: 2700, image: 'savage-love-boquet', category: 'Flowers', description: "A bold and passionate arrangement for those who love with intensity and fire." },
   { id: '15', name: 'Red and white mix', price: 3800, image: 'red-and-white-mix', category: 'Flowers', description: "The classic contrast of red and white roses, representing unity and passion combined." },
   { id: '16', name: 'Standard red boquet', price: 2500, image: 'standard-red-boquet', category: 'Flowers', description: "Simple, timeless, and powerful. A collection of premium Kenyan red roses." },
