@@ -139,7 +139,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4200, 
     image: 'cherry-wonder', 
     category: 'Flowers', 
-    description: "Cherry wonder comprise of interplay of white orange and lavender hues that create an understandable elegance that conveys warmth and genuine affection." 
+    description: "cherry wonder comprise of interplay of white orange and lavender hues that create an understandable elegance that conveys warmth and genuine affection." 
   },
   { 
     id: '45', 
