@@ -7,20 +7,18 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { ShoppingCart, ArrowRight } from 'lucide-react';
+import { ShoppingCart, ArrowRight, Sparkles } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
-
-const FEATURED_PRODUCTS = [
-  { id: '10', name: 'Velvet touch', price: 'KSh 9,500', image: 'velvet-touch' },
-  { id: '6', name: 'Sunkissed combo boquet', price: 'KSh 7,900', image: 'sunkissed-combo-boquet' },
-  { id: '3', name: 'Heart arrangement', price: 'KSh 5,700', image: 'heart-arrangement' },
-  { id: '1', name: 'Deluxe pink boquet', price: 'KSh 4,500', image: 'deluxe-pink-bouquet' }
-];
+import { ALL_PRODUCTS } from '@/lib/products';
 
 export default function Home() {
   const { addToCart } = useCart();
   const { toast } = useToast();
+  
+  // Get the latest 4 products added to the collection
+  const LATEST_PRODUCTS = [...ALL_PRODUCTS].slice(-4).reverse();
+  
   const getImg = (id: string) => PlaceHolderImages.find(i => i.id === id);
   const fallbackImage = '/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg';
 
@@ -29,7 +27,7 @@ export default function Home() {
     addToCart({
       id: product.id,
       name: product.name,
-      price: typeof product.price === 'string' ? parseInt(product.price.replace(/[^\d]/g, '')) : product.price,
+      price: product.price,
       image: imgData?.imageUrl || fallbackImage
     });
     toast({
@@ -43,30 +41,44 @@ export default function Home() {
       <Navbar />
       
       <main className="flex-grow">
-        <section className="bg-white py-10 md:py-16 border-b border-gray-100">
+        {/* Hero Section */}
+        <section className="bg-white py-10 md:py-20 border-b border-gray-100">
           <div className="container mx-auto px-6">
             <div className="flex flex-col lg:flex-row items-center gap-12">
-              <div className="lg:w-1/2 text-center lg:text-left space-y-6">
-                <span className="text-[#be1e2d] font-bold text-sm tracking-wide uppercase">House of Petals Nairobi</span>
-                <h1 className="text-4xl md:text-5xl font-extrabold text-[#333] leading-[1.1]">
-                  Premium Flower Delivery Shop in Kenya
+              <div className="lg:w-1/2 text-center lg:text-left space-y-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#be1e2d]/10 text-[#be1e2d] rounded-full">
+                  <Sparkles className="w-4 h-4" />
+                  <span className="text-[10px] font-black uppercase tracking-widest">Nairobi's Premier Florist</span>
+                </div>
+                <h1 className="text-5xl md:text-7xl font-black text-[#1e1e24] leading-[0.95] tracking-tighter">
+                  Luxury <br />
+                  <span className="text-[#be1e2d]">Blooms</span> <br />
+                  Delivered.
                 </h1>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  Hand-crafted bouquets and luxury gifts delivered to your doorstep with boutique elegance.
+                <p className="text-gray-500 text-lg leading-relaxed max-w-lg">
+                  Experience the pinnacle of Kenyan floral artistry. Hand-crafted bouquets and boutique gifts delivered with absolute elegance.
                 </p>
-                <Link href="/catalog">
-                  <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-bold h-14 px-10 rounded-full text-sm uppercase tracking-widest shadow-xl flex items-center gap-2 mx-auto lg:mx-0 transition-transform hover:scale-105 active:scale-95">
-                    SHOP NOW <ShoppingCart className="w-5 h-5" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                  <Link href="/catalog">
+                    <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-black h-16 px-12 rounded-full text-xs uppercase tracking-[0.2em] shadow-2xl flex items-center gap-3 transition-all hover:scale-105 active:scale-95">
+                      SHOP THE COLLECTION <ShoppingCart className="w-5 h-5" />
+                    </Button>
+                  </Link>
+                  <Link href="/gift-advisor">
+                    <Button variant="outline" className="border-2 border-gray-200 hover:border-[#be1e2d] text-gray-700 h-16 px-10 rounded-full text-xs uppercase tracking-[0.2em] font-black transition-all">
+                      AI GIFT ADVISOR
+                    </Button>
+                  </Link>
+                </div>
               </div>
 
-              <div className="lg:w-1/2 relative aspect-square w-full max-w-md">
+              <div className="lg:w-1/2 relative aspect-square w-full max-w-xl">
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#be1e2d]/5 to-transparent rounded-full blur-3xl -z-10"></div>
                 <Image 
                   src={fallbackImage} 
-                  alt="Deluxe pink boquet" 
+                  alt="House of Petals Signature Arrangement" 
                   fill 
-                  className="object-contain"
+                  className="object-contain drop-shadow-2xl"
                   priority
                 />
               </div>
@@ -74,51 +86,82 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20 bg-white">
+        {/* Latest Arrivals Section */}
+        <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
-            <div className="flex justify-between items-end mb-12 border-b-2 border-gray-100 pb-4">
-              <div className="relative">
-                <h2 className="text-2xl font-bold text-[#333]">Featured Gifts & Flowers</h2>
-                <div className="absolute -bottom-[18px] left-0 w-full h-1 bg-[#be1e2d]"></div>
+            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+              <div className="space-y-2">
+                <span className="text-[#be1e2d] text-xs font-black uppercase tracking-[0.3em]">New Masterpieces</span>
+                <h2 className="text-4xl font-black text-[#1e1e24] tracking-tight">The Latest Arrivals</h2>
+                <div className="w-20 h-1.5 bg-[#6db33f] rounded-full"></div>
               </div>
-              <Link href="/catalog" className="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-[#be1e2d] flex items-center gap-1">
-                VIEW ALL <ArrowRight className="w-3 h-3" />
+              <Link href="/catalog" className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-[#be1e2d] flex items-center gap-2 transition-colors border-b-2 border-transparent hover:border-[#be1e2d] pb-1">
+                EXPLORE FULL CATALOG <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {FEATURED_PRODUCTS.map((product) => {
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+              {LATEST_PRODUCTS.map((product) => {
                 const imgData = getImg(product.image);
                 return (
-                  <div key={product.id} className="group flex flex-col items-center text-center relative">
-                    <div className="relative w-full aspect-square bg-gray-50 mb-5 overflow-hidden border border-gray-100 rounded-sm shadow-sm">
+                  <div key={product.id} className="group flex flex-col relative">
+                    <div className="relative w-full aspect-square bg-gray-50 mb-6 overflow-hidden border border-gray-100 rounded-2xl shadow-sm transition-all duration-500 group-hover:shadow-2xl">
                       <Image 
                         src={imgData?.imageUrl || fallbackImage} 
                         alt={product.name} 
                         fill 
-                        className="object-cover group-hover:scale-105 transition-transform"
+                        className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       
-                      <div className="absolute bottom-0 left-0 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                        <div 
+                      <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <Button 
                           onClick={() => handleAddToCart(product)}
-                          className="bg-[#be1e2d] text-white text-[10px] font-black uppercase py-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-[#a51a27]"
+                          className="w-full bg-[#be1e2d] text-white text-[10px] font-black uppercase py-6 rounded-xl flex items-center justify-center gap-2 shadow-2xl hover:bg-[#a51a27] transition-all"
                         >
-                          <ShoppingCart className="w-3.5 h-3.5" /> Add To Cart
-                        </div>
+                          <ShoppingCart className="w-4 h-4" /> Add To Bag
+                        </Button>
                       </div>
                     </div>
                     
-                    <h3 className="text-[13px] font-bold text-gray-800 line-clamp-2 mb-2 hover:text-[#be1e2d] transition-colors h-10 flex items-center justify-center px-1">
-                      <Link href={`/products/${product.id}`}>{product.name}</Link>
-                    </h3>
-                    
-                    <div className="flex flex-col items-center gap-0.5">
-                      <span className="text-[#be1e2d] font-black text-sm leading-none">{product.price}</span>
+                    <div className="space-y-1">
+                      <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#be1e2d]">{product.category}</span>
+                      <h3 className="text-lg font-bold text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors line-clamp-1">
+                        <Link href={`/products/${product.id}`}>{product.name}</Link>
+                      </h3>
+                      <p className="text-xl font-black text-[#1e1e24]">KSh {product.price.toLocaleString()}</p>
                     </div>
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Brand Promise Section */}
+        <section className="py-20 bg-gray-50 border-y border-gray-100">
+          <div className="container mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+              <div className="space-y-4">
+                <div className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mx-auto text-[#6db33f]">
+                  <Sparkles className="w-8 h-8" />
+                </div>
+                <h4 className="text-sm font-black uppercase tracking-widest">Artisan Crafted</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Each arrangement is a unique piece of art, designed by our master florists in Westlands.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mx-auto text-[#6db33f]">
+                  <ShoppingCart className="w-8 h-8" />
+                </div>
+                <h4 className="text-sm font-black uppercase tracking-widest">Freshness Guaranteed</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Sourced directly from premium Kenyan growers to ensure maximum vase life and vibrancy.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mx-auto text-[#6db33f]">
+                  <ArrowRight className="w-8 h-8" />
+                </div>
+                <h4 className="text-sm font-black uppercase tracking-widest">Nairobi Delivery</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">Same-day delivery available for those spontaneous moments of celebration and love.</p>
+              </div>
             </div>
           </div>
         </section>
