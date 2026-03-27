@@ -37,6 +37,31 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Map Section */}
+      <div className="w-full h-[400px] bg-gray-100 relative overflow-hidden group">
+        <div className="absolute inset-0 z-10 pointer-events-none bg-[#1e1e24]/5 group-hover:bg-transparent transition-colors duration-500"></div>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8189874836696!2d36.81896897593259!3d-1.2824641987053592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d680327f11%3A0x7d8a6e84d4167e4e!2sCity%20Market!5e0!3m2!1sen!2ske!4v1710927000000!5m2!1sen!2ske" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0, filter: 'grayscale(1)' }} 
+          className="group-hover:grayscale-0 transition-all duration-700"
+          allowFullScreen={true} 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <div className="absolute top-8 left-8 z-20 bg-white p-6 shadow-2xl rounded-2xl border border-gray-100 hidden md:block max-w-xs transition-transform group-hover:-translate-y-1">
+          <h4 className="font-black text-[#1e1e24] text-xs uppercase tracking-[0.2em] mb-2">Visit Our Boutique</h4>
+          <p className="text-[11px] text-gray-500 leading-relaxed">
+            City Market, Koinange Street<br />
+            Nairobi, Kenya
+          </p>
+          <div className="mt-4 flex items-center gap-2 text-[#be1e2d] text-[10px] font-black uppercase tracking-widest">
+            <MapPin className="w-4 h-4" /> Get Directions
+          </div>
+        </div>
+      </div>
+
       {/* Features Bar */}
       <div className="bg-gray-50 border-y border-gray-200 py-6 px-6">
         <div className="container mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -104,7 +129,7 @@ export function Footer() {
               <ul className="space-y-5 text-[13px] text-gray-400">
                 <li className="flex gap-4">
                   <MapPin className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <span className="leading-snug">The Flower House,<br />Westlands, Nairobi, Kenya</span>
+                  <span className="leading-snug">The Flower House, City Market<br />Koinange Street, Nairobi, Kenya</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <Smartphone className="w-5 h-5 shrink-0 text-[#6db33f]" />
