@@ -148,7 +148,7 @@ export default function ProductDetail({ params }: { params: Promise<{ id: string
                 <ShieldCheck className="w-6 h-6 text-[#6db33f]" />
                 <div className="text-[10px] uppercase tracking-widest leading-none">
                   <span className="block font-black text-[#1e1e24] mb-1">Guaranteed Fresh</span>
-                  <span className="text-gray-500">Boutique Standards</span>
+                  <span className="text-gray-500">Shop Standards</span>
                 </div>
               </div>
             </div>

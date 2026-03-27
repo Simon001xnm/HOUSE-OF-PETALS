@@ -211,7 +211,7 @@ export default function Home() {
                   <Heart className="w-10 h-10" />
                 </div>
                 <h4 className="text-sm font-black uppercase tracking-[0.2em]">Artisan Crafted</h4>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">Each arrangement is a unique piece of art, designed by our master florists in Westlands.</p>
+                <p className="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto">Each arrangement is a unique piece of art, designed by our master florists in our Nairobi shop.</p>
               </div>
               <div className="space-y-6">
                 <div className="w-20 h-20 bg-white rounded-3xl shadow-xl flex items-center justify-center mx-auto text-[#6db33f]">
