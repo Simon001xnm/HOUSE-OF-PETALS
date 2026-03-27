@@ -51,7 +51,7 @@ export function Footer() {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
         <div className="absolute top-8 left-8 z-20 bg-white p-6 shadow-2xl rounded-2xl border border-gray-100 hidden md:block max-w-xs transition-transform group-hover:-translate-y-1">
-          <h4 className="font-black text-[#1e1e24] text-xs uppercase tracking-[0.2em] mb-2">Visit Our Boutique</h4>
+          <h4 className="font-black text-[#1e1e24] text-xs uppercase tracking-[0.2em] mb-2">Visit Our Shop</h4>
           <p className="text-[11px] text-gray-500 leading-relaxed">
             City Market, Koinange Street<br />
             Nairobi, Kenya
@@ -102,7 +102,7 @@ export function Footer() {
             <div className="space-y-6">
               <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-2 inline-block">House of Petals</h4>
               <p className="text-[13px] text-gray-400 leading-relaxed text-justify">
-                House of Petals is a premium boutique florist in Nairobi. We specialize in luxury floral design and high-end gifting, 
+                House of Petals is a premium flower shop in Nairobi. We specialize in luxury floral design and high-end gifting, 
                 ensuring every delivery is an unforgettable experience of beauty and sophistication.
               </p>
               <div className="flex gap-4 pt-2">
@@ -146,7 +146,7 @@ export function Footer() {
             <div className="space-y-6">
               <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-2 inline-block">Quick Links</h4>
               <ul className="space-y-3.5 text-[13px] text-gray-400">
-                {['About Us', 'Boutique Locations', 'Track Order', 'Gifting Guide', 'Privacy Policy'].map(link => (
+                {['About Us', 'Shop Locations', 'Track Order', 'Gifting Guide', 'Privacy Policy'].map(link => (
                   <li key={link}>
                     <Link href="#" className="hover:text-white flex items-center gap-2 group transition-colors">
                       <ChevronRight className="w-3 h-3 text-[#6db33f] group-hover:translate-x-1 transition-transform" />
