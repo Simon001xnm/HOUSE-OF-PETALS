@@ -44,7 +44,6 @@ export function Footer() {
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
-          className="transition-all duration-700"
           allowFullScreen={true} 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade"
@@ -136,7 +135,7 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-4">
                   <Mail className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <span>concierge@houseofpetals.co.ke</span>
+                  <span>info@houseofpetals.co.ke</span>
                 </li>
               </ul>
             </div>

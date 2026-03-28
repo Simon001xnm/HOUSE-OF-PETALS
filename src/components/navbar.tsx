@@ -50,7 +50,7 @@ export function Navbar() {
               <Phone className="w-3 h-3 text-[#be1e2d]" /> +254 704 524 070
             </span>
             <span className="flex items-center gap-1 hover:text-[#be1e2d] cursor-default transition-colors">
-              <Mail className="w-3 h-3 text-[#be1e2d]" /> concierge@houseofpetals.co.ke
+              <Mail className="w-3 h-3 text-[#be1e2d]" /> info@houseofpetals.co.ke
             </span>
           </div>
         </div>
@@ -93,7 +93,6 @@ export function Navbar() {
                   className="flex items-center gap-1 text-[11px] font-bold px-3 py-1.5 hover:bg-white/10 rounded-sm transition-colors uppercase tracking-wide"
                 >
                   {link.name}
-                  {link.hasDropdown && <ChevronDown className="w-3 h-3 opacity-70" />}
                 </Link>
               </li>
             ))}
