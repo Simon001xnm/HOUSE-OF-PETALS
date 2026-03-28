@@ -1,9 +1,11 @@
 
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import { 
   Facebook, 
   Instagram, 
-  Twitter, 
   MessageCircle, 
   Mail, 
   MapPin, 
@@ -13,12 +15,27 @@ import {
   Smartphone,
   ChevronRight
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 
 export function Footer() {
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
   const whatsappNumber = "254704524070";
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
   const tiktokUrl = "https://www.tiktok.com/@houseofpetals254?_r=1&_t=ZS-94q35XLISsT";
   const instagramUrl = "https://www.instagram.com/houseofpetal254?igsh=MThieWRna2doM2p1eQ%3D%3D";
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      toast({
+        title: "Subscription Successful",
+        description: "Welcome to House of Petals. You'll now receive our exclusive floral collections.",
+      });
+      setEmail('');
+    }
+  };
 
   return (
     <footer className="w-full">
@@ -54,9 +71,13 @@ export function Footer() {
             Stall 16A, City Market<br />
             Koinange Street, Nairobi, Kenya
           </p>
-          <div className="mt-4 flex items-center gap-2 text-[#be1e2d] text-[10px] font-black uppercase tracking-widest">
+          <Link 
+            href="https://maps.app.goo.gl/uP9fPzL9t7M9Q9A7A" 
+            target="_blank"
+            className="mt-4 flex items-center gap-2 text-[#be1e2d] text-[10px] font-black uppercase tracking-widest hover:underline"
+          >
             <MapPin className="w-4 h-4" /> Get Directions
-          </div>
+          </Link>
         </div>
       </div>
 
@@ -82,7 +103,7 @@ export function Footer() {
             <span className="text-[11px] font-black uppercase tracking-tight">Concierge Support</span>
           </div>
           <div className="flex items-center justify-center gap-4 text-gray-700 lg:border-l border-gray-300">
-            <Link href={`tel:+254704524070`} className="flex items-center gap-4">
+            <Link href={`tel:+254704524070`} className="flex items-center gap-4 hover:text-[#be1e2d] transition-colors">
               <div className="bg-white p-2.5 rounded-full shadow-sm">
                 <Smartphone className="w-6 h-6 text-[#6db33f]" />
               </div>
@@ -115,8 +136,8 @@ export function Footer() {
                 <Link href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
                   <Facebook className="w-5 h-5" />
                 </Link>
-                <Link href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
-                  <Twitter className="w-5 h-5" />
+                <Link href={whatsappUrl} target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
+                  <MessageCircle className="w-5 h-5" />
                 </Link>
               </div>
             </div>
@@ -131,11 +152,11 @@ export function Footer() {
                 </li>
                 <li className="flex items-center gap-4">
                   <Smartphone className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <span>Call: +254 704 524 070</span>
+                  <Link href="tel:+254704524070" className="hover:text-white transition-colors">Call: +254 704 524 070</Link>
                 </li>
                 <li className="flex items-center gap-4">
                   <Mail className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <span>info@houseofpetals.co.ke</span>
+                  <Link href="mailto:info@houseofpetals.co.ke" className="hover:text-white transition-colors">info@houseofpetals.co.ke</Link>
                 </li>
               </ul>
             </div>
@@ -159,16 +180,22 @@ export function Footer() {
             <div className="space-y-6">
               <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-2 inline-block">Newsletter</h4>
               <p className="text-[13px] text-gray-400">Subscribe for exclusive floral collections and offers.</p>
-              <div className="flex flex-col gap-3">
+              <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
                 <input 
                   type="email" 
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email Address" 
-                  className="bg-white/5 border border-white/10 rounded-lg h-11 px-4 text-sm focus:outline-none focus:border-[#6db33f]"
+                  className="bg-white/5 border border-white/10 rounded-lg h-11 px-4 text-sm focus:outline-none focus:border-[#6db33f] text-white"
                 />
-                <button className="bg-[#6db33f] hover:bg-[#5a9b34] text-white font-black h-11 rounded-lg text-xs uppercase tracking-widest transition-all">
+                <button 
+                  type="submit"
+                  className="bg-[#6db33f] hover:bg-[#5a9b34] text-white font-black h-11 rounded-lg text-xs uppercase tracking-widest transition-all"
+                >
                   Subscribe
                 </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
