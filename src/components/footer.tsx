@@ -52,8 +52,8 @@ export function Footer() {
         <div className="absolute top-8 left-8 z-20 bg-white p-6 shadow-2xl rounded-2xl border border-gray-100 hidden md:block max-w-xs transition-transform group-hover:-translate-y-1">
           <h4 className="font-black text-[#1e1e24] text-xs uppercase tracking-[0.2em] mb-2">Visit Our Shop</h4>
           <p className="text-[11px] text-gray-500 leading-relaxed">
-            City Market, Koinange Street<br />
-            Nairobi, Kenya
+            Stall 16A, City Market<br />
+            Koinange Street, Nairobi, Kenya
           </p>
           <div className="mt-4 flex items-center gap-2 text-[#be1e2d] text-[10px] font-black uppercase tracking-widest">
             <MapPin className="w-4 h-4" /> Get Directions
@@ -128,7 +128,7 @@ export function Footer() {
               <ul className="space-y-5 text-[13px] text-gray-400">
                 <li className="flex gap-4">
                   <MapPin className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <span className="leading-snug">The Flower House, City Market<br />Koinange Street, Nairobi, Kenya</span>
+                  <span className="leading-snug">Stall 16A, City Market<br />Koinange Street, Nairobi, Kenya</span>
                 </li>
                 <li className="flex items-center gap-4">
                   <Smartphone className="w-5 h-5 shrink-0 text-[#6db33f]" />
