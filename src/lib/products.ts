@@ -1,4 +1,3 @@
-
 /**
  * @fileOverview Centralized product data for House of Petals.
  */
@@ -228,5 +227,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'lush-hatbox-arrangement',
     category: 'Flowers',
     description: "Masterfully curated arrangement designed to strike balance between bold elegance and cheerful warmth. It's a statement piece for any occasion ."
+  },
+  {
+    id: '56',
+    name: "Mum's delight",
+    price: 5000,
+    image: 'mums-delight',
+    category: 'Flowers',
+    description: "A vibrant mix that delivers warmth and elegance with same Day delivery within nairobi"
   }
 ];
