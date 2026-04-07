@@ -244,5 +244,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'lilly-mum-radiance',
     category: 'Flowers',
     description: "The bouquet features white lilies,statice, white and pink chrysanthemums, the arrangement symbolizes purity renewal, joy and lasting friendship. Making it thoughtful gift for birthdays, thank you or simply for brighten someone's day."
+  },
+  {
+    id: '58',
+    name: "Birthday love",
+    price: 8500,
+    image: 'birthday-love-heart-box',
+    category: 'Gifts',
+    description: "Make their Birthday unforgettable with this enchanting gift ensemble in a heart shaped box featuring red and white roses accompanied with 16 piece Ferrero rotcher."
   }
 ];
