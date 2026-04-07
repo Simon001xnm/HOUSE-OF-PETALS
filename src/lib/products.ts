@@ -212,5 +212,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'tropical-bouquet-new', 
     category: 'Flowers', 
     description: "s mixture of chrysanthemums and astromeria perfect for any occasion" 
+  },
+  { 
+    id: '54', 
+    name: 'Majestic Harmony', 
+    price: 6500, 
+    image: 'majestic-harmony', 
+    category: 'Flowers', 
+    description: "celebrate grace and beauty with majestic harmony, captivating boquet of mixed lillies,red carnation, yellow and pink chrysanthemums arranged to bring a charm and tranquility to any moment ." 
   }
 ];

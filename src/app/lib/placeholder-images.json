@@ -318,6 +318,12 @@
       "description": "Tropical boquet",
       "imageUrl": "/WhatsApp Image 2026-03-17 at 1.58.47 PM.jpeg",
       "imageHint": "tropical flowers"
+    },
+    {
+      "id": "majestic-harmony",
+      "description": "Majestic Harmony",
+      "imageUrl": "/WhatsApp Image 2026-04-07 at 11.35.12 AM.jpeg",
+      "imageHint": "mixed flowers lilies"
     }
   ]
 }
