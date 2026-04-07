@@ -1,3 +1,4 @@
+
 /**
  * @fileOverview Centralized product data for House of Petals.
  */
@@ -235,5 +236,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'mums-delight',
     category: 'Flowers',
     description: "A vibrant mix that delivers warmth and elegance with same Day delivery within nairobi"
+  },
+  {
+    id: '57',
+    name: "Lilly mum radiance",
+    price: 5000,
+    image: 'lilly-mum-radiance',
+    category: 'Flowers',
+    description: "The bouquet features white lilies,statice, white and pink chrysanthemums, the arrangement symbolizes purity renewal, joy and lasting friendship. Making it thoughtful gift for birthdays, thank you or simply for brighten someone's day."
   }
 ];
