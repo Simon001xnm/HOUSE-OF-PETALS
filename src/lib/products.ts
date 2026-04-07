@@ -252,5 +252,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'birthday-love-heart-box',
     category: 'Gifts',
     description: "Make their Birthday unforgettable with this enchanting gift ensemble in a heart shaped box featuring red and white roses accompanied with 16 piece Ferrero rotcher."
+  },
+  {
+    id: '59',
+    name: "Shades of lilac",
+    price: 5400,
+    image: 'shades-of-lilac',
+    category: 'Flowers',
+    description: "Celebrate love and elegance with this stunning arrangement of lilac roses hand-selected for its vibrant colour and velvet texture. Delicate baby's breath weaves throughout adding an ethereal softness that frames every rose with grace, making it perfect for anniversaries or expressing heartfelt devotion."
   }
 ];
