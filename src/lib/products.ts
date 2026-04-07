@@ -220,5 +220,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'majestic-harmony', 
     category: 'Flowers', 
     description: "celebrate grace and beauty with majestic harmony, captivating boquet of mixed lillies,red carnation, yellow and pink chrysanthemums arranged to bring a charm and tranquility to any moment ." 
+  },
+  {
+    id: '55',
+    name: 'Lush hatbox arrangement',
+    price: 6500,
+    image: 'lush-hatbox-arrangement',
+    category: 'Flowers',
+    description: "Masterfully curated arrangement designed to strike balance between bold elegance and cheerful warmth. It's a statement piece for any occasion ."
   }
 ];
