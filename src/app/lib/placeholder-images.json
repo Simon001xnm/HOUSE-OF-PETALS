@@ -354,6 +354,12 @@
       "description": "Shades of lilac",
       "imageUrl": "/WhatsApp Image 2026-04-07 at 12.52.42 PM.jpeg",
       "imageHint": "lilac roses"
+    },
+    {
+      "id": "jessys-bouquet",
+      "description": "Jessy's bouquet",
+      "imageUrl": "/WhatsApp Image 2026-04-07 at 12.52.42 PM.jpeg",
+      "imageHint": "mixed bouquet"
     }
   ]
 }

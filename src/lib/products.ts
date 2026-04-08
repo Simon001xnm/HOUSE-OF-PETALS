@@ -260,5 +260,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'shades-of-lilac',
     category: 'Flowers',
     description: "Celebrate love and elegance with this stunning arrangement of lilac roses hand-selected for its vibrant colour and velvet texture. Delicate baby's breath weaves throughout adding an ethereal softness that frames every rose with grace, making it perfect for anniversaries or expressing heartfelt devotion."
+  },
+  {
+    id: '60',
+    name: "Jessy's bouquet",
+    price: 3700,
+    image: 'jessys-bouquet',
+    category: 'Flowers',
+    description: "A mixed boquet of red white roses, blue chrysanthemums and lillies each carefully arranged to ensure longevity and visual impact,arriving fresh and ready to brighten any space ,it's a timeless gift that speaks volume without words."
   }
 ];
