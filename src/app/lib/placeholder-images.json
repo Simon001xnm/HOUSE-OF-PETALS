@@ -356,10 +356,10 @@
       "imageHint": "lilac roses"
     },
     {
-      "id": "jessys-bouquet",
-      "description": "Jessy's bouquet",
+      "id": "jessys-bouquet-new",
+      "description": "Jessy's bouquet April 8",
       "imageUrl": "/WhatsApp Image 2026-04-08 at 11.55.27 AM.jpeg",
-      "imageHint": "mixed bouquet"
+      "imageHint": "mixed bouquet jessy"
     },
     {
       "id": "lush-pink",
@@ -368,10 +368,10 @@
       "imageHint": "pink white bouquet"
     },
     {
-      "id": "standard-charm-boquet-v2",
-      "description": "Standard charm boquet updated",
+      "id": "standard-charm-boquet-new",
+      "description": "Standard charm boquet April 8",
       "imageUrl": "/WhatsApp Image 2026-04-08 at 11.55.29 AM.jpeg",
-      "imageHint": "charm bouquet"
+      "imageHint": "charm bouquet new"
     },
     {
       "id": "aura-delight-boquet",
@@ -390,6 +390,12 @@
       "description": "Healthy bundle package",
       "imageUrl": "/WhatsApp Image 2026-04-08 at 11.55.30 AM (1).jpeg",
       "imageHint": "healthy bundle"
+    },
+    {
+      "id": "cherry-wonder-new",
+      "description": "Cherry wonder April 8",
+      "imageUrl": "/WhatsApp Image 2026-04-08 at 11.55.30 AM (2).jpeg",
+      "imageHint": "cherry wonder new"
     }
   ]
 }
