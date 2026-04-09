@@ -268,5 +268,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'jessys-bouquet',
     category: 'Flowers',
     description: "A mixed boquet of red white roses, blue chrysanthemums and lillies each carefully arranged to ensure longevity and visual impact,arriving fresh and ready to brighten any space ,it's a timeless gift that speaks volume without words."
+  },
+  {
+    id: '61',
+    name: "Lush pink",
+    price: 3700,
+    image: 'lush-pink',
+    category: 'Flowers',
+    description: "The delicate interplay of pink and white tones brings elegance to any space. It conveys genuine sentiment."
   }
 ];
