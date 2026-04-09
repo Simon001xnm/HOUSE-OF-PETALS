@@ -276,5 +276,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'lush-pink',
     category: 'Flowers',
     description: "The delicate interplay of pink and white tones brings elegance to any space. It conveys genuine sentiment."
+  },
+  {
+    id: '62',
+    name: 'Aura delight boquet',
+    price: 4800,
+    image: 'aura-delight-boquet',
+    category: 'Flowers',
+    description: "Experience the enchanting beauty of the Aura Delight. A masterfully arranged bouquet designed to radiate positive energy and timeless elegance."
   }
 ];
