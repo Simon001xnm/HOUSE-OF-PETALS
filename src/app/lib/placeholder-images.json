@@ -366,6 +366,12 @@
       "description": "Lush pink",
       "imageUrl": "/WhatsApp Image 2026-04-08 at 11.55.27 AM (1).jpeg",
       "imageHint": "pink white bouquet"
+    },
+    {
+      "id": "standard-charm-boquet-v2",
+      "description": "Standard charm boquet updated",
+      "imageUrl": "/WhatsApp Image 2026-04-08 at 11.55.29 AM.jpeg",
+      "imageHint": "charm bouquet"
     }
   ]
 }

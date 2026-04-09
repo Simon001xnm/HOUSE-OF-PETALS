@@ -88,7 +88,7 @@ export const ALL_PRODUCTS: Product[] = [
   { id: '31', name: 'Sassy white', price: 27000, image: 'sassy-white', category: 'Flowers', description: "The ultimate luxury statement. An massive, opulent arrangement of the finest white flowers available in Kenya." },
   { id: '32', name: 'Rose and chrysanthemums mix', price: 3800, image: 'rose-chrysanthemums-mix', category: 'Flowers', description: "A beautiful fusion of roses and chrysanthemums, creating a textured and vibrant look." },
   { id: '33', name: 'Sweet charm', price: 1500, image: 'sweet-charm', category: 'Flowers', description: "A sweet and affordable bouquet that doesn't compromise on beauty or quality." },
-  { id: '34', name: 'Standard charm boquet', price: 1500, image: 'standard-charm-boquet', category: 'Flowers', description: "A charming mix of seasonal favorites, perfect for everyday gifting." },
+  { id: '34', name: 'Standard charm boquet', price: 1500, image: 'standard-charm-boquet-v2', category: 'Flowers', description: "A charming mix of seasonal favorites, perfect for everyday gifting." },
   { id: '35', name: 'Delight bouquet', price: 2500, image: 'delight-bouquet', category: 'Flowers', description: "True to its name, this bouquet is a pure delight to receive and display." },
   { id: '36', name: 'Premium round box package', price: 6000, image: 'premium-round-box-package', category: 'Flowers', description: "Modern and chic. Premium flowers presented in our signature House of Petals round hat box." },
   { id: '37', name: 'Premium box package and lindt chocolate combo', price: 8000, image: 'premium-box-lindt-combo', category: 'Gifts', description: "A high-end gift set featuring our signature box arrangement and world-famous Lindt chocolates." },
