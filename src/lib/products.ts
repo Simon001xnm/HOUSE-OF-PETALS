@@ -292,5 +292,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'just-for-you-package',
     category: 'Gifts',
     description: "An enchanting gift ensemble from House of Petals, designed to deliver a personal touch of luxury and affection. This premium package is meticulously curated to make them feel truly special."
+  },
+  {
+    id: '64',
+    name: 'Healthy bundle package',
+    price: 6800,
+    image: 'healthy-bundle-package',
+    category: 'Gifts',
+    description: "A thoughtfully curated healthy bundle from House of Petals, perfect for wellness wishes and thoughtful gifting."
   }
 ];
