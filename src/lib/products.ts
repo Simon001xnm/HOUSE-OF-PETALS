@@ -284,5 +284,13 @@ export const ALL_PRODUCTS: Product[] = [
     image: 'aura-delight-boquet',
     category: 'Flowers',
     description: "Experience the enchanting beauty of the Aura Delight. A masterfully arranged bouquet designed to radiate positive energy and timeless elegance."
+  },
+  {
+    id: '63',
+    name: 'Just for you package',
+    price: 5500,
+    image: 'just-for-you-package',
+    category: 'Gifts',
+    description: "An enchanting gift ensemble from House of Petals, designed to deliver a personal touch of luxury and affection. This premium package is meticulously curated to make them feel truly special."
   }
 ];
