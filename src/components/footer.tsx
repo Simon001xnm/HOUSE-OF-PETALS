@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Facebook, 
   Instagram, 
@@ -119,7 +120,12 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
             {/* About Column */}
             <div className="space-y-6">
-              <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-2 inline-block">House of Petals</h4>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="relative w-10 h-10 shrink-0">
+                  <Image src="/logo.jpeg" alt="Logo" fill className="object-contain" />
+                </div>
+                <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-1">House of Petals</h4>
+              </div>
               <p className="text-[13px] text-gray-400 leading-relaxed text-justify">
                 House of Petals is a premium flower shop in Nairobi. We specialize in luxury floral design and high-end gifting, 
                 ensuring every delivery is an unforgettable experience of beauty and sophistication.

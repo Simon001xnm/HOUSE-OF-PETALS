@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ShoppingBag, ChevronDown, Menu, Search, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -40,9 +41,20 @@ export function Navbar() {
       {/* Top Header with Logo and Search */}
       <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex flex-col items-start leading-none group">
-            <span className="text-2xl md:text-3xl font-black text-[#be1e2d] tracking-tighter uppercase group-hover:opacity-80 transition-opacity">HOUSE OF PETALS</span>
-            <span className="text-[9px] font-bold text-gray-400 tracking-[0.3em] uppercase ml-1">Premium Delivery Nairobi</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 md:w-16 md:h-16 shrink-0 overflow-hidden">
+              <Image 
+                src="/logo.jpeg" 
+                alt="House of Petals Logo" 
+                fill 
+                className="object-contain transition-transform group-hover:scale-105"
+                priority
+              />
+            </div>
+            <div className="flex flex-col items-start leading-none">
+              <span className="text-xl md:text-2xl font-black text-[#be1e2d] tracking-tighter uppercase group-hover:opacity-80 transition-opacity">HOUSE OF PETALS</span>
+              <span className="text-[9px] font-bold text-gray-400 tracking-[0.3em] uppercase ml-0.5">Premium Delivery Nairobi</span>
+            </div>
           </Link>
           
           <div className="hidden lg:flex flex-col text-[10px] font-bold text-gray-400 border-l border-gray-200 pl-6 gap-0.5">
