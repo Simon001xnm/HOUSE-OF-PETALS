@@ -210,9 +210,19 @@ export function Footer() {
       {/* Copyright */}
       <div className="bg-[#121216] py-8 px-6 border-t border-white/5">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
-          <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-medium">
-            Copyright © 2025 House of Petals. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-medium">
+              Copyright © 2025 House of Petals. All rights reserved.
+            </p>
+            <span className="hidden md:inline text-gray-700">|</span>
+            <Link 
+              href="https://simonstyles.co.ke" 
+              target="_blank" 
+              className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-medium hover:text-[#6db33f] transition-colors"
+            >
+              Designed & Developed by Simon Styles Technologies Limited
+            </Link>
+          </div>
           <div className="flex items-center gap-3">
             {['M-PESA', 'VISA', 'MasterCard'].map(pm => (
               <div key={pm} className="bg-white/10 px-3 py-1 rounded text-[9px] font-black text-gray-300">
