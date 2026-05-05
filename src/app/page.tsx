@@ -151,12 +151,12 @@ export default function Home() {
                 const imgData = getImg(product.image);
                 return (
                   <Link key={`${product.id}-${index}`} href={`/products/${product.id}`}>
-                    <div className="inline-block w-48 h-64 relative rounded-xl overflow-hidden group shadow-xl">
+                    <div className="inline-block w-48 h-64 relative rounded-xl overflow-hidden group shadow-xl border border-white/5">
                       <Image 
                         src={imgData?.imageUrl || fallbackImage} 
                         alt={product.name} 
                         fill 
-                        className="object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
                         <p className="text-white text-[10px] font-bold uppercase truncate">{product.name}</p>
