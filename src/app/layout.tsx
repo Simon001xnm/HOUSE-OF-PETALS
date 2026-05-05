@@ -6,6 +6,9 @@ import { CartProvider } from "@/hooks/use-cart";
 export const metadata: Metadata = {
   title: 'House of Petals | Premium Flower Delivery Nairobi',
   description: 'Order & Send Luxury Flowers and Gifts online in Kenya. House of Petals offers reliable flower delivery services in Nairobi and across Kenya. Same day delivery available.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({
