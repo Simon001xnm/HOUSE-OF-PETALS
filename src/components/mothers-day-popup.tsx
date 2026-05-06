@@ -11,22 +11,19 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { X, Sparkles } from 'lucide-react';
+import { X } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function MothersDayPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  // Default to the clean path
   const [imageSrc, setImageSrc] = useState("/mothersday.png");
 
   useEffect(() => {
-    // Look for the specific Mother's Day poster in the configured placeholders
     const posterData = PlaceHolderImages.find(img => img.id === 'mothers-day-poster');
     if (posterData) {
       setImageSrc(posterData.imageUrl);
     }
 
-    // Show popup after 1.5 seconds delay on the client
     const timer = setTimeout(() => {
       const hasSeenPopup = sessionStorage.getItem('mothers-day-popup-seen');
       if (!hasSeenPopup) {
@@ -47,11 +44,10 @@ export function MothersDayPopup() {
       <DialogContent className="max-w-[95vw] md:max-w-lg p-0 overflow-hidden border-none bg-transparent shadow-none focus:outline-none">
         <DialogTitle className="sr-only">Mother's Day Special Offer</DialogTitle>
         <DialogDescription className="sr-only">
-          Discover our exclusive Mother's Day blooms and boutique gifts. Hand-crafted with absolute love.
+          Exclusive Mother's Day blooms and boutique gifts.
         </DialogDescription>
         
         <div className="relative group animate-in fade-in zoom-in duration-300">
-          {/* Close Button Above Modal */}
           <button 
             onClick={handleClose}
             className="absolute -top-12 right-0 p-2 bg-white rounded-full text-[#be1e2d] hover:bg-gray-100 transition-all z-50 shadow-2xl"
@@ -60,7 +56,6 @@ export function MothersDayPopup() {
           </button>
           
           <div className="relative aspect-[4/5] w-full bg-white rounded-[2rem] overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] border-4 border-white">
-            {/* The Poster Image */}
             <Image 
               src={imageSrc} 
               alt="Mother's Day Special Offer" 
@@ -68,26 +63,11 @@ export function MothersDayPopup() {
               className="object-cover"
               priority
               onError={() => {
-                // High-quality fallback if the specific file fails to load
                 setImageSrc("https://picsum.photos/seed/mothersday/600/800");
               }}
             />
             
-            {/* Content Overlay */}
-            <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col items-center text-center">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full mb-4">
-                <Sparkles className="w-3 h-3 text-white" />
-                <span className="text-[10px] font-black text-white uppercase tracking-widest">Limited Time Offer</span>
-              </div>
-              
-              <h3 className="text-white font-black text-3xl mb-3 tracking-tighter uppercase leading-none">
-                Celebrate Mom <br /> In Luxury
-              </h3>
-              
-              <p className="text-white/80 text-xs mb-8 max-w-[240px] font-medium leading-relaxed">
-                Discover our exclusive Mother's Day blooms and boutique gifts. Hand-crafted with absolute love.
-              </p>
-              
+            <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col items-center text-center">
               <Link href="/catalog" className="w-full" onClick={handleClose}>
                 <Button 
                   className="w-full bg-[#be1e2d] hover:bg-[#a51a27] text-white font-black h-16 rounded-full uppercase tracking-[0.2em] text-[10px] shadow-2xl transition-all hover:scale-[1.03] active:scale-95"
@@ -95,10 +75,6 @@ export function MothersDayPopup() {
                   START SHOPPING NOW
                 </Button>
               </Link>
-              
-              <p className="text-white/40 text-[9px] mt-4 uppercase tracking-widest font-bold">
-                House of Petals Signature Collection
-              </p>
             </div>
           </div>
         </div>
