@@ -16,8 +16,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function MothersDayPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  // Default to the encoded URL for the poster
-  const [imageSrc, setImageSrc] = useState("/%27s%20Day%20(Poster)%20(2).png");
+  // Default to the clean path
+  const [imageSrc, setImageSrc] = useState("/mothersday.png");
 
   useEffect(() => {
     // Look for the specific Mother's Day poster in the configured placeholders
