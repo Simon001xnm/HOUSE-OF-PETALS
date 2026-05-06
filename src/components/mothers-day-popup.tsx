@@ -16,17 +16,17 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function MothersDayPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  // Using encoded URL to handle special characters like spaces and quotes in the filename
+  // Default to the encoded URL for the poster
   const [imageSrc, setImageSrc] = useState("/%27s%20Day%20(Poster)%20(2).png");
 
   useEffect(() => {
-    // Determine the image source - use the placeholder system
+    // Look for the specific Mother's Day poster in the configured placeholders
     const posterData = PlaceHolderImages.find(img => img.id === 'mothers-day-poster');
     if (posterData) {
       setImageSrc(posterData.imageUrl);
     }
 
-    // Show popup after 1.5 seconds delay
+    // Show popup after 1.5 seconds delay on the client
     const timer = setTimeout(() => {
       const hasSeenPopup = sessionStorage.getItem('mothers-day-popup-seen');
       if (!hasSeenPopup) {
@@ -47,7 +47,7 @@ export function MothersDayPopup() {
       <DialogContent className="max-w-[95vw] md:max-w-lg p-0 overflow-hidden border-none bg-transparent shadow-none focus:outline-none">
         <DialogTitle className="sr-only">Mother's Day Special Offer</DialogTitle>
         <DialogDescription className="sr-only">
-          Discover our exclusive Mother's Day blooms and boutique gifts.
+          Discover our exclusive Mother's Day blooms and boutique gifts. Hand-crafted with absolute love.
         </DialogDescription>
         
         <div className="relative group animate-in fade-in zoom-in duration-300">
@@ -68,12 +68,12 @@ export function MothersDayPopup() {
               className="object-cover"
               priority
               onError={() => {
-                // If the specific file fails to load, use a high-quality fallback
+                // High-quality fallback if the specific file fails to load
                 setImageSrc("https://picsum.photos/seed/mothersday/600/800");
               }}
             />
             
-            {/* Overlay Content */}
+            {/* Content Overlay */}
             <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col items-center text-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full mb-4">
                 <Sparkles className="w-3 h-3 text-white" />
