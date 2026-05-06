@@ -12,11 +12,21 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, Sparkles } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function MothersDayPopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const [imageSrc, setImageSrc] = useState('https://picsum.photos/seed/mothersday/800/1000');
 
   useEffect(() => {
+    // Determine the image source - use the placeholder system
+    const posterData = PlaceHolderImages.find(img => img.id === 'mothers-day-poster');
+    if (posterData) {
+      // If we have a local path that works, we'd use it here. 
+      // For now we use the configured imageUrl which includes a fallback.
+      setImageSrc(posterData.imageUrl);
+    }
+
     // Show popup after 1.5 seconds delay
     const timer = setTimeout(() => {
       const hasSeenPopup = sessionStorage.getItem('mothers-day-popup-seen');
@@ -53,11 +63,12 @@ export function MothersDayPopup() {
           <div className="relative aspect-[4/5] w-full bg-white rounded-[2rem] overflow-hidden shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] border-4 border-white">
             {/* The Poster Image */}
             <Image 
-              src="/mothers-day-poster.png" 
+              src={imageSrc} 
               alt="Mother's Day Special Offer" 
               fill 
               className="object-cover"
               priority
+              data-ai-hint="mother's day flowers"
             />
             
             {/* Overlay Content */}

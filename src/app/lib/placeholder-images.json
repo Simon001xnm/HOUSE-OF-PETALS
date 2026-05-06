@@ -396,6 +396,12 @@
       "description": "Cherry wonder April 8",
       "imageUrl": "/WhatsApp Image 2026-04-08 at 11.55.30 AM (2).jpeg",
       "imageHint": "cherry wonder new"
+    },
+    {
+      "id": "mothers-day-poster",
+      "description": "Mother's Day Special Poster",
+      "imageUrl": "https://picsum.photos/seed/mothersday/800/1000",
+      "imageHint": "mother's day flowers"
     }
   ]
 }
