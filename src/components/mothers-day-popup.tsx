@@ -16,14 +16,12 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function MothersDayPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  const [imageSrc, setImageSrc] = useState('https://picsum.photos/seed/mothersday/800/1000');
+  const [imageSrc, setImageSrc] = useState("/'s Day (Poster) (2).png");
 
   useEffect(() => {
     // Determine the image source - use the placeholder system
     const posterData = PlaceHolderImages.find(img => img.id === 'mothers-day-poster');
     if (posterData) {
-      // If we have a local path that works, we'd use it here. 
-      // For now we use the configured imageUrl which includes a fallback.
       setImageSrc(posterData.imageUrl);
     }
 
@@ -68,7 +66,6 @@ export function MothersDayPopup() {
               fill 
               className="object-cover"
               priority
-              data-ai-hint="mother's day flowers"
             />
             
             {/* Overlay Content */}
