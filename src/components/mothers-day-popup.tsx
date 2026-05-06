@@ -7,6 +7,8 @@ import Link from 'next/link';
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { X, Sparkles } from 'lucide-react';
@@ -34,6 +36,11 @@ export function MothersDayPopup() {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-[95vw] md:max-w-lg p-0 overflow-hidden border-none bg-transparent shadow-none focus:outline-none">
+        <DialogTitle className="sr-only">Mother's Day Special Offer</DialogTitle>
+        <DialogDescription className="sr-only">
+          Discover our exclusive Mother's Day blooms and boutique gifts.
+        </DialogDescription>
+        
         <div className="relative group animate-in fade-in zoom-in duration-300">
           {/* Close Button Above Modal */}
           <button 
