@@ -11,6 +11,7 @@ import { ShoppingCart, ArrowRight, Sparkles, Heart, Gift, Truck } from 'lucide-r
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
 import { ALL_PRODUCTS } from '@/lib/products';
+import { MothersDayPopup } from '@/components/mothers-day-popup';
 
 export default function Home() {
   const { addToCart } = useCart();
@@ -19,7 +20,7 @@ export default function Home() {
   // Get the latest 4 products for the featured section
   const FEATURED_PRODUCTS = [...ALL_PRODUCTS].slice(-4).reverse();
   
-  // Get all products for the marquee (shuffled or sliced for variety)
+  // Get all products for the marquee
   const MARQUEE_PRODUCTS = [...ALL_PRODUCTS];
 
   const getImg = (id: string) => PlaceHolderImages.find(i => i.id === id);
@@ -42,6 +43,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
       <Navbar />
+      
+      {/* Mother's Day Promotional Popup */}
+      <MothersDayPopup />
       
       <main className="flex-grow">
         {/* Hero Section */}
