@@ -16,7 +16,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function MothersDayPopup() {
   const [isOpen, setIsOpen] = useState(false);
-  const [imageSrc, setImageSrc] = useState("/'s Day (Poster) (2).png");
+  // Using encoded URL to handle special characters like spaces and quotes in the filename
+  const [imageSrc, setImageSrc] = useState("/%27s%20Day%20(Poster)%20(2).png");
 
   useEffect(() => {
     // Determine the image source - use the placeholder system
@@ -66,10 +67,14 @@ export function MothersDayPopup() {
               fill 
               className="object-cover"
               priority
+              onError={() => {
+                // If the specific file fails to load, use a high-quality fallback
+                setImageSrc("https://picsum.photos/seed/mothersday/600/800");
+              }}
             />
             
             {/* Overlay Content */}
-            <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col items-center text-center">
+            <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/95 via-black/40 to-transparent flex flex-col items-center text-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full mb-4">
                 <Sparkles className="w-3 h-3 text-white" />
                 <span className="text-[10px] font-black text-white uppercase tracking-widest">Limited Time Offer</span>
