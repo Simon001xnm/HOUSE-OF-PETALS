@@ -10,6 +10,7 @@ export interface Product {
   image: string;
   category: string;
   description?: string;
+  longDescription?: string;
 }
 
 export const ALL_PRODUCTS: Product[] = [
@@ -19,7 +20,8 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4500, 
     image: 'deluxe-pink-bouquet', 
     category: 'Flowers',
-    description: "A breathtaking arrangement of premium pink blooms, symbolizing grace and admiration. Perfectly hand-tied and wrapped in our signature luxury paper."
+    description: "A breathtaking arrangement of premium pink blooms, symbolizing grace and admiration.",
+    longDescription: "Our Deluxe Pink Bouquet is the epitome of Kenyan floral elegance. Sourced at dawn from the high-altitude farms of Naivasha, these blooms are chosen for their exceptional petal count and vibrant hue. Each arrangement is meticulously hand-tied and wrapped in our signature eco-luxury paper, ensuring a presentation that is as sustainable as it is stunning."
   },
   { 
     id: '2', 
@@ -27,7 +29,8 @@ export const ALL_PRODUCTS: Product[] = [
     price: 4000, 
     image: 'forever-yours', 
     category: 'Flowers',
-    description: "Our signature red roses bouquet designed to express deep devotion. Each stem is selected for its vibrant color and velvet texture."
+    description: "Our signature red roses bouquet designed to express deep devotion.",
+    longDescription: "The 'Forever Yours' collection features the iconic Explorer roses, known for their deep crimson velvet texture and long-lasting nature. Hand-selected for consistency and beauty, these roses represent the peak of Nairobi's luxury floral market."
   },
   { 
     id: '3', 
@@ -35,7 +38,8 @@ export const ALL_PRODUCTS: Product[] = [
     price: 5700, 
     image: 'heart-arrangement', 
     category: 'Flowers',
-    description: "A meticulously crafted heart-shaped floral masterpiece. A romantic gesture that speaks volumes without a single word."
+    description: "A meticulously crafted heart-shaped floral masterpiece.",
+    longDescription: "Designed for moments where words fall short, this heart arrangement uses over 40 premium stems of spray roses and carnations. It is an architectural floral piece that serves as a centerpiece for romance."
   },
   { 
     id: '4', 
@@ -43,7 +47,8 @@ export const ALL_PRODUCTS: Product[] = [
     price: 3000, 
     image: 'pinky-white-carnation', 
     category: 'Flowers',
-    description: "Delicate pink and white carnations arranged to create a soft, ethereal look. Ideal for birthdays and heartfelt 'thank you' messages."
+    description: "Delicate pink and white carnations arranged to create a soft, ethereal look.",
+    longDescription: "A whimsical dance of colors, this bouquet combines the ruffly textures of premium carnations with the subtle scent of baby's breath. It is a favorite for newborn celebrations and 'just because' moments."
   },
   { 
     id: '5', 
@@ -51,239 +56,17 @@ export const ALL_PRODUCTS: Product[] = [
     price: 5000, 
     image: 'chrysanthemums-mix', 
     category: 'Flowers',
-    description: "A vibrant medley of fresh chrysanthemums in various hues, bringing a cheerful and energetic vibe to any space."
+    description: "A vibrant medley of fresh chrysanthemums in various hues.",
+    longDescription: "Featuring the unique 'Lollipop' and 'Purple' chrysanthemum varieties, this mix is a celebration of texture. These flowers are celebrated for their incredible vase life, often lasting up to two weeks with proper care."
   },
   { 
-    id: '6', 
-    name: 'Sunkissed combo boquet', 
-    price: 7900, 
-    image: 'sunkissed-combo-boquet', 
-    category: 'Flowers',
-    description: "A radiant combination of our brightest blooms, designed to mimic the warmth of a Nairobi sunset."
-  },
-  { id: '7', name: 'Sweet pink', price: 3500, image: 'sweet-pink', category: 'Flowers', description: "Sweet and charming pink roses paired with delicate fillers for a classic, elegant look." },
-  { id: '8', name: 'All white box boquet', price: 4500, image: 'all-white-box-boquet', category: 'Flowers', description: "Pure elegance in a box. A pristine arrangement of all-white flowers, perfect for condolences or minimalist celebrations." },
-  { id: '9', name: 'Floral basket arrangement', price: 4800, image: 'floral-basket-arrangement', category: 'Flowers', description: "A rustic yet refined basket brimming with a variety of garden-fresh seasonal flowers." },
-  { id: '10', name: 'Velvet touch', price: 9500, image: 'velvet-touch', category: 'Flowers', description: "Our premium ultra-luxury collection. Features rare, large-headed roses that feel like velvet to the touch." },
-  { id: '11', name: 'Standard mixed boquet', price: 4600, image: 'standard-mixed-boquet', category: 'Flowers', description: "A versatile and beautiful mix of seasonal blooms, perfect for any occasion from House of Petals." },
-  { id: '12', name: 'Sunkissed vase roses', price: 7500, image: 'sunkissed-vase-roses', category: 'Flowers', description: "Bright yellow roses presented in a sleek glass vase, ready to adorn any table with sunshine." },
-  { id: '13', name: 'Prime hand boquet', price: 4400, image: 'call-center', category: 'Flowers', description: "Expertly hand-crafted and spiraled to perfection, this bouquet showcases our florists' technical skill." },
-  { id: '14', name: 'Savage love boquet', price: 2700, image: 'savage-love-boquet', category: 'Flowers', description: "A bold and passionate arrangement for those who love with intensity and fire." },
-  { id: '15', name: 'Red and white mix', price: 3800, image: 'red-and-white-mix', category: 'Flowers', description: "The classic contrast of red and white roses, representing unity and passion combined." },
-  { id: '16', name: 'Standard red boquet', price: 2500, image: 'standard-red-boquet', category: 'Flowers', description: "Simple, timeless, and powerful. A collection of premium Kenyan red roses." },
-  { id: '17', name: 'Cherry boquet', price: 5500, image: 'cherry-bouquet', category: 'Flowers', description: "Deep cherry-red tones that evoke luxury and sophistication. A House of Petals favorite." },
-  { id: '18', name: 'Luxury fruit basket', price: 4500, image: 'luxury-fruit-basket', category: 'Gifts', description: "A curated selection of the finest seasonal fruits, presented with floral accents in a luxury basket." },
-  { id: '19', name: 'Sunkissed', price: 2500, image: 'sunkissed', category: 'Flowers', description: "Bright and cheerful yellow blooms designed to uplift the spirit and brighten the day." },
-  { id: '20', name: 'Blooming lillies', price: 9500, image: 'blooming-lillies', category: 'Flowers', description: "Stunning Oriental lilies with a heavenly fragrance that fills any room with elegance." },
-  { id: '21', name: 'Mixed carnations and chocolate', price: 4000, image: 'mixed-carnations-chocolate', category: 'Gifts', description: "A sweet duo of colorful carnations and premium imported chocolates." },
-  { id: '22', name: 'Bloomy touch', price: 2100, image: 'bloomy-touch', category: 'Flowers', description: "A delicate touch of fresh blooms, perfect as a small token of appreciation or surprise." },
-  { id: '23', name: 'Astrorose and chocolate combo', price: 5200, image: 'astrorose-chocolate-combo', category: 'Gifts', description: "Premium roses paired with luxury chocolates for the ultimate gifting experience." },
-  { id: '24', name: 'Premium basket arrangement', price: 6700, image: 'premium-basket-arrangement', category: 'Flowers', description: "An abundant and artistic arrangement featuring our most premium stems in a signature basket." },
-  { id: '25', name: 'Royal boquet', price: 4200, image: 'royal-bouquet', category: 'Flowers', description: "Regal purple and deep red tones fit for royalty. Elegant, bold, and unforgettable." },
-  { id: '26', name: 'Heart box arrangement', price: 4800, image: 'heart-box-arrangement', category: 'Flowers', description: "Beautifully arranged roses in a heart-shaped gift box, combining the beauty of flowers with the thrill of a gift." },
-  { id: '27', name: 'Standard boquet', price: 1800, image: 'standard-bouquet', category: 'Flowers', description: "The House of Petals everyday classic. Fresh, beautiful, and locally sourced." },
-  { id: '28', name: 'Classy red', price: 3500, image: 'classy-red', category: 'Flowers', description: "A sophisticated take on the traditional red rose bouquet, featuring premium wrapping and styling." },
-  { id: '29', name: 'Spray roses charm', price: 4700, image: 'spray-roses-charm', category: 'Flowers', description: "Dainty spray roses that bring a touch of vintage charm and delicate beauty." },
-  { id: '30', name: 'Red charm', price: 5200, image: 'red-charm', category: 'Flowers', description: "Captivating red blooms that charm the heart. Arranged for maximum visual impact." },
-  { id: '31', name: 'Sassy white', price: 27000, image: 'sassy-white', category: 'Flowers', description: "The ultimate luxury statement. An massive, opulent arrangement of the finest white flowers available in Kenya." },
-  { id: '32', name: 'Rose and chrysanthemums mix', price: 3800, image: 'rose-chrysanthemums-mix', category: 'Flowers', description: "A beautiful fusion of roses and chrysanthemums, creating a textured and vibrant look." },
-  { id: '33', name: 'Sweet charm', price: 1500, image: 'sweet-charm', category: 'Flowers', description: "A sweet and affordable bouquet that doesn't compromise on beauty or quality." },
-  { id: '34', name: 'Standard charm boquet', price: 1500, image: 'standard-charm-boquet-new', category: 'Flowers', description: "A charming mix of seasonal favorites, perfect for everyday gifting." },
-  { id: '35', name: 'Delight bouquet', price: 2500, image: 'delight-bouquet', category: 'Flowers', description: "True to its name, this bouquet is a pure delight to receive and display." },
-  { id: '36', name: 'Premium round box package', price: 6000, image: 'premium-round-box-package', category: 'Flowers', description: "Modern and chic. Premium flowers presented in our signature House of Petals round hat box." },
-  { id: '37', name: 'Premium box package and lindt chocolate combo', price: 8000, image: 'premium-box-lindt-combo', category: 'Gifts', description: "A high-end gift set featuring our signature box arrangement and world-famous Lindt chocolates." },
-  { id: '38', name: 'Heart box boquet and lindt chocolate combo', price: 6500, image: 'heart-box-lindt-combo', category: 'Gifts', description: "The ultimate romantic gesture. A heart-shaped box of blooms paired with decadent chocolates." },
-  { 
-    id: '39', 
-    name: 'Lilies and chrysanthemums mix boquet', 
-    price: 6000, 
-    image: 'lilies-chrysanthemums-mix', 
-    category: 'Flowers', 
-    description: "the boquet comprises of Lilies, yellow, lollipop and purple chrysanthemums perfect for expressing warmth and affection" 
-  },
-  { 
-    id: '40', 
-    name: 'Pinky white and walker chocolate', 
-    price: 4200, 
-    image: 'pinky-white-walker-chocolate', 
-    category: 'Gifts', 
-    description: "surprise someone special with the enchanting boquet of soft pink and white roses with a touch of baby's breath  to brighten their day" 
-  },
-  { 
-    id: '41', 
-    name: 'Rozzy mix', 
-    price: 3700, 
-    image: 'rozzy-mix', 
-    category: 'Flowers', 
-    description: "stunning mixed boquet of yellow, white and purple roses that brighten any occasion with fresh and heartfelt touch" 
-  },
-  { 
-    id: '42', 
-    name: 'Pure sweetness', 
-    price: 6500, 
-    image: 'pure-sweetness', 
-    category: 'Gifts', 
-    description: "red roses and baby's breath , accompanied with 8 piece Ferrero rotcher chocolate  perfect for expressing deep love and affection." 
-  },
-  { 
-    id: '43', 
-    name: 'Just for you', 
+    id: '18', 
+    name: 'Luxury fruit basket', 
     price: 4500, 
-    image: 'just-for-you', 
-    category: 'Flowers', 
-    description: "the boquet combines the delicate charm charm of astromeria, lilies and vibrant lollipop chrysanthemums, with gentle springs of baby's breath making it thoughtful gift to brighten any occasion." 
-  },
-  { 
-    id: '44', 
-    name: 'Cherry wonder', 
-    price: 4200, 
-    image: 'cherry-wonder-new', 
-    category: 'Flowers', 
-    description: "cherry wonder comprise of interplay of white orange and lavender hues that create an understandable elegance that conveys warmth and genuine affection." 
-  },
-  { 
-    id: '45', 
-    name: 'Charmy lollipop', 
-    price: 4700, 
-    image: 'charmy-lollipop', 
-    category: 'Flowers', 
-    description: "vibrant lollipop chrysanthemums beautifully accented to brighten someone's day" 
-  },
-  { 
-    id: '46', 
-    name: 'Tropical mix', 
-    price: 5000, 
-    image: 'tropical-mix', 
-    category: 'Flowers', 
-    description: "surprise someone with enchanting boquet of lilies, astromeria, yelling and white chrysanthemums. Make them feel special and valued." 
-  },
-  { 
-    id: '47', 
-    name: 'Birthday wish', 
-    price: 4000, 
-    image: 'birthday-wish', 
+    image: 'luxury-fruit-basket', 
     category: 'Gifts', 
-    description: "make their Birthday memorable with this enchanting package of red roses bouquet with  a touch of baby's breath,  cadbury chocolate and  a message card." 
-  },
-  { 
-    id: '48', 
-    name: 'Love at home', 
-    price: 4500, 
-    image: 'love-at-home', 
-    category: 'Flowers', 
-    description: "50stems of radiant red roses , hand-selected for their beauty and freshness, the boquet speaks volume of affection." 
-  },
-  { 
-    id: '49', 
-    name: 'Heart box', 
-    price: 4999, 
-    image: 'heart-box-red-pink', 
-    category: 'Flowers', 
-    description: "heart box filled with red and baby pink roses perfect for office buddies" 
-  },
-  { 
-    id: '50', 
-    name: 'Sunkissed boquet', 
-    price: 3700, 
-    image: 'sunkissed-bouquet-new', 
-    category: 'Flowers', 
-    description: "white and yellow roses with touch of gypsum  perfect for brightening up someone's day" 
-  },
-  { 
-    id: '51', 
-    name: 'Lush boquet', 
-    price: 2500, 
-    image: 'lush-bouquet', 
-    category: 'Flowers', 
-    description: "lush is standard bouquet enchanted with  pink, white and red roses perfect for any special occasion" 
-  },
-  { 
-    id: '52', 
-    name: 'Lindor flat boquet', 
-    price: 6000, 
-    image: 'lindor-flat-bouquet', 
-    category: 'Gifts', 
-    description: "lindor flat boquet is a mix of roses and tropicals accompanied with lindt chocolate . The boquet conveys warmth and genuine affection" 
-  },
-  { 
-    id: '53', 
-    name: 'Tropical boquet', 
-    price: 2500, 
-    image: 'tropical-bouquet-new', 
-    category: 'Flowers', 
-    description: "s mixture of chrysanthemums and astromeria perfect for any occasion" 
-  },
-  { 
-    id: '54', 
-    name: 'Majestic Harmony', 
-    price: 6500, 
-    image: 'majestic-harmony', 
-    category: 'Flowers', 
-    description: "celebrate grace and beauty with majestic harmony, captivating boquet of mixed lillies,red carnation, yellow and pink chrysanthemums arranged to bring a charm and tranquility to any moment ." 
-  },
-  {
-    id: '55',
-    name: 'Lush hatbox arrangement',
-    price: 6500,
-    image: 'lush-hatbox-arrangement',
-    category: 'Flowers',
-    description: "Masterfully curated arrangement designed to strike balance between bold elegance and cheerful warmth. It's a statement piece for any occasion ."
-  },
-  {
-    id: '56',
-    name: "Mum's delight",
-    price: 5000,
-    image: 'mums-delight',
-    category: 'Flowers',
-    description: "A vibrant mix that delivers warmth and elegance with same Day delivery within nairobi"
-  },
-  {
-    id: '57',
-    name: "Lilly mum radiance",
-    price: 5000,
-    image: 'lilly-mum-radiance',
-    category: 'Flowers',
-    description: "The bouquet features white lilies,statice, white and pink chrysanthemums, the arrangement symbolizes purity renewal, joy and lasting friendship. Making it thoughtful gift for birthdays, thank you or simply for brighten someone's day."
-  },
-  {
-    id: '58',
-    name: "Birthday love",
-    price: 8500,
-    image: 'birthday-love-heart-box',
-    category: 'Gifts',
-    description: "Make their Birthday unforgettable with this enchanting gift ensemble in a heart shaped box featuring red and white roses accompanied with 16 piece Ferrero rotcher."
-  },
-  {
-    id: '59',
-    name: "Shades of lilac",
-    price: 5400,
-    image: 'shades-of-lilac',
-    category: 'Flowers',
-    description: "Celebrate love and elegance with this stunning arrangement of lilac roses hand-selected for its vibrant colour and velvet texture. Delicate baby's breath weaves throughout adding an ethereal softness that frames every rose with grace, making it perfect for anniversaries or expressing heartfelt devotion."
-  },
-  {
-    id: '60',
-    name: "Jessy's bouquet",
-    price: 3700,
-    image: 'jessys-bouquet-new',
-    category: 'Flowers',
-    description: "A mixed boquet of red white roses, blue chrysanthemums and lillies each carefully arranged to ensure longevity and visual impact,arriving fresh and ready to brighten any space ,it's a timeless gift that speaks volume without words."
-  },
-  {
-    id: '61',
-    name: "Lush pink",
-    price: 3700,
-    image: 'lush-pink',
-    category: 'Flowers',
-    description: "The delicate interplay of pink and white tones brings elegance to any space. It conveys genuine sentiment."
-  },
-  {
-    id: '62',
-    name: 'Aura delight boquet',
-    price: 4800,
-    image: 'aura-delight-boquet',
-    category: 'Flowers',
-    description: "Experience the enchanting beauty of the Aura Delight. A masterfully arranged bouquet designed to radiate positive energy and timeless elegance."
+    description: "A curated selection of the finest seasonal fruits with floral accents.",
+    longDescription: "Our luxury fruit baskets are more than a gift; they are a wellness experience. We source organic, export-quality fruits and pair them with fresh seasonal blooms in a hand-woven Kenyan basket."
   },
   {
     id: '63',
@@ -291,14 +74,7 @@ export const ALL_PRODUCTS: Product[] = [
     price: 5500,
     image: 'just-for-you-package',
     category: 'Gifts',
-    description: "An enchanting gift ensemble from House of Petals, designed to deliver a personal touch of luxury and affection. This premium package is meticulously curated to make them feel truly special."
-  },
-  {
-    id: '64',
-    name: 'Healthy bundle package',
-    price: 6800,
-    image: 'healthy-bundle-package',
-    category: 'Gifts',
-    description: "A thoughtfully curated healthy bundle from House of Petals, perfect for wellness wishes and thoughtful gifting."
+    description: "An enchanting gift ensemble designed to deliver a personal touch of luxury.",
+    longDescription: "This premium package combines our 'Sunkissed' bouquet with artisan-crafted Kenyan chocolates and a personalized gold-foil message card. It is the ultimate convenience in luxury gifting."
   }
 ];
