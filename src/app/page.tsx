@@ -172,11 +172,43 @@ export default function Home() {
                 </div>
                 <div className="flex items-center gap-2 pointer-events-auto">
                    <div className="h-1.5 w-48 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-[#be1e2d] animate-marquee-progress origin-left"></div>
+                      <div className="h-full bg-[#be1e2d] animate-pulse"></div>
                    </div>
                 </div>
               </div>
             </Carousel>
+          </div>
+        </section>
+
+        {/* Product Marquee Section */}
+        <section className="py-12 bg-gray-50 border-b border-gray-100 overflow-hidden relative">
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+          <div className="flex animate-marquee whitespace-nowrap gap-16 items-center">
+            {[...ALL_PRODUCTS, ...ALL_PRODUCTS, ...ALL_PRODUCTS].map((product, idx) => {
+              const imgData = getImg(product.image);
+              return (
+                <Link 
+                  key={`${product.id}-${idx}`} 
+                  href={`/products/${product.id}`}
+                  className="flex items-center gap-6 group min-w-max hover:scale-105 transition-transform duration-300"
+                >
+                  <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:border-[#be1e2d] transition-all">
+                    <Image 
+                      src={imgData?.imageUrl || fallbackImage} 
+                      alt={product.name} 
+                      fill 
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#be1e2d]">{product.category}</span>
+                    <span className="text-base font-black text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors">{product.name}</span>
+                    <span className="text-sm font-bold text-gray-400">KSh {product.price.toLocaleString()}</span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
 
