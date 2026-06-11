@@ -8,7 +8,7 @@ import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { BLOG_POSTS } from '@/lib/blog-data';
+import { BLOG_POSTS, type BlogPost } from '@/lib/blog-data';
 import { 
   ShoppingCart, 
   ArrowRight, 
@@ -71,6 +71,17 @@ export default function Home() {
     });
   };
 
+  const getHeroTitle = (post: BlogPost) => {
+    switch (post.category) {
+      case 'Weddings': return { top: 'Arusi', middle: 'Safi', bottom: 'Online' };
+      case 'Surprises': return { top: 'Zawadi', middle: 'Tamu', bottom: 'Online' };
+      case 'Anniversaries': return { top: 'Mapenzi', middle: 'Bora', bottom: 'Online' };
+      case 'Events': return { top: 'Kazi', middle: 'Safi', bottom: 'Online' };
+      case 'Flowers': return { top: 'Maua', middle: 'Bora', bottom: 'Online' };
+      default: return { top: 'Shop', middle: 'Flowers', bottom: 'Online' };
+    }
+  };
+
   const FAQS = [
     { q: "Where do you source your flowers?", a: "We source our premium roses and lilies directly from the fertile volcanic soils of Naivasha, Kenya. This ensures they arrive at your door fresher and last significantly longer than store-bought flowers." },
     { q: "How fast is your delivery?", a: "We provide lightning-fast Same-Day Delivery within Nairobi for all orders placed before 2:00 PM. We know timing is everything when it comes to love!" },
@@ -97,6 +108,7 @@ export default function Home() {
               <CarouselContent className="h-full">
                 {BLOG_POSTS.map((post, idx) => {
                   const imgData = getImg(post.image);
+                  const title = getHeroTitle(post);
                   return (
                     <CarouselItem key={idx} className="h-full">
                       <div className="container mx-auto px-6 h-full">
@@ -108,9 +120,9 @@ export default function Home() {
                             </div>
                             <div className="space-y-4">
                               <h1 className="text-6xl md:text-9xl font-black text-[#1e1e24] leading-[0.8] tracking-tighter">
-                                {post.id === 'b1' || post.id === 'b3' ? 'Mapenzi' : post.id === 'b4' ? 'Kazi' : 'Beyond'}<br />
-                                <span className="text-[#be1e2d] italic">{post.id === 'b1' || post.id === 'b3' ? 'Halisi' : post.id === 'b4' ? 'Safi' : 'Floral'}</span> <br />
-                                Artistry.
+                                {title.top}<br />
+                                <span className="text-[#be1e2d] italic">{title.middle}</span> <br />
+                                {title.bottom}.
                               </h1>
                               <p className="text-xl md:text-2xl font-bold text-[#be1e2d] uppercase tracking-wide">
                                 {post.slogan}
