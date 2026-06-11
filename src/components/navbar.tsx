@@ -1,11 +1,11 @@
 
-"use client";
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ShoppingBag, Menu, Search, Phone, Sparkles, MessageCircle } from 'lucide-react';
+import { ShoppingBag, Menu, Search, Phone, Sparkles, MessageCircle, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/use-cart';
@@ -27,10 +27,9 @@ export function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'Our Story', href: '/about' },
     { name: 'Flowers', href: '/catalog?category=flowers' },
-    { name: 'Gift Sets', href: '/catalog?category=gifts' },
-    { name: 'Events', href: '/catalog' },
-    { name: 'AI Concierge', href: '/gift-advisor' },
-    { name: 'Account', href: '/profile' },
+    { name: 'Gifts', href: '/catalog?category=gifts' },
+    { name: 'Journal', href: '/blog' },
+    { name: 'Profile', href: '/profile' },
   ];
 
   return (
@@ -75,9 +74,9 @@ export function Navbar() {
         </form>
 
         <div className="flex items-center gap-4">
-          <Link href="https://wa.me/254704524070" target="_blank" className="hidden xl:flex">
-            <Button variant="outline" className="rounded-full border-[#25d366] text-[#25d366] hover:bg-[#25d366] hover:text-white h-11 px-6 text-[10px] font-black uppercase tracking-widest gap-2">
-              <MessageCircle className="w-4 h-4" /> CONCIERGE
+          <Link href="/blog" className="hidden xl:flex">
+            <Button variant="outline" className="rounded-full border-[#be1e2d] text-[#be1e2d] hover:bg-[#be1e2d] hover:text-white h-11 px-6 text-[10px] font-black uppercase tracking-widest gap-2">
+              <BookOpen className="w-4 h-4" /> BLOG
             </Button>
           </Link>
           <Link href="/cart" className="relative group p-2">
