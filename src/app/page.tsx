@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Navbar } from '@/components/navbar';
@@ -18,8 +19,6 @@ import {
   CheckCircle2,
   Zap,
   Star,
-  ChevronLeft,
-  ChevronRight
 } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
@@ -36,17 +35,27 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
 
 export default function Home() {
   const { addToCart } = useCart();
   const { toast } = useToast();
+  const [api, setApi] = useState<CarouselApi>();
   
   const FEATURED_PRODUCTS = [...ALL_PRODUCTS].slice(0, 4);
-  const HERO_BLOGS = BLOG_POSTS.slice(0, 3); // Top 3 blogs for hero
 
   const getImg = (id: string) => PlaceHolderImages.find(i => i.id === id);
   const fallbackImage = '/WhatsApp Image 2026-03-04 at 7.02.27 PM.jpeg';
+
+  // Auto-slide functionality for the hero carousel
+  useEffect(() => {
+    if (!api) return;
+    const intervalId = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, [api]);
 
   const handleAddToCart = (product: any) => {
     const imgData = getImg(product.image);
@@ -74,58 +83,63 @@ export default function Home() {
       <Navbar />
       
       <main className="flex-grow">
-        {/* Hero Section with Blog Slider & Logo Background */}
-        <section className="relative h-[85vh] bg-white overflow-hidden border-b border-gray-100">
+        {/* Hero Section - Full Screen Slide */}
+        <section className="relative h-screen min-h-[700px] bg-white overflow-hidden border-b border-gray-100 flex items-center">
           {/* Logo Watermark Background */}
-          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
-            <div className="relative w-[80vw] h-[80vw] max-w-[800px] max-h-[800px]">
+          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.04] pointer-events-none select-none">
+            <div className="relative w-[70vw] h-[70vw] max-w-[900px] max-h-[900px]">
               <Image src="/logo.jpeg" alt="Watermark" fill className="object-contain" />
             </div>
           </div>
 
-          <div className="container mx-auto px-6 h-full flex flex-col justify-center relative z-10">
-            <Carousel className="w-full" opts={{ loop: true }}>
+          <div className="w-full relative z-10">
+            <Carousel setApi={setApi} className="w-full" opts={{ loop: true }}>
               <CarouselContent>
                 {BLOG_POSTS.map((post, idx) => {
                   const imgData = getImg(post.image);
                   return (
                     <CarouselItem key={idx}>
-                      <div className="flex flex-col lg:flex-row items-center gap-16 py-12">
-                        <div className="lg:w-1/2 space-y-8 animate-in fade-in slide-in-from-left duration-700">
-                          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#be1e2d]/10 text-[#be1e2d] rounded-full">
-                            <Star className="w-3.5 h-3.5 fill-[#be1e2d]" />
-                            <span className="text-[10px] font-black uppercase tracking-[0.3em]">{post.category} EXCELLENCE</span>
+                      <div className="container mx-auto px-6">
+                        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 py-12">
+                          <div className="lg:w-1/2 space-y-8 animate-in fade-in slide-in-from-left duration-1000">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#be1e2d]/10 text-[#be1e2d] rounded-full">
+                              <Star className="w-3.5 h-3.5 fill-[#be1e2d]" />
+                              <span className="text-[10px] font-black uppercase tracking-[0.3em]">{post.category} EXCELLENCE</span>
+                            </div>
+                            <h1 className="text-6xl md:text-9xl font-black text-[#1e1e24] leading-[0.8] tracking-tighter">
+                              Beyond <br />
+                              <span className="text-[#be1e2d] italic">Floral</span> <br />
+                              Artistry.
+                            </h1>
+                            <div className="space-y-4 max-w-xl">
+                              <h2 className="text-2xl font-black text-gray-800 uppercase tracking-tight">{post.title}</h2>
+                              <p className="text-gray-500 text-lg leading-relaxed font-medium">
+                                {post.excerpt}
+                              </p>
+                            </div>
+                            <div className="flex flex-col sm:flex-row items-center gap-6 pt-6">
+                              <Link href={`/blog/${post.slug}`}>
+                                <Button className="w-full sm:w-auto bg-[#be1e2d] hover:bg-[#a51a27] text-white font-black h-16 px-14 rounded-full text-xs uppercase tracking-[0.2em] shadow-2xl transition-all hover:scale-105">
+                                  WHY WE ARE THE BEST IN {post.category.toUpperCase()}
+                                </Button>
+                              </Link>
+                              <Link href="/catalog" className="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-[#be1e2d] flex items-center gap-2">
+                                VIEW COLLECTION <ArrowRight className="w-4 h-4" />
+                              </Link>
+                            </div>
                           </div>
-                          <h1 className="text-6xl md:text-8xl font-black text-[#1e1e24] leading-[0.85] tracking-tighter">
-                            Beyond <br />
-                            <span className="text-[#be1e2d] italic">Floral</span> <br />
-                            Artistry.
-                          </h1>
-                          <div className="space-y-4 max-w-lg">
-                            <h2 className="text-2xl font-black text-gray-800 uppercase tracking-tight">{post.title}</h2>
-                            <p className="text-gray-500 text-lg leading-relaxed font-medium">
-                              {post.excerpt}
-                            </p>
-                          </div>
-                          <div className="flex items-center gap-6 pt-4">
-                            <Link href={`/blog/${post.slug}`}>
-                              <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-black h-16 px-14 rounded-full text-xs uppercase tracking-[0.2em] shadow-2xl transition-all hover:scale-105">
-                                WHY WE ARE THE BEST IN {post.category.toUpperCase()}
-                              </Button>
-                            </Link>
-                          </div>
-                        </div>
 
-                        <div className="lg:w-1/2 relative aspect-square w-full max-w-xl animate-in fade-in zoom-in duration-1000">
-                          <div className="absolute inset-0 bg-gradient-to-tr from-[#be1e2d]/10 to-transparent rounded-[3rem] blur-[80px]"></div>
-                          <div className="relative w-full h-full rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-8 border-white">
-                            <Image 
-                              src={imgData?.imageUrl || fallbackImage} 
-                              alt={post.title} 
-                              fill 
-                              className="object-cover"
-                              priority
-                            />
+                          <div className="lg:w-1/2 relative aspect-square w-full max-w-2xl animate-in fade-in zoom-in duration-1000">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-[#be1e2d]/15 to-transparent rounded-[4rem] blur-[100px]"></div>
+                            <div className="relative w-full h-full rounded-[4rem] overflow-hidden shadow-[0_60px_120px_-30px_rgba(0,0,0,0.4)] border-[12px] border-white">
+                              <Image 
+                                src={imgData?.imageUrl || fallbackImage} 
+                                alt={post.title} 
+                                fill 
+                                className="object-cover"
+                                priority
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -133,9 +147,17 @@ export default function Home() {
                   );
                 })}
               </CarouselContent>
-              <div className="hidden lg:flex absolute bottom-0 left-0 gap-4 p-6">
-                <CarouselPrevious className="static translate-y-0 h-14 w-14 rounded-full border-2 border-gray-100 bg-white hover:bg-[#be1e2d] hover:text-white transition-all shadow-xl" />
-                <CarouselNext className="static translate-y-0 h-14 w-14 rounded-full border-2 border-gray-100 bg-white hover:bg-[#be1e2d] hover:text-white transition-all shadow-xl" />
+              {/* Navigation Controls */}
+              <div className="hidden lg:flex container mx-auto px-6 absolute bottom-12 left-0 right-0 justify-between items-center pointer-events-none">
+                <div className="flex gap-4 pointer-events-auto">
+                  <CarouselPrevious className="static translate-y-0 h-16 w-16 rounded-full border-2 border-gray-100 bg-white hover:bg-[#be1e2d] hover:text-white transition-all shadow-2xl" />
+                  <CarouselNext className="static translate-y-0 h-16 w-16 rounded-full border-2 border-gray-100 bg-white hover:bg-[#be1e2d] hover:text-white transition-all shadow-2xl" />
+                </div>
+                <div className="flex items-center gap-2 pointer-events-auto">
+                   <div className="h-1 w-24 bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-[#be1e2d] animate-marquee-progress origin-left"></div>
+                   </div>
+                </div>
               </div>
             </Carousel>
           </div>
