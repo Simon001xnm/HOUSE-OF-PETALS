@@ -83,8 +83,8 @@ export default function Home() {
       <Navbar />
       
       <main className="flex-grow">
-        {/* Hero Section - Full Screen Slide */}
-        <section className="relative h-screen min-h-[700px] bg-white overflow-hidden border-b border-gray-100 flex items-center">
+        {/* Hero Section - Full Screen Immersive Slide */}
+        <section className="relative h-screen min-h-[750px] bg-white overflow-hidden border-b border-gray-100 flex items-center">
           {/* Logo Watermark Background */}
           <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.04] pointer-events-none select-none">
             <div className="relative w-[70vw] h-[70vw] max-w-[900px] max-h-[900px]">
@@ -92,25 +92,30 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full relative z-10">
-            <Carousel setApi={setApi} className="w-full" opts={{ loop: true }}>
-              <CarouselContent>
+          <div className="w-full h-full relative z-10">
+            <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
+              <CarouselContent className="h-full">
                 {BLOG_POSTS.map((post, idx) => {
                   const imgData = getImg(post.image);
                   return (
-                    <CarouselItem key={idx}>
-                      <div className="container mx-auto px-6">
-                        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24 py-12">
+                    <CarouselItem key={idx} className="h-full">
+                      <div className="container mx-auto px-6 h-full">
+                        <div className="flex flex-col lg:flex-row items-center justify-center h-full gap-12 lg:gap-24 py-12">
                           <div className="lg:w-1/2 space-y-8 animate-in fade-in slide-in-from-left duration-1000">
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#be1e2d]/10 text-[#be1e2d] rounded-full">
                               <Star className="w-3.5 h-3.5 fill-[#be1e2d]" />
                               <span className="text-[10px] font-black uppercase tracking-[0.3em]">{post.category} EXCELLENCE</span>
                             </div>
-                            <h1 className="text-6xl md:text-9xl font-black text-[#1e1e24] leading-[0.8] tracking-tighter">
-                              Beyond <br />
-                              <span className="text-[#be1e2d] italic">Floral</span> <br />
-                              Artistry.
-                            </h1>
+                            <div className="space-y-4">
+                              <h1 className="text-6xl md:text-9xl font-black text-[#1e1e24] leading-[0.8] tracking-tighter">
+                                {post.id === 'b1' || post.id === 'b3' ? 'Mapenzi' : post.id === 'b4' ? 'Kazi' : 'Beyond'}<br />
+                                <span className="text-[#be1e2d] italic">{post.id === 'b1' || post.id === 'b3' ? 'Halisi' : post.id === 'b4' ? 'Safi' : 'Floral'}</span> <br />
+                                Artistry.
+                              </h1>
+                              <p className="text-xl md:text-2xl font-bold text-[#be1e2d] uppercase tracking-wide">
+                                {post.slogan}
+                              </p>
+                            </div>
                             <div className="space-y-4 max-w-xl">
                               <h2 className="text-2xl font-black text-gray-800 uppercase tracking-tight">{post.title}</h2>
                               <p className="text-gray-500 text-lg leading-relaxed font-medium">
@@ -154,7 +159,7 @@ export default function Home() {
                   <CarouselNext className="static translate-y-0 h-16 w-16 rounded-full border-2 border-gray-100 bg-white hover:bg-[#be1e2d] hover:text-white transition-all shadow-2xl" />
                 </div>
                 <div className="flex items-center gap-2 pointer-events-auto">
-                   <div className="h-1 w-24 bg-gray-100 rounded-full overflow-hidden">
+                   <div className="h-1.5 w-48 bg-gray-100 rounded-full overflow-hidden">
                       <div className="h-full bg-[#be1e2d] animate-marquee-progress origin-left"></div>
                    </div>
                 </div>
@@ -176,28 +181,28 @@ export default function Home() {
                   <Gem className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-black uppercase">Naivasha Sourced</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">Direct from high-altitude volcanic soil for bigger, brighter, and longer-lasting blooms.</p>
+                <p className="text-sm text-gray-500 leading-relaxed">Kutoka Naivasha mpaka Nairobi. Direct from high-altitude volcanic soil for longer-lasting blooms.</p>
               </div>
               <div className="space-y-4 text-center md:text-left group">
                 <div className="w-16 h-16 bg-[#6db33f]/10 rounded-3xl flex items-center justify-center group-hover:bg-[#6db33f] transition-colors group-hover:text-white mx-auto md:mx-0">
                   <Zap className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-black uppercase">Same-Day Speed</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">Ordered by 2PM in Nairobi? Delivered today. We never miss a life milestone.</p>
+                <p className="text-sm text-gray-500 leading-relaxed">Ordered by 2PM? Delivered today. We know timing is everything for those special moments.</p>
               </div>
               <div className="space-y-4 text-center md:text-left group">
                 <div className="w-16 h-16 bg-[#be1e2d]/10 rounded-3xl flex items-center justify-center group-hover:bg-[#be1e2d] transition-colors group-hover:text-white mx-auto md:mx-0">
                   <Heart className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-black uppercase">Hand-Tied Love</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">Every bouquet is a unique masterpiece, tied by our master florists at City Market hub.</p>
+                <p className="text-sm text-gray-500 leading-relaxed">Kazi safi ya mikono. Every bouquet is unique, tied by our master florists at City Market hub.</p>
               </div>
               <div className="space-y-4 text-center md:text-left group">
                 <div className="w-16 h-16 bg-[#6db33f]/10 rounded-3xl flex items-center justify-center group-hover:bg-[#6db33f] transition-colors group-hover:text-white mx-auto md:mx-0">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-black uppercase">Master Capacity</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">From single blooms to 2,000-guest weddings, we handle the volume with grace.</p>
+                <p className="text-sm text-gray-500 leading-relaxed">From single stems to weddings of 1,000+ guests, we handle the volume with elegance.</p>
               </div>
             </div>
           </div>
@@ -208,14 +213,14 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-black text-[#1e1e24]">What Are You Looking For?</h2>
-              <p className="text-gray-500 mt-4 max-w-xl mx-auto">From intimate gifts to grand celebrations, we handle it all with elegance.</p>
+              <p className="text-gray-500 mt-4 max-w-xl mx-auto">Mawazo mapya kwa kila tukio. From intimate gifts to grand celebrations.</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="group relative h-96 rounded-[2.5rem] overflow-hidden shadow-xl">
                 <Image src="https://images.unsplash.com/photo-1522673607200-164883eecd0c?q=80&w=800" alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-700" data-ai-hint="beautiful bouquet" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end">
-                  <h3 className="text-3xl font-black text-white mb-2">I Want Flowers</h3>
+                  <h3 className="text-3xl font-black text-white mb-2">Unataka Maua?</h3>
                   <p className="text-white/70 text-sm mb-6">Explore our curated collection of Naivasha's finest roses and lilies.</p>
                   <Link href="/catalog?category=flowers">
                     <Button className="bg-white text-black hover:bg-[#be1e2d] hover:text-white rounded-full uppercase text-[10px] font-black tracking-widest h-12 px-8">VIEW COLLECTION</Button>
@@ -226,7 +231,7 @@ export default function Home() {
               <div className="group relative h-96 rounded-[2.5rem] overflow-hidden shadow-xl">
                 <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800" alt="Weddings" fill className="object-cover group-hover:scale-110 transition-transform duration-700" data-ai-hint="wedding flowers" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end">
-                  <h3 className="text-3xl font-black text-white mb-2">Plan An Event</h3>
+                  <h3 className="text-3xl font-black text-white mb-2">Arusi & Sherehe</h3>
                   <p className="text-white/70 text-sm mb-6">Weddings, Birthdays, and Corporate Galas designed to perfection.</p>
                   <Link href="/blog/luxury-weddings-nairobi">
                     <Button className="bg-[#be1e2d] text-white hover:bg-[#a51a27] rounded-full uppercase text-[10px] font-black tracking-widest h-12 px-8">BOOK CONSULTATION</Button>
@@ -237,7 +242,7 @@ export default function Home() {
               <div className="group relative h-96 rounded-[2.5rem] overflow-hidden shadow-xl md:col-span-2 lg:col-span-1">
                 <Image src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800" alt="Gifts" fill className="object-cover group-hover:scale-110 transition-transform duration-700" data-ai-hint="luxury gift box" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end">
-                  <h3 className="text-3xl font-black text-white mb-2">Luxury Gifts</h3>
+                  <h3 className="text-3xl font-black text-white mb-2">Zawadi za Kifahari</h3>
                   <p className="text-white/70 text-sm mb-6">Premium gift sets, chocolates, and fruits for that perfect impression.</p>
                   <Link href="/catalog?category=gifts">
                     <Button className="bg-white text-black hover:bg-[#be1e2d] hover:text-white rounded-full uppercase text-[10px] font-black tracking-widest h-12 px-8">SHOP GIFTS</Button>
@@ -302,7 +307,7 @@ export default function Home() {
           <div className="container mx-auto px-6 max-w-4xl">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-black text-[#1e1e24]">Frequently Asked</h2>
-              <p className="text-gray-500 mt-2">Everything you need to know about our luxury delivery in Nairobi.</p>
+              <p className="text-gray-500 mt-2">Maswali ya kawaida about our luxury delivery in Nairobi.</p>
             </div>
             <Accordion type="single" collapsible className="w-full">
               {FAQS.map((faq, idx) => (
