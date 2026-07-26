@@ -3,7 +3,6 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/hooks/use-cart";
-import { AdPosterPopup } from "@/components/ad-poster-popup";
 
 export const metadata: Metadata = {
   title: 'House of Petals | Premium Flower Delivery Nairobi',
@@ -28,7 +27,6 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground">
         <CartProvider>
           {children}
-          <AdPosterPopup />
           <Toaster />
         </CartProvider>
       </body>
