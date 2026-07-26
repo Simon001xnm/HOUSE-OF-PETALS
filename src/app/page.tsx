@@ -11,13 +11,10 @@ import { BLOG_POSTS, type BlogPost } from '@/lib/blog-data';
 import { 
   ShoppingCart, 
   ArrowRight, 
-  Sparkles, 
   Heart, 
   Truck, 
   Gem,
-  Star,
   Wind,
-  ShieldCheck,
   Package,
   Flower2
 } from 'lucide-react';
@@ -67,29 +64,17 @@ export default function Home() {
     });
     toast({
       title: "Added to Cart",
-      description: `${product.name} has been added to your bag.`,
+      description: `${product.name} added to bag.`,
     });
   };
 
-  const getHeroTitle = (post: BlogPost) => {
-    // English Rebranding for Girlfriend's Day
-    switch (post.category) {
-      case 'Weddings': return { top: 'Pure', middle: 'Elegance', bottom: 'Online' };
-      case 'Surprises': return { top: 'Sweet', middle: 'Surprises', bottom: 'Online' };
-      case 'Anniversaries': return { top: 'Timeless', middle: 'Romance', bottom: 'Online' };
-      case 'Events': return { top: 'Luxury', middle: 'Artistry', bottom: 'Online' };
-      case 'Flowers': return { top: 'Fresh', middle: 'Blooms', bottom: 'Online' };
-      default: return { top: 'Shop', middle: 'Flowers', bottom: 'Online' };
-    }
-  };
-
   const FAQS = [
-    { q: "Where do you source your flowers?", a: "Every House of Petals stem is hand-picked from premium high-altitude farms in Naivasha. The volcanic soil and unique climate result in larger heads and stronger stems than standard florist flowers." },
-    { q: "How do you ensure they stay fresh in Nairobi heat?", a: "We operate a strict 'Cold Chain' process. Flowers are transported from Naivasha at exactly 4°C and stored in our climate-controlled hub at City Market until the moment they leave for delivery." },
-    { q: "What is your 'Signature Packaging'?", a: "We don't just use paper. Our arrangements are wrapped in heavy-weight luxury paper and include hydration gel-packs at the base to keep the stems drinking during transit." },
-    { q: "Can you handle a wedding of 500+ guests?", a: "Absolutely. We are one of the few florists in Nairobi with the infrastructure to manage large-scale events. From floral arches to table landscapes, our capacity is built for excellence." },
-    { q: "Is delivery really 'Same-Day'?", a: "Yes. For orders placed before 2:00 PM within Nairobi, we guarantee delivery the same day. We use our own dedicated delivery concierge fleet to ensure your gifts arrive perfectly." },
-    { q: "Do you offer personalized messages?", a: "Every order includes a complimentary, premium House of Petals note card where we hand-write your personal message for that extra touch of class." }
+    { q: "Where do you source your flowers?", a: "Direct from premium high-altitude farms in Naivasha. Larger heads, stronger stems." },
+    { q: "Do you offer same-day delivery?", a: "Yes! Order by 2:00 PM for same-day delivery across Nairobi." },
+    { q: "How do flowers stay fresh?", a: "We use a 4°C Cold Chain and hydration gel-packs in our luxury wrapping." },
+    { q: "Can you handle large weddings?", a: "Yes. We manage events for up to 1,000+ guests with expert floral architecture." },
+    { q: "What is special about your packaging?", a: "Signature heavy-weight luxury paper with built-in hydration for lasting freshness." },
+    { q: "Is a note card included?", a: "Yes. Every order includes a complimentary premium handwritten note card." }
   ];
 
   return (
@@ -97,99 +82,70 @@ export default function Home() {
       <Navbar />
       
       <main className="flex-grow">
-        {/* Hero Section - Girlfriends Day Rebranded */}
-        <section className="relative h-screen min-h-[750px] bg-white overflow-hidden border-b border-gray-100 flex items-center">
-          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.04] pointer-events-none select-none">
-            <div className="relative w-[70vw] h-[70vw] max-w-[900px] max-h-[900px]">
+        {/* Hero Section - Immersive Auto-Slide */}
+        <section className="relative h-[90vh] bg-white overflow-hidden flex items-center">
+          <div className="absolute inset-0 z-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
+            <div className="relative w-[60vw] h-[60vw] max-w-[800px]">
               <Image src="/logo.jpeg" alt="Watermark" fill className="object-contain" />
             </div>
           </div>
 
-          <div className="w-full h-full relative z-10">
-            <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
-              <CarouselContent className="h-full">
-                {BLOG_POSTS.map((post, idx) => {
-                  const imgData = getImg(post.image);
-                  const title = getHeroTitle(post);
-                  return (
-                    <CarouselItem key={idx} className="h-full">
-                      <div className="container mx-auto px-6 h-full">
-                        <div className="flex flex-col lg:flex-row items-center justify-center h-full gap-12 lg:gap-24 py-12">
-                          <div className="lg:w-1/2 space-y-8 animate-in fade-in slide-in-from-left duration-1000">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#be1e2d]/10 text-[#be1e2d] rounded-full">
-                              <Heart className="w-3.5 h-3.5 fill-[#be1e2d]" />
-                              <span className="text-[10px] font-black uppercase tracking-[0.3em]">GIRLFRIEND'S DAY SPECIAL - AUG 1ST</span>
-                            </div>
-                            <div className="space-y-4">
-                              <h1 className="text-6xl md:text-9xl font-black text-[#1e1e24] leading-[0.8] tracking-tighter">
-                                {title.top}<br />
-                                <span className="text-[#be1e2d] italic">{title.middle}</span> <br />
-                                {title.bottom}.
-                              </h1>
-                              <p className="text-xl md:text-2xl font-bold text-[#be1e2d] uppercase tracking-wide">
-                                Celebrate Her with Premium Red Roses
-                              </p>
-                            </div>
-                            <div className="space-y-4 max-w-xl">
-                              <h2 className="text-2xl font-black text-gray-800 uppercase tracking-tight">{post.title}</h2>
-                              <p className="text-gray-500 text-lg leading-relaxed font-medium">
-                                This August 1st, express your love with the finest hand-picked blooms from Naivasha. Shop our exclusive Girlfriend's Day collection today.
-                              </p>
-                            </div>
-                            <div className="flex flex-col sm:flex-row items-center gap-6 pt-6">
-                              <Link href="/catalog">
-                                <Button className="w-full sm:w-auto bg-[#be1e2d] hover:bg-[#a51a27] text-white font-black h-16 px-14 rounded-full text-xs uppercase tracking-[0.2em] shadow-2xl transition-all hover:scale-105">
-                                  SHOP GIRLFRIEND'S DAY
-                                </Button>
-                              </Link>
-                              <Link href="/blog" className="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-[#be1e2d] flex items-center gap-2">
-                                VIEW ROMANTIC STORIES <ArrowRight className="w-4 h-4" />
-                              </Link>
-                            </div>
-                          </div>
-
-                          <div className="lg:w-1/2 relative aspect-square w-full max-w-2xl animate-in fade-in zoom-in duration-1000">
-                            <div className="absolute inset-0 bg-gradient-to-tr from-[#be1e2d]/15 to-transparent rounded-[4rem] blur-[100px]"></div>
-                            <div className="relative w-full h-full rounded-[4rem] overflow-hidden shadow-[0_60px_120px_-30px_rgba(0,0,0,0.4)] border-[12px] border-white">
-                              <Image 
-                                src={imgData?.imageUrl || fallbackImage} 
-                                alt={post.title} 
-                                fill 
-                                className="object-cover"
-                                priority
-                              />
-                            </div>
-                          </div>
+          <Carousel setApi={setApi} className="w-full h-full" opts={{ loop: true }}>
+            <CarouselContent className="h-full">
+              {BLOG_POSTS.map((post, idx) => {
+                const imgData = getImg(post.image);
+                return (
+                  <CarouselItem key={idx} className="h-full">
+                    <div className="container mx-auto px-6 h-full flex flex-col lg:flex-row items-center justify-center gap-12 py-12">
+                      <div className="lg:w-1/2 space-y-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#be1e2d]/10 text-[#be1e2d] rounded-full">
+                          <Heart className="w-3.5 h-3.5 fill-[#be1e2d]" />
+                          <span className="text-[9px] font-black uppercase tracking-widest">GIRLFRIEND'S DAY - AUG 1ST</span>
+                        </div>
+                        <h1 className="text-6xl md:text-8xl font-black text-[#1e1e24] leading-[0.9] tracking-tighter">
+                          {post.slogan.split(' ').slice(0, -1).join(' ')}<br />
+                          <span className="text-[#be1e2d]">{post.slogan.split(' ').slice(-1)}</span>
+                        </h1>
+                        <p className="text-lg text-gray-500 font-medium max-w-md">
+                          {post.excerpt} Shop Nairobi's freshest roses online today.
+                        </p>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                          <Link href="/catalog">
+                            <Button className="w-full sm:w-auto bg-[#be1e2d] hover:bg-[#a51a27] text-white h-14 px-12 rounded-full font-black text-xs uppercase tracking-widest shadow-xl">
+                              SHOP NOW
+                            </Button>
+                          </Link>
+                          <Link href={`/blog/${post.slug}`} className="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-[#be1e2d] flex items-center gap-2">
+                            WHY WE ARE THE BEST <ArrowRight className="w-4 h-4" />
+                          </Link>
                         </div>
                       </div>
-                    </CarouselItem>
-                  );
-                })}
-              </CarouselContent>
-              <div className="hidden lg:flex container mx-auto px-6 absolute bottom-12 left-0 right-0 justify-between items-center pointer-events-none">
-                <div className="flex gap-4 pointer-events-auto">
-                  <CarouselPrevious className="static translate-y-0 h-16 w-16 rounded-full border-2 border-gray-100 bg-white hover:bg-[#be1e2d] hover:text-white transition-all shadow-2xl" />
-                  <CarouselNext className="static translate-y-0 h-16 w-16 rounded-full border-2 border-gray-100 bg-white hover:bg-[#be1e2d] hover:text-white transition-all shadow-2xl" />
-                </div>
-              </div>
-            </Carousel>
-          </div>
+                      <div className="lg:w-1/2 relative aspect-square w-full max-w-xl">
+                        <div className="relative w-full h-full rounded-[3rem] overflow-hidden shadow-2xl border-[8px] border-white">
+                          <Image src={imgData?.imageUrl || fallbackImage} alt={post.title} fill className="object-cover" priority />
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+          </Carousel>
         </section>
 
-        {/* Product Marquee */}
-        <section className="py-12 bg-gray-50 border-b border-gray-100 overflow-hidden relative">
-          <div className="flex animate-marquee whitespace-nowrap gap-16 items-center">
+        {/* Product Marquee - High Impact */}
+        <section className="py-10 bg-gray-50 border-y border-gray-100 overflow-hidden">
+          <div className="flex animate-marquee whitespace-nowrap gap-12 items-center">
             {[...ALL_PRODUCTS, ...ALL_PRODUCTS].map((product, idx) => {
               const imgData = getImg(product.image);
               return (
-                <Link key={`${product.id}-${idx}`} href={`/products/${product.id}`} className="flex items-center gap-6 group min-w-max">
-                  <div className="relative w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-lg group-hover:border-[#be1e2d] transition-all">
+                <Link key={idx} href={`/products/${product.id}`} className="flex items-center gap-4 group">
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-md group-hover:border-[#be1e2d] transition-all">
                     <Image src={imgData?.imageUrl || fallbackImage} alt={product.name} fill className="object-cover" />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#be1e2d]">{product.category}</span>
-                    <span className="text-sm font-black text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors">{product.name}</span>
-                    <span className="text-[11px] font-bold text-gray-400">KES {product.price.toLocaleString()}</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-[#be1e2d]">{product.name}</span>
+                    <span className="text-xs font-bold text-gray-400">KES {product.price.toLocaleString()}</span>
                   </div>
                 </Link>
               );
@@ -197,177 +153,95 @@ export default function Home() {
           </div>
         </section>
 
-        {/* The House of Petals Standard */}
-        <section className="py-24 bg-white relative overflow-hidden">
+        {/* Simplified Journey */}
+        <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
-            <div className="flex flex-col lg:flex-row gap-20 items-center">
-              <div className="lg:w-1/2 space-y-10">
-                <div className="space-y-4">
-                  <span className="text-[#be1e2d] text-xs font-black uppercase tracking-[0.4em] block">The House of Petals Standard</span>
-                  <h2 className="text-5xl font-black text-[#1e1e24] leading-[1.1] tracking-tight">From Naivasha’s Soil to Your Doorstep.</h2>
-                  <p className="text-xl text-gray-500 leading-relaxed max-w-xl">
-                    Experience the journey of excellence. We don't just sell flowers; we curate high-altitude masterpieces for your most precious moments.
-                  </p>
+            <div className="text-center mb-16 space-y-2">
+              <span className="text-[#be1e2d] text-xs font-black uppercase tracking-widest">The Luxury Standard</span>
+              <h2 className="text-4xl md:text-5xl font-black text-[#1e1e24] tracking-tight">Naivasha Fresh. Nairobi Delivered.</h2>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
+                  <Gem className="w-8 h-8" />
                 </div>
-                
-                <div className="space-y-12">
-                  <div className="flex gap-8 group">
-                    <div className="w-14 h-14 bg-[#fdf2f3] rounded-3xl flex items-center justify-center shrink-0 group-hover:bg-[#be1e2d] group-hover:text-white transition-all shadow-sm">
-                      <Gem className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <h4 className="font-black uppercase text-base mb-2">01. Naivasha Sourcing</h4>
-                      <p className="text-sm text-gray-500 leading-relaxed">Direct from high-altitude volcanic farms. Larger heads, stronger stems, and colors that glow with life.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-8 group">
-                    <div className="w-14 h-14 bg-[#fdf2f3] rounded-3xl flex items-center justify-center shrink-0 group-hover:bg-[#be1e2d] group-hover:text-white transition-all shadow-sm">
-                      <Wind className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <h4 className="font-black uppercase text-base mb-2">02. 4°C Cold Logistics</h4>
-                      <p className="text-sm text-gray-500 leading-relaxed">Strict temperature control from the farm to our Nairobi hub. We stop the clock on aging.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-8 group">
-                    <div className="w-14 h-14 bg-[#fdf2f3] rounded-3xl flex items-center justify-center shrink-0 group-hover:bg-[#be1e2d] group-hover:text-white transition-all shadow-sm">
-                      <Flower2 className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <h4 className="font-black uppercase text-base mb-2">03. Master Craftsmanship</h4>
-                      <p className="text-sm text-gray-500 leading-relaxed">Every arrangement is hand-tied at Stall 16A, City Market hub, by artisans with decades of floral experience.</p>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-8 group">
-                    <div className="w-14 h-14 bg-[#fdf2f3] rounded-3xl flex items-center justify-center shrink-0 group-hover:bg-[#be1e2d] group-hover:text-white transition-all shadow-sm">
-                      <Package className="w-7 h-7" />
-                    </div>
-                    <div>
-                      <h4 className="font-black uppercase text-base mb-2">04. Luxury Hydration Wrap</h4>
-                      <p className="text-sm text-gray-500 leading-relaxed">Signature heavy wrapping with integrated hydration gel-packs to ensure freshness in transit across the city.</p>
-                    </div>
-                  </div>
-                </div>
-
-                <Link href="/about">
-                  <Button className="bg-[#be1e2d] text-white hover:bg-[#a51a27] rounded-full px-12 h-16 uppercase text-xs font-black tracking-widest mt-4 shadow-2xl transition-all hover:scale-105">
-                    LEARN OUR FULL STORY
-                  </Button>
-                </Link>
+                <h4 className="font-black uppercase text-sm">Naivasha Sourcing</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">Direct from high-altitude farms for larger, stronger blooms.</p>
               </div>
-
-              <div className="lg:w-1/2 relative">
-                <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl border-[20px] border-white transform rotate-2">
-                  <Image 
-                    src="https://images.unsplash.com/photo-1591586121041-394998781977?q=80&w=1200" 
-                    alt="Naivasha Farm" 
-                    fill 
-                    className="object-cover"
-                    data-ai-hint="flower farm"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-12 left-12 text-white">
-                    <p className="text-6xl font-black mb-2 leading-none tracking-tighter">100%</p>
-                    <p className="text-xs font-black uppercase tracking-[0.4em] opacity-80">Kenyan Luxury</p>
-                  </div>
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
+                  <Wind className="w-8 h-8" />
                 </div>
-                <div className="absolute -bottom-10 -right-10 bg-[#be1e2d] text-white p-10 rounded-[2.5rem] shadow-2xl transform -rotate-6 hidden xl:block">
-                  <Truck className="w-10 h-10 mb-4" />
-                  <p className="text-xl font-black uppercase leading-tight">Same-Day <br />Nairobi <br />Fleet</p>
+                <h4 className="font-black uppercase text-sm">4°C Cold Chain</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">Temperature-controlled delivery to stop the aging process.</p>
+              </div>
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
+                  <Flower2 className="w-8 h-8" />
                 </div>
+                <h4 className="font-black uppercase text-sm">Master Craft</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">Hand-tied at our City Market hub by expert Nairobi florists.</p>
+              </div>
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
+                  <Package className="w-8 h-8" />
+                </div>
+                <h4 className="font-black uppercase text-sm">Hydration Wrap</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">Luxury paper with gel-packs for 100% guaranteed freshness.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Intent Categories */}
-        <section className="py-24 bg-gray-50 border-y border-gray-100">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-black text-[#1e1e24] tracking-tight">Express Your Emotions</h2>
-              <p className="text-gray-500 mt-4 max-w-xl mx-auto font-medium">Curated collections for every occasion. From intimate gifts to grand celebrations.</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="group relative h-[500px] rounded-[3rem] overflow-hidden shadow-2xl">
-                <Image src="https://images.unsplash.com/photo-1522673607200-164883eecd0c?q=80&w=800" alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-700" data-ai-hint="beautiful bouquet" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-12 flex flex-col justify-end">
-                  <h3 className="text-4xl font-black text-white mb-3">Looking for Blooms?</h3>
-                  <p className="text-white/70 text-sm mb-8 leading-relaxed">Explore our curated collection of Naivasha's finest red roses and lilies.</p>
-                  <Link href="/catalog?category=flowers">
-                    <Button className="bg-white text-black hover:bg-[#be1e2d] hover:text-white rounded-full uppercase text-[10px] font-black tracking-[0.2em] h-14 px-10">VIEW COLLECTION</Button>
-                  </Link>
-                </div>
+        {/* Category Shortcuts */}
+        <section className="py-20 bg-gray-50">
+          <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Link href="/catalog?category=flowers" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
+              <Image src="https://images.unsplash.com/photo-1522673607200-164883eecd0c?q=80&w=800" alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="bouquet" />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h3 className="text-3xl font-black text-white uppercase tracking-widest">Fresh Roses</h3>
               </div>
-              
-              <div className="group relative h-[500px] rounded-[3rem] overflow-hidden shadow-2xl">
-                <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800" alt="Weddings" fill className="object-cover group-hover:scale-110 transition-transform duration-700" data-ai-hint="wedding flowers" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#be1e2d]/90 via-black/20 to-transparent p-12 flex flex-col justify-end">
-                  <h3 className="text-4xl font-black text-white mb-3">Weddings & Events</h3>
-                  <p className="text-white/70 text-sm mb-8 leading-relaxed">Birthdays, anniversaries, and corporate galas designed to luxury standards.</p>
-                  <Link href="/blog/luxury-weddings-nairobi">
-                    <Button className="bg-white text-[#be1e2d] hover:bg-black hover:text-white rounded-full uppercase text-[10px] font-black tracking-[0.2em] h-14 px-10">OUR CAPACITY</Button>
-                  </Link>
-                </div>
+            </Link>
+            <Link href="/blog/luxury-weddings-nairobi" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
+              <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800" alt="Weddings" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="wedding" />
+              <div className="absolute inset-0 bg-[#be1e2d]/60 flex items-center justify-center">
+                <h3 className="text-3xl font-black text-white uppercase tracking-widest">Weddings</h3>
               </div>
-
-              <div className="group relative h-[500px] rounded-[3rem] overflow-hidden shadow-2xl">
-                <Image src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800" alt="Gifts" fill className="object-cover group-hover:scale-110 transition-transform duration-700" data-ai-hint="luxury gift box" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-12 flex flex-col justify-end">
-                  <h3 className="text-4xl font-black text-white mb-3">Luxury Gift Sets</h3>
-                  <p className="text-white/70 text-sm mb-8 leading-relaxed">Premium gift boxes, chocolates, and fruits for that perfect impression.</p>
-                  <Link href="/catalog?category=gifts">
-                    <Button className="bg-[#be1e2d] text-white hover:bg-white hover:text-black rounded-full uppercase text-[10px] font-black tracking-[0.2em] h-14 px-10">SHOP GIFTS</Button>
-                  </Link>
-                </div>
+            </Link>
+            <Link href="/catalog?category=gifts" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
+              <Image src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800" alt="Gifts" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="gift box" />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h3 className="text-3xl font-black text-white uppercase tracking-widest">Gifts</h3>
               </div>
-            </div>
+            </Link>
           </div>
         </section>
 
         {/* Featured Products */}
-        <section className="py-32 bg-white">
+        <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-              <div className="space-y-2 text-center md:text-left">
-                <span className="text-[#be1e2d] text-xs font-black uppercase tracking-[0.4em]">Nairobi's Best Sellers</span>
-                <h2 className="text-5xl font-black text-[#1e1e24] tracking-tighter">Signature Collection</h2>
-              </div>
-              <Link href="/catalog" className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 hover:text-[#be1e2d] flex items-center gap-2 transition-colors border-b-2 border-transparent hover:border-[#be1e2d] pb-1">
-                EXPLORE ALL BLOOMS <ArrowRight className="w-4 h-4" />
-              </Link>
+            <div className="flex justify-between items-end mb-12">
+              <h2 className="text-4xl font-black text-[#1e1e24] tracking-tight">Best Sellers</h2>
+              <Link href="/catalog" className="text-[10px] font-black uppercase tracking-widest text-[#be1e2d] hover:underline">View All</Link>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {FEATURED_PRODUCTS.map((product) => {
                 const imgData = getImg(product.image);
                 return (
-                  <div key={product.id} className="group flex flex-col relative">
-                    <div className="relative w-full aspect-square bg-gray-50 mb-6 overflow-hidden rounded-[2.5rem] shadow-sm transition-all duration-500 group-hover:shadow-2xl border border-gray-100">
-                      <Image 
-                        src={imgData?.imageUrl || fallbackImage} 
-                        alt={product.name} 
-                        fill 
-                        className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute bottom-6 left-6 right-6 translate-y-20 group-hover:translate-y-0 transition-transform duration-500">
-                        <Button 
-                          onClick={() => handleAddToCart(product)}
-                          className="w-full bg-[#be1e2d] text-white text-[10px] font-black uppercase h-14 rounded-2xl shadow-2xl hover:bg-[#a51a27]"
-                        >
-                          <ShoppingCart className="w-4 h-4 mr-2" /> QUICK ADD
-                        </Button>
-                      </div>
+                  <div key={product.id} className="group space-y-4">
+                    <div className="relative aspect-square rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm group-hover:shadow-xl transition-all">
+                      <Image src={imgData?.imageUrl || fallbackImage} alt={product.name} fill className="object-cover group-hover:scale-105 transition-transform" />
+                      <Button 
+                        onClick={() => handleAddToCart(product)}
+                        className="absolute bottom-4 left-4 right-4 bg-[#be1e2d] text-white text-[9px] font-black uppercase h-12 rounded-xl translate-y-20 group-hover:translate-y-0 transition-transform"
+                      >
+                        <ShoppingCart className="w-3.5 h-3.5 mr-2" /> ADD TO BAG
+                      </Button>
                     </div>
-                    <div className="px-2">
-                      <span className="text-[9px] font-black uppercase tracking-[0.3em] text-[#be1e2d]">{product.category}</span>
-                      <h3 className="text-xl font-bold text-[#1e1e24] group-hover:text-[#be1e2d] transition-colors line-clamp-1 mt-1">
-                        <Link href={`/products/${product.id}`}>{product.name}</Link>
-                      </h3>
-                      <p className="text-2xl font-black text-[#1e1e24] mt-1">KES {product.price.toLocaleString()}</p>
+                    <div>
+                      <h3 className="font-bold text-gray-900 leading-tight">{product.name}</h3>
+                      <p className="text-lg font-black text-[#be1e2d]">KES {product.price.toLocaleString()}</p>
                     </div>
                   </div>
                 );
@@ -376,32 +250,20 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Mastering the Bloom FAQ */}
-        <section className="py-32 bg-[#1e1e24] text-white">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <div className="text-center mb-16 space-y-4">
-              <span className="text-[#be1e2d] text-xs font-black uppercase tracking-[0.4em]">Knowledge is Luxury</span>
-              <h2 className="text-5xl font-black tracking-tight">Mastering the Bloom</h2>
-              <p className="text-gray-400 font-medium">Everything a flower connoisseur should know about the House of Petals experience.</p>
-            </div>
-            <Accordion type="single" collapsible className="w-full border-t border-white/10">
+        {/* Simple FAQ */}
+        <section className="py-24 bg-[#1e1e24] text-white">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <h2 className="text-4xl font-black text-center mb-12 uppercase tracking-tighter">Common Questions</h2>
+            <Accordion type="single" collapsible className="w-full">
               {FAQS.map((faq, idx) => (
-                <AccordionItem key={idx} value={`item-${idx}`} className="border-b border-white/10 py-6">
-                  <AccordionTrigger className="text-xl font-bold hover:text-[#be1e2d] transition-colors text-left leading-tight">{faq.q}</AccordionTrigger>
-                  <AccordionContent className="text-gray-400 leading-relaxed text-lg pt-4 max-w-3xl">
+                <AccordionItem key={idx} value={`item-${idx}`} className="border-white/10">
+                  <AccordionTrigger className="text-lg font-bold hover:text-[#be1e2d]">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-gray-400 text-base leading-relaxed">
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
-            <div className="mt-16 text-center">
-              <p className="text-xs font-black uppercase tracking-[0.3em] mb-6">Have more questions? Our concierge is ready.</p>
-              <Link href="https://wa.me/254704524070">
-                <Button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white h-16 px-12 rounded-full font-black uppercase text-xs tracking-widest shadow-2xl">
-                  WHATSAPP OUR TEAM
-                </Button>
-              </Link>
-            </div>
           </div>
         </section>
       </main>

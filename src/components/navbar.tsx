@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ShoppingBag, Menu, Search, Phone, Sparkles, MessageCircle, BookOpen, Heart } from 'lucide-react';
+import { ShoppingBag, Menu, Search, Heart, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/use-cart';
@@ -28,87 +28,61 @@ export function Navbar() {
     { name: 'Flowers', href: '/catalog?category=flowers' },
     { name: 'Gifts', href: '/catalog?category=gifts' },
     { name: 'Journal', href: '/blog' },
-    { name: 'Profile', href: '/profile' },
   ];
 
   return (
-    <header className="w-full flex flex-col sticky top-0 z-50 shadow-sm bg-white border-b border-gray-50">
-      {/* Utility Bar - Rebranded for Girlfriend's Day */}
-      <div className="bg-[#be1e2d] text-white py-2 px-4 text-[9px] font-black uppercase tracking-[0.3em] flex justify-center items-center gap-6">
-        <span className="flex items-center gap-2 animate-pulse"><Heart className="w-3 h-3 fill-white" /> Girlfriend's Day - August 1st <Heart className="w-3 h-3 fill-white" /></span>
-        <span className="hidden md:inline">|</span>
-        <span className="hidden md:flex items-center gap-2"><Sparkles className="w-3 h-3" /> Pre-order Your Luxury Blooms Now</span>
+    <header className="w-full flex flex-col sticky top-0 z-50 bg-white border-b border-gray-100">
+      {/* Short Utility Bar */}
+      <div className="bg-[#be1e2d] text-white py-2 px-4 text-[9px] font-black uppercase tracking-widest flex justify-center items-center gap-4">
+        <span className="flex items-center gap-1.5"><Heart className="w-3 h-3 fill-white" /> GIRLFRIEND'S DAY - AUGUST 1ST</span>
+        <span className="hidden md:inline text-white/40">|</span>
+        <span className="hidden md:flex items-center gap-1.5"><Sparkles className="w-3 h-3" /> PRE-ORDER NAIROBI'S FRESHEST BLOOMS</span>
       </div>
 
-      {/* Main Header */}
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between gap-8">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0 overflow-hidden border border-gray-100 rounded-lg">
-              <Image 
-                src="/logo.jpeg" 
-                alt="House of Petals Logo" 
-                fill 
-                className="object-contain transition-transform group-hover:scale-105"
-                priority
-              />
-            </div>
-            <div className="flex flex-col items-start leading-none">
-              <span className="text-xl font-black text-[#be1e2d] tracking-tighter uppercase">HOUSE OF PETALS</span>
-              <span className="text-[8px] font-bold text-gray-400 tracking-[0.4em] uppercase ml-0.5">EXCELLENCE SINCE 2023</span>
-            </div>
-          </Link>
-        </div>
+      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="relative w-12 h-12 shrink-0 border border-gray-100 rounded-lg overflow-hidden">
+            <Image src="/logo.jpeg" alt="Logo" fill className="object-contain" priority />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="text-xl font-black text-[#be1e2d] tracking-tighter uppercase">HOUSE OF PETALS</span>
+            <span className="text-[8px] font-bold text-gray-400 tracking-[0.4em] uppercase">SINCE 2023</span>
+          </div>
+        </Link>
 
-        <form onSubmit={handleSearch} className="hidden lg:flex flex-1 max-w-md relative group">
+        <form onSubmit={handleSearch} className="hidden lg:flex flex-1 max-w-sm mx-8 relative">
           <Input 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search our romantic collection..." 
-            className="w-full h-11 pl-4 pr-12 rounded-full border-gray-100 focus:border-[#be1e2d] transition-all bg-gray-50/50"
+            placeholder="Search roses, gifts..." 
+            className="w-full h-10 pl-4 pr-10 rounded-full border-gray-200 bg-gray-50/50"
           />
-          <Button type="submit" size="icon" className="absolute right-1 top-1 h-9 w-9 rounded-full bg-[#be1e2d] hover:bg-[#a51a27] border-none shadow-lg">
-            <Search className="w-4 h-4 text-white" />
-          </Button>
+          <button type="submit" className="absolute right-3 top-2.5 text-gray-400 hover:text-[#be1e2d]">
+            <Search className="w-5 h-5" />
+          </button>
         </form>
 
-        <div className="flex items-center gap-4">
-          <Link href="/blog" className="hidden xl:flex">
-            <Button variant="outline" className="rounded-full border-[#be1e2d] text-[#be1e2d] hover:bg-[#be1e2d] hover:text-white h-11 px-6 text-[10px] font-black uppercase tracking-widest gap-2">
-              <BookOpen className="w-4 h-4" /> BLOG
-            </Button>
-          </Link>
-          <Link href="/cart" className="relative group p-2">
-            <ShoppingBag className="w-6 h-6 text-gray-700 group-hover:text-[#be1e2d] transition-colors" />
+        <div className="flex items-center gap-6">
+          <nav className="hidden xl:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link key={link.name} href={link.href} className="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-[#be1e2d]">
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+          <Link href="/cart" className="relative p-2">
+            <ShoppingBag className="w-6 h-6 text-gray-700 hover:text-[#be1e2d] transition-colors" />
             {cartCount > 0 && (
-              <span className="absolute top-1 right-1 bg-[#be1e2d] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full min-w-[16px] h-4 flex items-center justify-center border-2 border-white shadow-xl">
+              <span className="absolute top-1 right-1 bg-[#be1e2d] text-white text-[8px] font-bold px-1 rounded-full min-w-[14px] h-3.5 flex items-center justify-center border-2 border-white">
                 {cartCount}
               </span>
             )}
           </Link>
-          <Button variant="ghost" size="icon" className="lg:hidden text-gray-700">
+          <Button variant="ghost" size="icon" className="lg:hidden">
             <Menu className="w-6 h-6" />
           </Button>
         </div>
       </div>
-
-      {/* Navigation Bar */}
-      <nav className="hidden lg:block border-t border-gray-100">
-        <div className="container mx-auto px-4 flex items-center justify-center">
-          <ul className="flex items-center gap-8 py-3">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link 
-                  href={link.href} 
-                  className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 hover:text-[#be1e2d] transition-all relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#be1e2d] hover:after:w-full after:transition-all"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
     </header>
   );
 }

@@ -1,243 +1,68 @@
-
 "use client";
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { 
-  Facebook, 
-  Instagram, 
-  MessageCircle, 
-  Mail, 
-  MapPin, 
-  Truck, 
-  ShieldCheck, 
-  Headphones, 
-  Smartphone,
-  ChevronRight
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/hooks/use-toast';
+import { Instagram, MessageCircle, MapPin, Smartphone, Mail } from 'lucide-react';
 
 export function Footer() {
-  const { toast } = useToast();
-  const [email, setEmail] = useState('');
-  const whatsappNumber = "254704524070";
-  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
-  const tiktokUrl = "https://www.tiktok.com/@houseofpetals254?_r=1&_t=ZS-94q35XLISsT";
-  const instagramUrl = "https://www.instagram.com/houseofpetal254?igsh=MThieWRna2doM2p1eQ%3D%3D";
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: "Subscription Successful",
-        description: "Welcome to House of Petals. You'll now receive our exclusive floral collections.",
-      });
-      setEmail('');
-    }
-  };
+  const whatsappUrl = `https://wa.me/254704524070`;
 
   return (
-    <footer className="w-full">
-      {/* SEO Description Section */}
-      <div className="bg-white py-14 px-6 border-t border-gray-100">
-        <div className="container mx-auto max-w-5xl text-center space-y-6">
-          <h2 className="text-xl md:text-2xl font-bold text-[#1e1e24] uppercase tracking-wide">House of Petals Kenya – Luxury Flower Delivery</h2>
-          <div className="w-16 h-1 bg-[#6db33f] mx-auto rounded-full"></div>
-          <p className="text-sm text-gray-600 leading-relaxed max-w-4xl mx-auto">
-            Order & Send Luxury Gifts and Flowers online in Kenya. House of Petals offers elite flower delivery services in Nairobi and across Kenya. 
-            Experience the finest floral arrangements crafted for excellence and delivered with care.
-          </p>
-          <p className="text-sm text-gray-500 leading-relaxed max-w-4xl mx-auto italic">
-            Celebrating life's milestones with premium blooms for Anniversaries, Birthdays, Romance, and more.
-          </p>
-        </div>
-      </div>
-
-      {/* Map Section */}
-      <div className="w-full h-[400px] bg-gray-100 relative overflow-hidden group">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8189874836696!2d36.81896897593259!3d-1.2824641987053592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d680327f11%3A0x7d8a6e84d4167e4e!2sCity%20Market!5e0!3m2!1sen!2ske!4v1710927000000!5m2!1sen!2ske" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen={true} 
-          loading="lazy" 
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-        <div className="absolute top-8 left-8 z-20 bg-white p-6 shadow-2xl rounded-2xl border border-gray-100 hidden md:block max-w-xs transition-transform group-hover:-translate-y-1">
-          <h4 className="font-black text-[#1e1e24] text-xs uppercase tracking-[0.2em] mb-2">Visit Our Shop</h4>
-          <p className="text-[11px] text-gray-500 leading-relaxed">
-            Stall 16A, City Market<br />
-            Koinange Street, Nairobi, Kenya
-          </p>
-          <Link 
-            href="https://maps.app.goo.gl/uP9fPzL9t7M9Q9A7A" 
-            target="_blank"
-            className="mt-4 flex items-center gap-2 text-[#be1e2d] text-[10px] font-black uppercase tracking-widest hover:underline"
-          >
-            <MapPin className="w-4 h-4" /> Get Directions
-          </Link>
-        </div>
-      </div>
-
-      {/* Features Bar */}
-      <div className="bg-gray-50 border-y border-gray-200 py-6 px-6">
-        <div className="container mx-auto max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="flex items-center justify-center gap-4 text-gray-700">
-            <div className="bg-white p-2.5 rounded-full shadow-sm">
-              <Truck className="w-6 h-6 text-[#6db33f]" />
-            </div>
-            <span className="text-[11px] font-black uppercase tracking-tight">Express Delivery Available</span>
-          </div>
-          <div className="flex items-center justify-center gap-4 text-gray-700 lg:border-l border-gray-300">
-            <div className="bg-white p-2.5 rounded-full shadow-sm">
-              <ShieldCheck className="w-6 h-6 text-[#6db33f]" />
-            </div>
-            <span className="text-[11px] font-black uppercase tracking-tight">Premium Quality Guaranteed</span>
-          </div>
-          <div className="flex items-center justify-center gap-4 text-gray-700 lg:border-l border-gray-300">
-            <div className="bg-white p-2.5 rounded-full shadow-sm">
-              <Headphones className="w-6 h-6 text-[#6db33f]" />
-            </div>
-            <span className="text-[11px] font-black uppercase tracking-tight">Concierge Support</span>
-          </div>
-          <div className="flex items-center justify-center gap-4 text-gray-700 lg:border-l border-gray-300">
-            <Link href={`tel:+254704524070`} className="flex items-center gap-4 hover:text-[#be1e2d] transition-colors">
-              <div className="bg-white p-2.5 rounded-full shadow-sm">
-                <Smartphone className="w-6 h-6 text-[#6db33f]" />
+    <footer className="bg-[#1e1e24] text-white pt-16 pb-8 px-6">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-16">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="relative w-10 h-10 shrink-0">
+                <Image src="/logo.jpeg" alt="Logo" fill className="object-contain" />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-tight">+254 704 524 070</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Dark Footer */}
-      <div className="bg-[#1e1e24] text-white py-16 px-6 relative">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
-            {/* About Column */}
-            <div className="space-y-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="relative w-10 h-10 shrink-0">
-                  <Image src="/logo.jpeg" alt="Logo" fill className="object-contain" />
-                </div>
-                <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-1">House of Petals</h4>
-              </div>
-              <p className="text-[13px] text-gray-400 leading-relaxed text-justify">
-                House of Petals is a premium flower shop in Nairobi. We specialize in luxury floral design and high-end gifting, 
-                ensuring every delivery is an unforgettable experience of beauty and sophistication.
-              </p>
-              <div className="flex gap-4 pt-2">
-                <Link href={instagramUrl} target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
-                  <Instagram className="w-5 h-5" />
-                </Link>
-                <Link href={tiktokUrl} target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                  </svg>
-                </Link>
-                <Link href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
-                  <Facebook className="w-5 h-5" />
-                </Link>
-                <Link href={whatsappUrl} target="_blank" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#6db33f] transition-all">
-                  <MessageCircle className="w-5 h-5" />
-                </Link>
-              </div>
+              <h4 className="text-[13px] font-black uppercase tracking-widest border-b-2 border-[#be1e2d] pb-1">House of Petals</h4>
             </div>
-
-            {/* Contact Column */}
-            <div className="space-y-6">
-              <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-2 inline-block">Contact Info</h4>
-              <ul className="space-y-5 text-[13px] text-gray-400">
-                <li className="flex gap-4">
-                  <MapPin className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <span className="leading-snug">Stall 16A, City Market<br />Koinange Street, Nairobi, Kenya</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <Smartphone className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <Link href="tel:+254704524070" className="hover:text-white transition-colors">Call: +254 704 524 070</Link>
-                </li>
-                <li className="flex items-center gap-4">
-                  <Mail className="w-5 h-5 shrink-0 text-[#6db33f]" />
-                  <Link href="mailto:info@houseofpetals.co.ke" className="hover:text-white transition-colors">info@houseofpetals.co.ke</Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Links Column */}
-            <div className="space-y-6">
-              <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-2 inline-block">Quick Links</h4>
-              <ul className="space-y-3.5 text-[13px] text-gray-400">
-                {['About Us', 'Shop Locations', 'Track Order', 'Gifting Guide', 'Privacy Policy'].map(link => (
-                  <li key={link}>
-                    <Link href="#" className="hover:text-white flex items-center gap-2 group transition-colors">
-                      <ChevronRight className="w-3 h-3 text-[#6db33f] group-hover:translate-x-1 transition-transform" />
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Newsletter */}
-            <div className="space-y-6">
-              <h4 className="text-[13px] font-black uppercase tracking-widest text-white border-b-2 border-[#6db33f] pb-2 inline-block">Newsletter</h4>
-              <p className="text-[13px] text-gray-400">Subscribe for exclusive floral collections and offers.</p>
-              <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
-                <input 
-                  type="email" 
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Email Address" 
-                  className="bg-white/5 border border-white/10 rounded-lg h-11 px-4 text-sm focus:outline-none focus:border-[#6db33f] text-white"
-                />
-                <button 
-                  type="submit"
-                  className="bg-[#6db33f] hover:bg-[#5a9b34] text-white font-black h-11 rounded-lg text-xs uppercase tracking-widest transition-all"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="bg-[#121216] py-8 px-6 border-t border-white/5">
-        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-            <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-medium">
-              Copyright © 2025 House of Petals. All rights reserved.
+            <p className="text-[12px] text-gray-400 leading-relaxed">
+              Premium flower delivery in Nairobi. We specialize in luxury floral design and Naivasha-sourced roses.
             </p>
-            <span className="hidden md:inline text-gray-700">|</span>
-            <Link 
-              href="https://simonstyles.co.ke" 
-              target="_blank" 
-              className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-medium hover:text-[#6db33f] transition-colors"
-            >
-              Designed & Developed by Simon Styles Technologies Limited
-            </Link>
+            <div className="flex gap-4">
+              <Link href="#" className="text-gray-400 hover:text-[#be1e2d]"><Instagram className="w-5 h-5" /></Link>
+              <Link href={whatsappUrl} className="text-gray-400 hover:text-[#be1e2d]"><MessageCircle className="w-5 h-5" /></Link>
+            </div>
           </div>
-          <div className="flex items-center gap-3">
-            {['M-PESA', 'VISA', 'MasterCard'].map(pm => (
-              <div key={pm} className="bg-white/10 px-3 py-1 rounded text-[9px] font-black text-gray-300">
-                {pm}
-              </div>
-            ))}
+
+          <div className="space-y-6">
+            <h4 className="text-[11px] font-black uppercase tracking-widest text-white">Contact</h4>
+            <ul className="space-y-4 text-[12px] text-gray-400">
+              <li className="flex gap-3"><MapPin className="w-4 h-4 shrink-0 text-[#be1e2d]" /> Stall 16A, City Market, Nairobi</li>
+              <li className="flex gap-3"><Smartphone className="w-4 h-4 shrink-0 text-[#be1e2d]" /> +254 704 524 070</li>
+              <li className="flex gap-3"><Mail className="w-4 h-4 shrink-0 text-[#be1e2d]" /> info@houseofpetals.co.ke</li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-[11px] font-black uppercase tracking-widest text-white">Quick Links</h4>
+            <ul className="space-y-3 text-[12px] text-gray-400">
+              <li><Link href="/about" className="hover:text-white">Our Story</Link></li>
+              <li><Link href="/catalog" className="hover:text-white">Shop Collection</Link></li>
+              <li><Link href="/blog" className="hover:text-white">Event Services</Link></li>
+              <li><Link href="#" className="hover:text-white">Privacy Policy</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-[11px] font-black uppercase tracking-widest text-white">Newsletter</h4>
+            <form className="flex flex-col gap-3">
+              <input type="email" placeholder="Email Address" className="bg-white/5 border border-white/10 rounded-lg h-10 px-4 text-xs" />
+              <button className="bg-[#be1e2d] hover:bg-[#a51a27] text-white font-black h-10 rounded-lg text-[10px] uppercase tracking-widest transition-all">Subscribe</button>
+            </form>
           </div>
         </div>
-      </div>
 
-      {/* Floating WhatsApp */}
-      <div className="fixed bottom-8 left-8 z-50">
-        <Link href={whatsappUrl} target="_blank" className="w-14 h-14 bg-[#25d366] rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
-          <MessageCircle className="w-8 h-8 text-white fill-current" />
-        </Link>
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
+          <p>© 2025 House of Petals. All rights reserved.</p>
+          <div className="flex gap-4">
+            <span>M-PESA</span>
+            <span>VISA</span>
+            <span>MasterCard</span>
+          </div>
+        </div>
       </div>
     </footer>
   );
