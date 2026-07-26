@@ -402,6 +402,12 @@
       "description": "Mother's Day Special Poster",
       "imageUrl": "/mothersday.png",
       "imageHint": "mother's day flowers"
+    },
+    {
+      "id": "ad-poster-image",
+      "description": "Girlfriend's Day Ad Poster",
+      "imageUrl": "/Image Jul 26, 2026, 10_38_24 PM.png",
+      "imageHint": "promotion poster"
     }
   ]
 }
