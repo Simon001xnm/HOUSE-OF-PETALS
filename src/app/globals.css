@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Gifts & Flowers Kenya Exact Theme */
+    /* Rebranded Theme: Dominant Luxury Red */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     
@@ -23,7 +23,7 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     
-    --accent: 96 48% 47%; /* Brand Green #6db33f */
+    --accent: 355 73% 46%; /* Switching accent to Primary Red for Rebranding */
     --accent-foreground: 0 0% 100%;
     
     --destructive: 0 84.2% 60.2%;
@@ -33,7 +33,7 @@
     --input: 240 5.9% 90%;
     --ring: 355 73% 46%;
     
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* Slightly softer for Girlfriend's Day */
   }
 }
 
@@ -50,9 +50,20 @@
 }
 
 .currency-tag {
-  @apply bg-[#6db33f] text-white px-2 py-1 text-[10px] font-bold border-b border-white/20 last:border-0 hover:bg-[#5a9b34] cursor-pointer;
+  @apply bg-[#be1e2d] text-white px-2 py-1 text-[10px] font-bold border-b border-white/20 last:border-0 hover:bg-[#a51a27] cursor-pointer;
 }
 
 .nav-red-gradient {
   background: linear-gradient(to right, #be1e2d, #a51a27);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 50s linear infinite;
 }

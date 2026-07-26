@@ -1,11 +1,10 @@
-
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ShoppingBag, Menu, Search, Phone, Sparkles, MessageCircle, BookOpen } from 'lucide-react';
+import { ShoppingBag, Menu, Search, Phone, Sparkles, MessageCircle, BookOpen, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/use-cart';
@@ -34,11 +33,11 @@ export function Navbar() {
 
   return (
     <header className="w-full flex flex-col sticky top-0 z-50 shadow-sm bg-white border-b border-gray-50">
-      {/* Utility Bar */}
-      <div className="bg-[#1e1e24] text-white py-2 px-4 text-[9px] font-black uppercase tracking-[0.3em] flex justify-center items-center gap-6">
-        <span className="flex items-center gap-2 animate-pulse"><Sparkles className="w-3 h-3 text-[#be1e2d]" /> Nairobi's #1 Luxury Florist</span>
+      {/* Utility Bar - Rebranded for Girlfriend's Day */}
+      <div className="bg-[#be1e2d] text-white py-2 px-4 text-[9px] font-black uppercase tracking-[0.3em] flex justify-center items-center gap-6">
+        <span className="flex items-center gap-2 animate-pulse"><Heart className="w-3 h-3 fill-white" /> Girlfriend's Day - August 1st <Heart className="w-3 h-3 fill-white" /></span>
         <span className="hidden md:inline">|</span>
-        <span className="hidden md:flex items-center gap-2"><Phone className="w-3 h-3" /> +254 704 524 070</span>
+        <span className="hidden md:flex items-center gap-2"><Sparkles className="w-3 h-3" /> Pre-order Your Luxury Blooms Now</span>
       </div>
 
       {/* Main Header */}
@@ -65,7 +64,7 @@ export function Navbar() {
           <Input 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search our luxury collection..." 
+            placeholder="Search our romantic collection..." 
             className="w-full h-11 pl-4 pr-12 rounded-full border-gray-100 focus:border-[#be1e2d] transition-all bg-gray-50/50"
           />
           <Button type="submit" size="icon" className="absolute right-1 top-1 h-9 w-9 rounded-full bg-[#be1e2d] hover:bg-[#a51a27] border-none shadow-lg">
