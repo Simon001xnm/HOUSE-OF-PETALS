@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, MessageCircle, MapPin, Smartphone, Mail, Heart } from 'lucide-react';
+import { Instagram, MessageCircle, MapPin, Smartphone, Mail, Heart, Globe, Pointer } from 'lucide-react';
 
 export function Footer() {
   const whatsappUrl = `https://wa.me/254704524070`;
@@ -69,9 +69,11 @@ export function Footer() {
             <Link 
               href="https://simonstyles.co.ke" 
               target="_blank" 
-              className="text-[11px] text-white font-black uppercase tracking-[0.5em] mb-1 hover:text-[#be1e2d] transition-colors"
+              className="group flex items-center gap-2 text-[11px] text-white font-black uppercase tracking-[0.5em] mb-1 hover:text-[#be1e2d] transition-colors"
             >
-              SIMON STYLES
+              <Globe className="w-3.5 h-3.5 text-[#be1e2d]" />
+              <span>SIMON STYLES</span>
+              <Pointer className="w-3.5 h-3.5 text-white group-hover:text-[#be1e2d] transition-transform animate-bounce" />
             </Link>
             <div className="flex items-center gap-2 text-[9px] text-gray-500 uppercase tracking-[0.2em] font-medium">
               <span>DESIGNED AND DEVELOPED BY</span>
