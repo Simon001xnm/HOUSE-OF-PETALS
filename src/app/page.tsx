@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -31,8 +32,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
 
@@ -153,7 +152,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Simplified Journey */}
+        {/* Journey Section */}
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16 space-y-2">
@@ -198,19 +197,19 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/catalog?category=flowers" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
-              <Image src="https://images.unsplash.com/photo-1522673607200-164883eecd0c?q=80&w=800" alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="bouquet" />
+              <Image src={getImg('category-flowers')?.imageUrl || 'https://images.unsplash.com/photo-1548013146-72479768bbaa?q=80&w=800'} alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="bouquet" />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <h3 className="text-3xl font-black text-white uppercase tracking-widest">Fresh Roses</h3>
               </div>
             </Link>
             <Link href="/blog/luxury-weddings-nairobi" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
-              <Image src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800" alt="Weddings" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="wedding" />
+              <Image src={getImg('category-weddings')?.imageUrl || 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800'} alt="Weddings" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="wedding" />
               <div className="absolute inset-0 bg-[#be1e2d]/60 flex items-center justify-center">
                 <h3 className="text-3xl font-black text-white uppercase tracking-widest">Weddings</h3>
               </div>
             </Link>
             <Link href="/catalog?category=gifts" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
-              <Image src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800" alt="Gifts" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="gift box" />
+              <Image src={getImg('category-gifts')?.imageUrl || 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800'} alt="Gifts" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="gift box" />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <h3 className="text-3xl font-black text-white uppercase tracking-widest">Gifts</h3>
               </div>

@@ -1,10 +1,11 @@
+
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/image';
-import NextLink from 'next/link';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ShoppingBag, Menu, Search, Heart, Sparkles, X } from 'lucide-react';
+import { ShoppingBag, Menu, Search, Heart, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useCart } from '@/hooks/use-cart';
@@ -49,15 +50,15 @@ export function Navbar() {
       </div>
 
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <NextLink href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <div className="relative w-10 h-10 md:w-12 md:h-12 shrink-0 border border-gray-100 rounded-lg overflow-hidden">
-            <Link src="/logo.jpeg" alt="Logo" fill className="object-contain" priority />
+            <Image src="/logo.jpeg" alt="Logo" fill className="object-contain" priority />
           </div>
           <div className="flex flex-col leading-none">
             <span className="text-lg md:text-xl font-black text-[#be1e2d] tracking-tighter uppercase">HOUSE OF PETALS</span>
             <span className="text-[7px] md:text-[8px] font-bold text-gray-400 tracking-[0.4em] uppercase">SINCE 2023</span>
           </div>
-        </NextLink>
+        </Link>
 
         {/* Desktop Search */}
         <form onSubmit={handleSearch} className="hidden lg:flex flex-1 max-w-sm mx-8 relative">
@@ -75,20 +76,20 @@ export function Navbar() {
         <div className="flex items-center gap-4 md:gap-6">
           <nav className="hidden xl:flex items-center gap-6">
             {navLinks.map((link) => (
-              <NextLink key={link.name} href={link.href} className="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-[#be1e2d] transition-colors">
+              <Link key={link.name} href={link.href} className="text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-[#be1e2d] transition-colors">
                 {link.name}
-              </NextLink>
+              </Link>
             ))}
           </nav>
           
-          <NextLink href="/cart" className="relative p-2">
+          <Link href="/cart" className="relative p-2">
             <ShoppingBag className="w-5 h-5 md:w-6 md:h-6 text-gray-700 hover:text-[#be1e2d] transition-colors" />
             {cartCount > 0 && (
               <span className="absolute top-1 right-1 bg-[#be1e2d] text-white text-[8px] font-bold px-1 rounded-full min-w-[14px] h-3.5 flex items-center justify-center border-2 border-white">
                 {cartCount}
               </span>
             )}
-          </NextLink>
+          </Link>
 
           {/* Mobile Menu Trigger */}
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -116,21 +117,21 @@ export function Navbar() {
                   </form>
                   <nav className="flex flex-col gap-6">
                     {navLinks.map((link) => (
-                      <NextLink 
+                      <Link 
                         key={link.name} 
                         href={link.href} 
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="text-lg font-black uppercase tracking-tighter text-[#1e1e24] hover:text-[#be1e2d] transition-colors"
                       >
                         {link.name}
-                      </NextLink>
+                      </Link>
                     ))}
                   </nav>
                 </div>
                 <div className="mt-auto p-6 bg-gray-50 border-t border-gray-100">
                   <div className="flex flex-col gap-4">
                     <p className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">Customer Support</p>
-                    <NextLink href="https://wa.me/254704524070" className="text-sm font-bold text-[#25d366]">+254 704 524 070</NextLink>
+                    <Link href="https://wa.me/254704524070" className="text-sm font-bold text-[#25d366]">+254 704 524 070</Link>
                   </div>
                 </div>
               </div>

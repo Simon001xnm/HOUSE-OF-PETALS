@@ -398,16 +398,22 @@
       "imageHint": "cherry wonder new"
     },
     {
-      "id": "mothers-day-poster",
-      "description": "Mother's Day Special Poster",
-      "imageUrl": "/mothersday.png",
-      "imageHint": "mother's day flowers"
+      "id": "category-flowers",
+      "description": "Fresh Roses Category",
+      "imageUrl": "https://images.unsplash.com/photo-1548013146-72479768bbaa?q=80&w=800",
+      "imageHint": "fresh roses"
     },
     {
-      "id": "ad-poster-image",
-      "description": "Girlfriend's Day Ad Poster",
-      "imageUrl": "/.png",
-      "imageHint": "promotion poster"
+      "id": "category-weddings",
+      "description": "Weddings Category",
+      "imageUrl": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=800",
+      "imageHint": "wedding flowers"
+    },
+    {
+      "id": "category-gifts",
+      "description": "Gifts Category",
+      "imageUrl": "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=800",
+      "imageHint": "gift box flowers"
     }
   ]
 }
