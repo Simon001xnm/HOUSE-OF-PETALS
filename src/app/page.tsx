@@ -92,7 +92,7 @@ export default function Home() {
                 return (
                   <CarouselItem key={idx} className="h-full">
                     <div className="container mx-auto px-6 h-full flex flex-col lg:flex-row items-center justify-center gap-12 py-12">
-                      <div className="lg:w-1/2 space-y-6">
+                      <div className="lg:w-1/2 space-y-6 text-center lg:text-left">
                         <div className="inline-flex items-center gap-2 px-4 py-1 bg-[#be1e2d]/10 text-[#be1e2d] rounded-full">
                           <Heart className="w-3.5 h-3.5 fill-[#be1e2d]" />
                           <span className="text-[9px] font-black uppercase tracking-widest">GIRLFRIEND'S DAY - AUG 1ST</span>
@@ -101,10 +101,10 @@ export default function Home() {
                           {post.slogan.split(' ').slice(0, -1).join(' ')}<br />
                           <span className="text-[#be1e2d]">{post.slogan.split(' ').slice(-1)}</span>
                         </h1>
-                        <p className="text-lg text-gray-500 font-medium max-w-md">
+                        <p className="text-lg text-gray-500 font-medium max-w-md mx-auto lg:mx-0">
                           {post.excerpt} Shop Nairobi's freshest roses online today.
                         </p>
-                        <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
+                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
                           <Link href="/catalog">
                             <Button className="w-full sm:w-auto bg-[#be1e2d] hover:bg-[#a51a27] text-white h-14 px-12 rounded-full font-black text-xs uppercase tracking-widest shadow-xl">
                               SHOP NOW
@@ -152,7 +152,13 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/catalog?category=flowers" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
-              <Image src={getImg('category-flowers')?.imageUrl || 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=800'} alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="bouquet" />
+              <Image 
+                src={getImg('forever-yours')?.imageUrl || fallbackImage} 
+                alt="Fresh Roses" 
+                fill 
+                className="object-cover group-hover:scale-110 transition-transform duration-500" 
+                data-ai-hint="red roses" 
+              />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <h3 className="text-3xl font-black text-white uppercase tracking-widest">Fresh Roses</h3>
               </div>
