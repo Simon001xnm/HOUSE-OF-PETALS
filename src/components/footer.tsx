@@ -65,20 +65,18 @@ export function Footer() {
             </div>
           </div>
           
-          <div className="flex flex-col items-center gap-2 mt-4">
+          <div className="flex items-center gap-3 mt-4 text-[9px] text-gray-500 uppercase tracking-[0.2em] font-medium">
+            <Heart className="w-3.5 h-3.5 text-[#be1e2d] fill-[#be1e2d] animate-heart-pump" />
+            <span>DESIGNED AND DEVELOPED BY</span>
             <Link 
               href="https://simonstyles.co.ke" 
               target="_blank" 
-              className="group flex items-center gap-2 text-[11px] text-white font-black uppercase tracking-[0.5em] mb-1 hover:text-[#be1e2d] transition-colors"
+              className="group flex items-center gap-2 text-white font-black hover:text-[#be1e2d] transition-colors"
             >
               <Globe className="w-3.5 h-3.5 text-[#be1e2d]" />
-              <span>SIMON STYLES</span>
+              <span className="tracking-[0.5em]">SIMON STYLES</span>
               <Pointer className="w-3.5 h-3.5 text-white group-hover:text-[#be1e2d] transition-transform animate-bounce" />
             </Link>
-            <div className="flex items-center gap-2 text-[9px] text-gray-500 uppercase tracking-[0.2em] font-medium">
-              <span>DESIGNED AND DEVELOPED BY</span>
-              <Heart className="w-3 h-3 text-[#be1e2d] fill-[#be1e2d] animate-heart-pump" />
-            </div>
           </div>
         </div>
       </div>
