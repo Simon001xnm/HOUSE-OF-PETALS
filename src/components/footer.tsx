@@ -66,12 +66,15 @@ export function Footer() {
           </div>
           
           <div className="flex flex-col items-center gap-2 mt-4">
-            <span className="text-[11px] text-white font-black uppercase tracking-[0.5em] mb-1">SIMON STYLES</span>
+            <Link 
+              href="https://simonstyles.co.ke" 
+              target="_blank" 
+              className="text-[11px] text-white font-black uppercase tracking-[0.5em] mb-1 hover:text-[#be1e2d] transition-colors"
+            >
+              SIMON STYLES
+            </Link>
             <div className="flex items-center gap-2 text-[9px] text-gray-500 uppercase tracking-[0.2em] font-medium">
               <span>DESIGNED AND DEVELOPED BY</span>
-              <Link href="https://simonstyles.co.ke" target="_blank" className="text-white hover:text-[#be1e2d] transition-colors font-black">
-                SIMONSTYLES.CO.KE
-              </Link>
               <Heart className="w-3 h-3 text-[#be1e2d] fill-[#be1e2d] animate-heart-pump" />
             </div>
           </div>
