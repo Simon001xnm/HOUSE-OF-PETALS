@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Instagram, MessageCircle, MapPin, Smartphone, Mail } from 'lucide-react';
+import { Instagram, MessageCircle, MapPin, Smartphone, Mail, Heart } from 'lucide-react';
 
 export function Footer() {
   const whatsappUrl = `https://wa.me/254704524070`;
@@ -55,12 +55,22 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
-          <p>© 2025 House of Petals. All rights reserved.</p>
-          <div className="flex gap-4">
-            <span>M-PESA</span>
-            <span>VISA</span>
-            <span>MasterCard</span>
+        <div className="pt-8 flex flex-col items-center gap-6">
+          <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-gray-500 uppercase tracking-widest">
+            <p>© 2025 House of Petals. All rights reserved.</p>
+            <div className="flex gap-4">
+              <span>M-PESA</span>
+              <span>VISA</span>
+              <span>MasterCard</span>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-2 text-[10px] text-gray-400 uppercase tracking-[0.2em] font-medium">
+            <span>Created and developed by</span>
+            <Link href="https://simonstyles.co.ke" target="_blank" className="text-white hover:text-[#be1e2d] transition-colors font-black">
+              simonstyles.co.ke
+            </Link>
+            <Heart className="w-3 h-3 text-[#be1e2d] fill-[#be1e2d] animate-heart-pump" />
           </div>
         </div>
       </div>
