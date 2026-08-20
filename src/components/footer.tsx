@@ -65,17 +65,17 @@ export function Footer() {
             </div>
           </div>
           
-          <div className="flex items-center gap-3 mt-4 text-[9px] text-gray-500 uppercase tracking-[0.2em] font-medium">
-            <Heart className="w-3.5 h-3.5 text-[#be1e2d] fill-[#be1e2d] animate-heart-pump" />
-            <span>DESIGNED AND DEVELOPED BY</span>
+          <div className="flex items-center gap-2 mt-4 text-[8px] md:text-[9px] text-gray-500 uppercase tracking-[0.1em] font-medium whitespace-nowrap overflow-x-auto max-w-full hide-scrollbar">
+            <Heart className="w-3 h-3 text-[#be1e2d] fill-[#be1e2d] animate-heart-pump shrink-0" />
+            <span className="shrink-0">DESIGNED AND DEVELOPED BY</span>
             <Link 
               href="https://simonstyles.co.ke" 
               target="_blank" 
-              className="group flex items-center gap-2 text-white font-black hover:text-[#be1e2d] transition-colors"
+              className="group flex items-center gap-1.5 text-white font-black hover:text-[#be1e2d] transition-colors shrink-0"
             >
-              <Globe className="w-3.5 h-3.5 text-[#be1e2d]" />
-              <span className="tracking-[0.5em]">SIMON STYLES</span>
-              <Pointer className="w-3.5 h-3.5 text-white group-hover:text-[#be1e2d] transition-transform animate-bounce" />
+              <Globe className="w-3 h-3 text-[#be1e2d]" />
+              <span className="tracking-[0.2em]">SIMON STYLES</span>
+              <Pointer className="w-3 h-3 text-white group-hover:text-[#be1e2d] transition-transform animate-bounce" />
             </Link>
           </div>
         </div>
