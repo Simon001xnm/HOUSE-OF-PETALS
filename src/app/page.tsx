@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -13,11 +12,7 @@ import {
   ShoppingCart, 
   ArrowRight, 
   Heart, 
-  Truck, 
-  Gem,
-  Wind,
-  Package,
-  Flower2
+  ShoppingCart as ShoppingCartIcon,
 } from 'lucide-react';
 import { useCart } from '@/hooks/use-cart';
 import { useToast } from '@/hooks/use-toast';
@@ -152,47 +147,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Journey Section */}
-        <section className="py-24 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16 space-y-2">
-              <span className="text-[#be1e2d] text-xs font-black uppercase tracking-widest">The Luxury Standard</span>
-              <h2 className="text-4xl md:text-5xl font-black text-[#1e1e24] tracking-tight">Naivasha Fresh. Nairobi Delivered.</h2>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
-                  <Gem className="w-8 h-8" />
-                </div>
-                <h4 className="font-black uppercase text-sm">Naivasha Sourcing</h4>
-                <p className="text-xs text-gray-500 leading-relaxed">Direct from high-altitude farms for larger, stronger blooms.</p>
-              </div>
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
-                  <Wind className="w-8 h-8" />
-                </div>
-                <h4 className="font-black uppercase text-sm">4°C Cold Chain</h4>
-                <p className="text-xs text-gray-500 leading-relaxed">Temperature-controlled delivery to stop the aging process.</p>
-              </div>
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
-                  <Flower2 className="w-8 h-8" />
-                </div>
-                <h4 className="font-black uppercase text-sm">Master Craft</h4>
-                <p className="text-xs text-gray-500 leading-relaxed">Hand-tied at our City Market hub by expert Nairobi florists.</p>
-              </div>
-              <div className="text-center space-y-4">
-                <div className="w-16 h-16 bg-[#fdf2f3] rounded-2xl flex items-center justify-center mx-auto text-[#be1e2d]">
-                  <Package className="w-8 h-8" />
-                </div>
-                <h4 className="font-black uppercase text-sm">Hydration Wrap</h4>
-                <p className="text-xs text-gray-500 leading-relaxed">Luxury paper with gel-packs for 100% guaranteed freshness.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Category Shortcuts */}
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -235,7 +189,7 @@ export default function Home() {
                         onClick={() => handleAddToCart(product)}
                         className="absolute bottom-4 left-4 right-4 bg-[#be1e2d] text-white text-[9px] font-black uppercase h-12 rounded-xl translate-y-20 group-hover:translate-y-0 transition-transform"
                       >
-                        <ShoppingCart className="w-3.5 h-3.5 mr-2" /> ADD TO BAG
+                        <ShoppingCartIcon className="w-3.5 h-3.5 mr-2" /> ADD TO BAG
                       </Button>
                     </div>
                     <div>
