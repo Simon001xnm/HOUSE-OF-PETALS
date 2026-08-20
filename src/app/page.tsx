@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -151,7 +152,7 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <Link href="/catalog?category=flowers" className="group relative h-80 rounded-[2rem] overflow-hidden shadow-xl">
-              <Image src={getImg('category-flowers')?.imageUrl || 'https://images.unsplash.com/photo-1548013146-72479768bbaa?q=80&w=800'} alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="bouquet" />
+              <Image src={getImg('category-flowers')?.imageUrl || 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=800'} alt="Flowers" fill className="object-cover group-hover:scale-110 transition-transform duration-500" data-ai-hint="bouquet" />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <h3 className="text-3xl font-black text-white uppercase tracking-widest">Fresh Roses</h3>
               </div>
